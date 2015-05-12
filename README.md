@@ -1,2 +1,0 @@
-# reusingdublin
-http://reusingdublin.ie/
