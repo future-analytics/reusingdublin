@@ -908,6 +908,9 @@ google.maps.event.addDomListener(window, 'load',initialize);
 
  <body onload="comments()">
 
+	<?php
+	require_once('includes/header.php');
+	?>
 
 
 
@@ -918,37 +921,7 @@ google.maps.event.addDomListener(window, 'load',initialize);
 
 
     <!-- Fixed navbar -->
-    <div style="background-color:#00afc9;">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;">
-      <div class="container" >
-        <div class="navbar-header" >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:27%;width:27%;border-top:hidden;" /></a>
-        </div>
-        </div>
-        <div class="container">
-        <div id="navbar" class="navbar-collapse collapse" style="float:right;margin-top:-4%;">
-          <ul class="nav navbar-nav" style="margin-top:20px;">
-            <li><a onClick="cll();" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
-            <li><a href="#works" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:19px;">LEARN MORE ABOUT THE SITE</a></li>
-            <li><a href="http://www.facebook.com/reusingdublin" target="_blank"><img style="float:!important;" href="http://www.facebook.com/reusingdublin" src="facebook.png"></img></a></li>
-               <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="http://www.twitter.com/reusingdublin"  src="twitter.png"></img></a></li>
-
-
-          </ul>
-
-        </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </nav>
-   </div>
-
-          <div class="container-fluid"  style="height:100%;width:100%;margin-top:7%;" id="works" >
+     <div class="container-fluid"  style="height:100%;width:100%;margin-top:7%;" id="works" >
 
       <div class="row-fluid">
         <div  class="span3">

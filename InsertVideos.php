@@ -8,7 +8,7 @@ if(isset($_POST['added']))
 
 
  $file1 = $_FILES['pic1'];
- 
+
 
  $file_path1 = $file1['tmp_name'];
  $file_name1 = $_FILES['pic1']['name'];
@@ -16,14 +16,14 @@ if(isset($_POST['added']))
  $file_size = $file1['size'];
  $file_name1 = str_replace(' ', '_', $file_name1);
 if ( $_FILES["pic1"]["type"] == "video/mp4" || $_FILES["pic1"]["type"] == "video/mpeg4" || $_FILES["pic1"]["type"] == "video/wmv" || $_FILES["pic1"]["type"] == "video/avi"  || $_FILES["pic1"]["type"] == "audio/avi" || $_FILES["pic1"]["type"] == "audio/mp4" || $_FILES["pic1"]["type"] == "audio/wmv" || $_FILES["pic1"]["type"] == "audio/mpeg4" || $_FILES["pic1"]["type"] == "audio/ogg" || $_FILES["pic1"]["type"] == "video/quicktime" || $_FILES["pic1"]["type"] == "video/webm"  || $_FILES["pic1"]["type"] == "video/x-flv"  || $_FILES["pic1"]["type"] == "video/x-m4v" || $_FILES["pic1"]["type"] == "video/x-ms-wmv" || $_FILES["pic1"]["type"] == "video/x-msvideo"  )
-{ 
+{
 
 move_uploaded_file($file_path1,"videos/".$file_name1);
 
 }
 else
 {
-$msg = "Invalid File Format!";	
+$msg = "Invalid File Format!";
 }
 
 $fp      = fopen($file_path1, 'r');
@@ -36,9 +36,9 @@ fclose($fp);
 	 if(($num_rows==0)&&($_FILES['pic1']['size']>0)&&(!empty($latitude))&&((!empty($longitude))))
     {
 		if ( $_FILES["pic1"]["type"] == "video/mp4" || $_FILES["pic1"]["type"] == "video/mpeg4" || $_FILES["pic1"]["type"] == "video/wmv" || $_FILES["pic1"]["type"] == "video/avi"  || $_FILES["pic1"]["type"] == "audio/avi" || $_FILES["pic1"]["type"] == "audio/mp4" || $_FILES["pic1"]["type"] == "audio/wmv" || $_FILES["pic1"]["type"] == "audio/mpeg4" || $_FILES["pic1"]["type"] == "audio/ogg" || $_FILES["pic1"]["type"] == "video/quicktime" || $_FILES["pic1"]["type"] == "video/webm"  || $_FILES["pic1"]["type"] == "video/x-flv"  || $_FILES["pic1"]["type"] == "video/x-m4v" || $_FILES["pic1"]["type"] == "video/x-ms-wmv" || $_FILES["pic1"]["type"] == "video/x-msvideo"  )
-{ 
-		$sql=("insert into videos(video1 ,latitude,longitude ) values ('$file_name1','$latitude' ,'$longitude')"); 
-			
+{
+		$sql=("insert into videos(video1 ,latitude,longitude ) values ('$file_name1','$latitude' ,'$longitude')");
+
 if (!mysqli_query($con,$sql)){
   die('Error: ' . mysqli_error($con));
    $msg = "Error";
@@ -46,28 +46,28 @@ if (!mysqli_query($con,$sql)){
 
 else
 {
-	
-$msg = "Files Uploaded Successfully!"; 
+
+$msg = "Files Uploaded Successfully!";
 }
 }
 else
 {
-$msg = "Invalid File Format!";	
+$msg = "Invalid File Format!";
 }
-	
-		
+
+
 	}
     if(($num_rows>0)&&($_FILES['pic1']['size']>0)&&(!empty($latitude))&&((!empty($longitude))))
     {
-		
+
 	 if(empty($row['video1']))
 	{
 	if ( $_FILES["pic1"]["type"] == "video/mp4" || $_FILES["pic1"]["type"] == "video/mpeg4" || $_FILES["pic1"]["type"] == "video/wmv" || $_FILES["pic1"]["type"] == "video/avi"  || $_FILES["pic1"]["type"] == "audio/avi" || $_FILES["pic1"]["type"] == "audio/mp4" || $_FILES["pic1"]["type"] == "audio/wmv" || $_FILES["pic1"]["type"] == "audio/mpeg4" || $_FILES["pic1"]["type"] == "audio/ogg" || $_FILES["pic1"]["type"] == "video/quicktime" || $_FILES["pic1"]["type"] == "video/webm"  || $_FILES["pic1"]["type"] == "video/x-flv"  || $_FILES["pic1"]["type"] == "video/x-m4v" || $_FILES["pic1"]["type"] == "video/x-ms-wmv" || $_FILES["pic1"]["type"] == "video/x-msvideo"  )
-{ 
+{
 
-			
-$sql3=("UPDATE videos  SET  video1 = '$file_name1' where latitude ='$latitude' AND longitude  = '$longitude'"); 
-	
+
+$sql3=("UPDATE videos  SET  video1 = '$file_name1' where latitude ='$latitude' AND longitude  = '$longitude'");
+
 if (!mysqli_query($con,$sql3)){
   die('Error: ' . mysqli_error($con));
    $msg = "Error";
@@ -76,24 +76,24 @@ if (!mysqli_query($con,$sql3)){
 else
 {
 
-$msg = "Files Uploaded Successfully!"; 
+$msg = "Files Uploaded Successfully!";
 }
 }
 else
 {
-$msg = "Invalid File Format!";	
+$msg = "Invalid File Format!";
 }
 
- 
+
 }
  if(empty($row['video2'])&&(!empty($row['video1'])))
 	{
 		if ( $_FILES["pic1"]["type"] == "video/mp4" || $_FILES["pic1"]["type"] == "video/mpeg4" || $_FILES["pic1"]["type"] == "video/wmv" || $_FILES["pic1"]["type"] == "video/avi"  || $_FILES["pic1"]["type"] == "audio/avi" || $_FILES["pic1"]["type"] == "audio/mp4" || $_FILES["pic1"]["type"] == "audio/wmv" || $_FILES["pic1"]["type"] == "audio/mpeg4" || $_FILES["pic1"]["type"] == "audio/ogg" || $_FILES["pic1"]["type"] == "video/quicktime" || $_FILES["pic1"]["type"] == "video/webm"  || $_FILES["pic1"]["type"] == "video/x-flv"  || $_FILES["pic1"]["type"] == "video/x-m4v" || $_FILES["pic1"]["type"] == "video/x-ms-wmv" || $_FILES["pic1"]["type"] == "video/x-msvideo"  )
-{ 
+{
 
-			
-$sql3=("UPDATE videos  SET  video2 = '$file_name1' where latitude ='$latitude' AND longitude  = '$longitude'"); 
-	
+
+$sql3=("UPDATE videos  SET  video2 = '$file_name1' where latitude ='$latitude' AND longitude  = '$longitude'");
+
 if (!mysqli_query($con,$sql3)){
   die('Error: ' . mysqli_error($con));
    $msg = "Error";
@@ -101,27 +101,27 @@ if (!mysqli_query($con,$sql3)){
 
 else
 {
-	
-$msg = "Files Uploaded Successfully!"; 
+
+$msg = "Files Uploaded Successfully!";
 }
 }
 else
 {
-	$msg = "Invalid File Format!";	
+	$msg = "Invalid File Format!";
 }
-		
-		
+
+
 }
 if(empty($row['video3'])&&(!empty($row['video1']))&&(!empty($row['video2'])))
 	{
-		
+
 		if ( $_FILES["pic1"]["type"] == "video/mp4" || $_FILES["pic1"]["type"] == "video/mpeg4" || $_FILES["pic1"]["type"] == "video/wmv" || $_FILES["pic1"]["type"] == "video/avi"  || $_FILES["pic1"]["type"] == "audio/avi" || $_FILES["pic1"]["type"] == "audio/mp4" || $_FILES["pic1"]["type"] == "audio/wmv" || $_FILES["pic1"]["type"] == "audio/mpeg4" || $_FILES["pic1"]["type"] == "audio/ogg" || $_FILES["pic1"]["type"] == "video/quicktime" || $_FILES["pic1"]["type"] == "video/webm"  || $_FILES["pic1"]["type"] == "video/x-flv"  || $_FILES["pic1"]["type"] == "video/x-m4v" || $_FILES["pic1"]["type"] == "video/x-ms-wmv" || $_FILES["pic1"]["type"] == "video/x-msvideo"  )
-{ 
+{
 
-		
 
-$sql3=("UPDATE videos  SET video3 = '$file_name1' where latitude ='$latitude' AND longitude  = '$longitude'"); 
-	
+
+$sql3=("UPDATE videos  SET video3 = '$file_name1' where latitude ='$latitude' AND longitude  = '$longitude'");
+
 if (!mysqli_query($con,$sql3)){
   die('Error: ' . mysqli_error($con));
    $msg = "Error";
@@ -129,28 +129,28 @@ if (!mysqli_query($con,$sql3)){
 
 else
 {
-	
-$msg = "Files Uploaded Successfully!"; 
+
+$msg = "Files Uploaded Successfully!";
 }
 }
 else
 {
-	$msg = "Invalid File Format!";	
+	$msg = "Invalid File Format!";
 }
 
 }
 if(!empty($row['video3'])&&(!empty($row['video1']))&&(!empty($row['video2'])))
 	{
-		
-	
-$msg = "Cannot Upload more than Three files!"; 
-}
-		
-}
- 
- 
 
-	
+
+$msg = "Cannot Upload more than Three files!";
+}
+
+}
+
+
+
+
 }
 
 ?>
@@ -167,7 +167,7 @@ $msg = "Cannot Upload more than Three files!";
 
     <title>Insert Videos</title>
 
-    	
+
  <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
@@ -176,12 +176,12 @@ $msg = "Cannot Upload more than Three files!";
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
-	
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-    
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -198,7 +198,7 @@ $msg = "Cannot Upload more than Three files!";
 </head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript">
 var map;
@@ -220,16 +220,16 @@ var astorPlace = new google.maps.LatLng(a,b);
     center: astorPlace,
     zoom: 18,
     streetViewControl:false,
-	scrollwheel: false 
+	scrollwheel: false
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-	  
-  
+
+
    panorama = new google.maps.StreetViewPanorama(document.getElementById('map-canv'));
    sv.getPanoramaByLocation(astorPlace, 50, processSVData);
-  
+
 }
 
 
@@ -277,7 +277,7 @@ function pops()
 		 var win1 = window.open("ViewData.php");
   win1.focus();
 		this.close();
-		
+
 	}
 
 
@@ -290,83 +290,58 @@ function pops()
 
 
 
+	<?php
+	require_once('includes/header.php');
+	?>
 
-  	
+
                        <form   action="InsertVideos.php" method="post"  enctype="multipart/form-data" autocomplete="off">
-             	
- 
+
+
 
     <!-- Fixed navbar -->
-    <div style="background-color:#00afc9;">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;">
-      <div class="container" >
-        <div class="navbar-header" >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:27%;width:27%;border-top:hidden;" /></a>
-        </div>
-        </div>
-        <div class="container">
-        <div id="navbar" class="navbar-collapse collapse" style="float:right;margin-top:-4%;">
-          <ul class="nav navbar-nav">
-            <li><a onClick="cll();" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
-            <li><a href="#works" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:19px;">LEARN MORE ABOUT THE SITE</a></li>
-            <li><a href="http://www.facebook.com/reusingdublin" target="_blank"><img style="float:!important;" href="www.facebook.com" src="facebook.png"></img></a></li>
-               <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="www.twitter.com"  src="twitter.png"></img></a></li>
-           
-       
-          </ul>
-        
-        </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </nav>
-   </div>
-    
-  
+
+
+
    <div class="container-fluid"  id="works" >
       <input type="hidden" name="lat1" ID="lat" value ="default" size="40"><br><br/><br/>
       <input type="hidden" name="lon1" ID="lon" value ="default" size="40"><br><br/><br/>
           <div style="width:100%;margin-right:80px;border:none;background-color:#FFF;padding:0px;background-color:transparent;border:none;" class="well sidebar-nav">
             <div style="margin-top:0px;color:#960;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;">
   <?php echo $msg ?>
-  </div> 
+  </div>
             <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"><b>Upload videos for site/location</font>
             <br/>
             <br/>
-             
-            
-            <div id="map-canv"   style="height:300px;width:45%;float:left;" ></div> 
-            
-   <div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
-         <br/><br/> <br/>   
 
-      
-     
+
+            <div id="map-canv"   style="height:300px;width:45%;float:left;" ></div>
+
+   <div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
+         <br/><br/> <br/>
+
+
+
        <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;margin-top:5%;">
     Insert Videos:
      </b>
         <label>
     <input type="file" name="pic1" accept="video*/" onClick="pops()" style="margin-left:40px;;width:400px;" id="pic1" required/>
     </label>
-     
-    
-       <br/>  <br/><br/>
-    
-    
-    
 
-       
-   
-   
- 
+
+       <br/>  <br/><br/>
+
+
+
+
+
+
+
+
      <div style="margin-top:5px;border:none;">
-    
-<input type="button" name="submits"  style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:20%;background-color:#00afc9;color:white;" value="BACK"  onClick="javascript:goback()"/ >      
+
+<input type="button" name="submits"  style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:20%;background-color:#00afc9;color:white;" value="BACK"  onClick="javascript:goback()"/ >
 <input type="submit" name="added" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:24%;background-color:#00afc9;color:white;" value="UPLOAD" onClick="javascript:show()" />
 </div>
 
@@ -374,14 +349,14 @@ function pops()
 <br/>
   <br/>
 <br/>
-         
- 
-    
+
+
+
    </div>
-   
+
    </div>
-   </form> 
-     
+   </form>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
