@@ -1,10 +1,9 @@
 <?php
+
+require('db.php');
+
 //Php code for assigning markers and site to the map
-//creating coonection elements with the database
- $con=mysqli_connect("172.16.0.57","u1046393_turas","Soamin123@","db1046393_dublin");
- if (mysqli_connect_errno()) {
- echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+
 //Fetching official utilized and underutilized markers.
 $result1 = mysqli_query($con,"SELECT * FROM Address1");
 while($row = mysqli_fetch_assoc($result1))
@@ -21,14 +20,14 @@ $nn = "1";
 //Email to the administrator when we click on the button name Added.
 if(isset($_POST['added']))
 {
-	
+
 $result3 = mysqli_query($con,"SELECT * FROM emailss");
 while($row3 = mysqli_fetch_assoc($result3))
 {	$data3[] = $row3;
 }
 foreach($data3 as $data4)
 {$ttt= $_POST['email'];
-$ggg = $data4['email']; 
+$ggg = $data4['email'];
 if(($ggg == $ttt )&&(!empty($ttt)))
 {
 $x = '123';
@@ -59,7 +58,7 @@ $send_contact= mail($to,$subject,$message,$header);
 if($send_contact)
 {    $nn = "";
 
-	
+
 }
 
 }
@@ -90,7 +89,7 @@ if($send_contact)
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
@@ -109,7 +108,7 @@ input[type='text']::-webkit-input-placeholder {
 
 
 input[type='text']::-moz-placeholder { /* Firefox 18- */
-      color: #00afc9;  
+      color: #00afc9;
 	  font-family:'Source Sans Pro', sans-serif;
 	font-size:20px;
 	font-weight:600;
@@ -122,8 +121,8 @@ input[type='text']::-moz-placeholder {  /* Firefox 19+ */
 	font-weight:600;
 }
 
-input[type='text']::-ms-input-placeholder {  
-      color: #00afc9; 
+input[type='text']::-ms-input-placeholder {
+      color: #00afc9;
 	  font-family:'Source Sans Pro', sans-serif;
 	font-size:20px;
 	font-weight:600;
@@ -138,7 +137,7 @@ input[type='email']::-webkit-input-placeholder {
 
 
 input[type='email']::-moz-placeholder { /* Firefox 18- */
-      color: #FFF;  
+      color: #FFF;
 	  font-family:'Source Sans Pro', sans-serif;
 	font-size:20px;
 	font-weight:600;
@@ -153,8 +152,8 @@ input[type='email']::-moz-placeholder {  /* Firefox 19+ */
 	align:center;
 }
 
-input[type='email']::-ms-input-placeholder {  
-      color: #FFF; 
+input[type='email']::-ms-input-placeholder {
+      color: #FFF;
 	  font-family:'Source Sans Pro', sans-serif;
 	font-size:20px;
 	font-weight:600;
@@ -167,38 +166,33 @@ input[type='email']::-ms-input-placeholder {
 	font-weight:600;
 	color:#000;
 }
-li:active {
-    background-color:#FF0;
-}
+
 li:hover {
-    background-color:#FFF;
+    font-color:#FFF;
 }
   @media only screen and (max-width : 768px)  {
-	  .news{margin-top:-20px;} 
+	  .news{margin-top:-20px;}
   }
-   @media screen and (max-width: 768px) 
+   @media screen and (max-width: 768px)
  {
-    br 
-    { 
+    br
+    {
        display: none
-	  
+
     }
 	.jumbotron
 	{
 		width:90%;
 	}
-	
+
  }
- #navbar li a.current {
-    background-color:#FFF;
-    color:white;  
+
+ .active {
+color:#FFF;
 }
-#navbar a:hover, #navbar a.active {
-    background: #666;
-    color: #fff;
-}
-    	 
-</style> 
+
+
+</style>
     <title>Home | ReusingDublin</title>
 
    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -217,21 +211,8 @@ li:hover {
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script>
-$(function(){
-  $('a').each(function() {
-    if ($(window.scroll(0,200))) {
-      $(home).addClass('active');
-    }
-	   if ($(window.scroll(0,400))) {
-      $(about).addClass('active');
-    }
-  });
-});
-</script>
-  </head>
 
+  </head>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -243,14 +224,95 @@ $(function(){
 
 </script>
 
+<script type="text/javascript">
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 110
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+$(window).on("hashchange", function () {
+    window.scrollTo(window.scrollX, window.scrollY - 200);
+});
+
+ $(document).scroll(function () {
+  $('a[href="#menu1"]').addClass('active');
+  	    document.getElementById("fiftha").style.color = "White"
+    var scroll_top = $(document).scrollTop();
+    var one_top = $('#menu1').position().top;
+    var two_top = $('#menu2').position().top;
+	var three_top = $('#menu3').position().top;
+    var four_top = $('#menu4').position().top;
+	var five_top = $('#menu5').position().top;
+	if(scroll_top<one_top)
+	{
+		    document.getElementById("fiftha").style.color = "White";
+	}
+
+    if (scroll_top >=scroll_top && scroll_top < two_top) {
+              $('a[href="#menu2"]').addClass('active');
+			    document.getElementById("fourtha").style.color = "Black"
+				 document.getElementById("thirda").style.color = "Black"
+				  document.getElementById("seconda").style.color = "Black"
+				   document.getElementById("firsta").style.color = "White"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu3"]').removeClass('active');
+		 $('a[href="#menu1"]').removeClass('active');
+
+    }
+
+	 if (scroll_top >two_top && scroll_top < three_top) {
+              $('a[href="#menu3"]').addClass('active');
+			    document.getElementById("fourtha").style.color = "Black"
+				 document.getElementById("thirda").style.color = "Black"
+				  document.getElementById("seconda").style.color = "White"
+				   document.getElementById("firsta").style.color = "Black"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu2"]').removeClass('active');
+		 $('a[href="#menu4"]').removeClass('active');
+		 $('a[href="#menu1"]').removeClass('active');
+
+    }
+
+ if (scroll_top >three_top && scroll_top < four_top) {
+              $('a[href="#menu4"]').addClass('active');
+			  document.getElementById("fourtha").style.color = "Black"
+				 document.getElementById("thirda").style.color = "White"
+				  document.getElementById("seconda").style.color = "Black"
+				   document.getElementById("firsta").style.color = "Black"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu3"]').removeClass('active');
+		      $('a[href="#menu5"]').removeClass('active');
+			  $('a[href="#menu1"]').removeClass('active');
+
+    }
+
+ if (scroll_top >four_top && scroll_top < five_top) {
+              $('a[href="#menu5"]').addClass('active');
+			    document.getElementById("fourtha").style.color = "White"
+				 document.getElementById("thirda").style.color = "Black"
+				  document.getElementById("seconda").style.color = "Black"
+				   document.getElementById("firsta").style.color = "Black"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu4"]').removeClass('active');
+		 $('a[href="#menu1"]').removeClass('active');
+
+    }
 
 
-</script> 
-
-<script type="application/javascript">
-$("a[href*='" + location.pathname + "']").addClass("active");
+});
 </script>
-  
+
+
+
 <script type="text/javascript">
 //initializing the variables
 var activeWindow = new google.maps.InfoWindow();
@@ -283,7 +345,7 @@ var gmarkers1 = [];
 var gmarkers=[];
 var mapProp;
 var myCenter=new google.maps.LatLng(53.347884693,-6.2731253419999575);
-//initializing the map properties and style to be used  
+//initializing the map properties and style to be used
 var mapProp = {
 zoom:16,
 center: myCenter,
@@ -315,11 +377,10 @@ function goclicky(meh)
 {
     var x = screen.width/2 - 700/2;
     var y = screen.height/2 - 450/2;
-    window.open(meh.href, 'sharegplus','height=700,width=700,left='+x+',top='+y);
-}	
+    window.open(meh.href, 'sharegplus','scrollbars = 1,height=700,width=700,left='+x+',top='+y);
+}
 function initialize()
-{ 
-    
+{
 //Creates an OSM Map type option for the Map.
 var osmMapTypeOptions = {
 getTileUrl: function(coord, zoom) {
@@ -332,23 +393,23 @@ getTileUrl: function(coord, zoom) {
     minZoom: 0,
     name: "OSM"
 };
-var osmMapType = new google.maps.ImageMapType(osmMapTypeOptions); 
+var osmMapType = new google.maps.ImageMapType(osmMapTypeOptions);
 var marker;
 var showurl;
 
 //This condition is used to check whether user clicked on the subscribe button if yes then open the url in a new tab;
 showurl = "<?php echo $nn?>";
 if(showurl === "")
-{  
-	 //window.open('http://www.turas-cities.org/follow_us');
-	
-	
+{
+	 window.open('http://www.turas-cities.org/follow_us');
+
+
 }
 //Creates a new instance of the map.
 map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 map.mapTypes.set('OSM', osmMapType);
 map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-//Settings the contents for the marker infowindow. 
+//Settings the contents for the marker infowindow.
 contents = '<div id="ppp" style="width:280px; height:150px;">' + '<a href="Entry_Form.php" onclick="goclicky(this); return false;" target="_blank" style="background-color:#f4e851;border:none;font-family:Source Sans Pro, sans-serif;font-size:17px;height:40px;width:280px;color:black;font-weight:600;" class="btn btn-primary btn-large"  >ENTER THE DESCRIPTION</a>' + '<br/>' +'<a href="Update_Form.php" onclick="goclicky(this); return false;" target="_blank"   style="background-color:#f4e851;border:none;height:40px;width:280px;;margin-top:5px;color:black;font-size:17px;font-weight:600;font-family:Source Sans Pro, sans-serif" class="btn btn-primary btn-large" target="_blank">UPDATE THE DESCRIPTION</a>' + '<br/>' + '<a href="View_Form.php"  style="background-color:#f4e851;border:none;height:40px;width:280px;color:black;margin-top:5px;font-size:17px;font-family:Source Sans Pro, sans-serif;font-weight:600;" class="btn btn-primary btn-large" target="_blank">VIEW THE DESCRIPTION</a>' + '</div>' ;
 //Setting the source for the luas kmz file.
 var src2 = 'http://factest.ie/kmls/Luas.kmz'
@@ -376,8 +437,8 @@ content : 'Four Courts.'
 infoWindow.open(map, marker1);
 if(activeWindow != null)
 activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 	var marker2 =  new google.maps.Marker({
 		position : position2,
@@ -391,8 +452,8 @@ content : 'Heuston Station'
 infoWindow.open(map, marker2);
 if(activeWindow != null)
 activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 	var marker3 =  new google.maps.Marker({
 		position : position3,
@@ -406,8 +467,8 @@ content : 'Jervis Shopping Center'
 infoWindow.open(map, marker3);
 if(activeWindow != null)
 activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 	var marker4 =  new google.maps.Marker({
 		position : position4,
@@ -421,8 +482,8 @@ content : 'Dublin City Council, Fruit Market,Saint Michan Street ,Dublin 7, Irel
 infoWindow.open(map, marker4);
 if(activeWindow != null)
 activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 	var marker5 =  new google.maps.Marker({
 		position : position5,
@@ -431,13 +492,13 @@ activeWindow = infoWindow;
 	});
 google.maps.event.addListener(marker5, 'mouseover', function(event) {
 var infoWindow = new google.maps.InfoWindow({
-content : 'Fruit and Veg Market, 12 Newmarket Dublin 8 Ireland ' 
+content : 'Fruit and Veg Market, 12 Newmarket Dublin 8 Ireland '
 });
 infoWindow.open(map, marker5);
 if(activeWindow != null)
 activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 	var marker6 =  new google.maps.Marker({
 		position : position6,
@@ -451,8 +512,8 @@ content : 'Fruit and Veg Market,5 Orwell Road Dublin 6 '
 infoWindow.open(map, marker6);
 if(activeWindow != null)
 activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 var marker7 =  new google.maps.Marker({
 position : position7,
@@ -466,16 +527,16 @@ var infoWindow = new google.maps.InfoWindow({
 infoWindow.open(map, marker7);
  if(activeWindow != null)
  activeWindow.close();
-//Store new window in global variable 
-activeWindow = infoWindow; 
+//Store new window in global variable
+activeWindow = infoWindow;
 });
-<?php 
+<?php
 foreach($data1 as $marker1)
 {
-$latitud = $marker1['latitude']; 
+$latitud = $marker1['latitude'];
 $longitud = $marker1['longitude'];
 $loca = $marker1['adress'];
- 
+
 ?>
 //Takes the data from the databases using php and inserts it into the javascript arrays on the client side.
   var lattitude = "<?php echo $latitud;?>";
@@ -510,7 +571,7 @@ var marke =  new google.maps.Marker({
 	gmarkers1.push(marke);
 //Binds an Info Window associated with each marker on the map for the given location for the user added sites one.
 	bindInfoWindows(marke,map,llllll) ;
-	
+
 }
 //Cluster the user added Site Details Marker on the map.
 var markerCluster1 = new MarkerClusterer(map, gmarkers1);
@@ -523,8 +584,8 @@ if(y==1)
 {
 var location = event.latLng;
 var lat1 = location.lat();
-var lon1 = location.lng(); 
-//Stores the variable in session storage. 	
+var lon1 = location.lng();
+//Stores the variable in session storage.
 sessionStorage.setItem("lll", lat1);
 sessionStorage.setItem("llll", lon1);
 //Places marker on the map on the click event of the map.
@@ -555,64 +616,64 @@ layers[2] = new google.maps.FusionTablesLayer({
        query: {
         select: "col0",
         from: "1EEsLj60M9vX7PblFnk3DZ9jNDZTYGLEDrVU92-sA"
-	
 
-		
+
+
         },
 		 styles: [
 		 		 {
     where: "'CAT' = 'Offices'",
     polygonOptions: {
-    fillColor: "#ffff00", 
-    fillOpacity: 1.0}  
+    fillColor: "#ffff00",
+    fillOpacity: 1.0}
  },
 		 	 {
     where: "'CAT' = 'Residential'",
     polygonOptions: {
-    fillColor: "#9900ff", 
-    fillOpacity: 1.0}  
+    fillColor: "#9900ff",
+    fillOpacity: 1.0}
  },
 		 	 {
     where: "'CAT' = 'Retail'",
     polygonOptions: {
-    fillColor: "#ff0000", 
-    fillOpacity: 1.0}  
+    fillColor: "#ff0000",
+    fillOpacity: 1.0}
  },
   {
     where: "'CAT' = 'Vacant / Miscellaneous'",
     polygonOptions: {
-    fillColor: "#ff00ff", 
-    fillOpacity: 1.0}  
+    fillColor: "#ff00ff",
+    fillOpacity: 1.0}
  },
  	 {
     where: "'CAT' = 'Open Space'",
     polygonOptions: {
-    fillColor: "#ff9900", 
-    fillOpacity: 1.0}  
+    fillColor: "#ff9900",
+    fillOpacity: 1.0}
  },
 		  {
     where: "'CAT' = 'Wholesale'",
     polygonOptions: {
-    fillColor: "#46A2D1", 
-    fillOpacity: .9}  
+    fillColor: "#46A2D1",
+    fillOpacity: .9}
  },
  	  {
     where: "'CAT' = 'Transport'",
     polygonOptions: {
-    fillColor: "#663300", 
-    fillOpacity: .9}  
+    fillColor: "#663300",
+    fillOpacity: .9}
  }
- 
- 
- 
 
 
-	
-   
 
 
- 
- 
+
+
+
+
+
+
+
  ] ,
         map: map,
 		suppressInfoWindows: true,
@@ -633,45 +694,45 @@ layers[3] = new google.maps.FusionTablesLayer({
      query: {
      select: "col0",
      from: "13FSnVnu4FdWRF7Ei1rsLyDdKSdGUxH41ocyKt7kE"
-	 
+
 },
 //Establishes styles for the overlayed layer on the map.
  styles: [
 {
     where: "'ZONE_ORIG' = 'Zone Z8: Georgian Conservation Areas'",
     polygonOptions: {
-    fillColor: "#46A2D1", 
-    fillOpacity: 0.7}  
+    fillColor: "#46A2D1",
+    fillOpacity: 0.7}
  },
 {
    where: "'ZONE_ORIG' = 'Zone Z2: Residential Neighbourhoods (Conservation Areas)'",
    polygonOptions: {
    fillColor: '#00ff00',
-   fillOpacity: 0.7}  
+   fillOpacity: 0.7}
  },
  {
     where: "'ZONE_ORIG' = 'Zone Z5: City Centre'",
     polygonOptions: {
-    fillColor: '#00ffff', 
-    fillOpacity: 0.7}  
+    fillColor: '#00ffff',
+    fillOpacity: 0.7}
   },
  {
    where: "'ZONE_ORIG' = 'Zone Z1: Sustainable Residential Neighbourhoods'",
    polygonOptions: {
-   fillColor: '#9900ff', 
-   fillOpacity: 0.7}  
+   fillColor: '#9900ff',
+   fillOpacity: 0.7}
  },
  {
   where: "'ZONE_ORIG' = 'Zone Z9: Amenity/Open Space Lands/Green Network'",
   polygonOptions: {
-  fillColor: '#060', 
-  fillOpacity: 0.7}  
+  fillColor: '#060',
+  fillOpacity: 0.7}
   },
  {
   where: "'ZONE_ORIG' = 'Zone Z15: Community and Institutional Resource Lands (Education, Recreation, Community, Green Infrastructure and Health)'",
   polygonOptions: {
-  fillColor: '#ff00ff', 
-  fillOpacity: 0.7}  
+  fillColor: '#ff00ff',
+  fillOpacity: 0.7}
  },
  ],
    map: map,
@@ -691,74 +752,74 @@ layers[3] = new google.maps.FusionTablesLayer({
        query: {
        select: "col0",
 	      from: "1yqEULmUVjBJp8MO83rNMs3W9mUh_vnx5xEslAFsr"
-		     
+
             },
   styles: [
    {
     where: "'YEAR' = '2014'",
 	 polygonOptions: {
-    fillColor: '#112d2e', 
-    fillOpacity: 1.0}  
+    fillColor: '#112d2e',
+    fillOpacity: 1.0}
  },
   {
     where: "'YEAR' = '2013'",
 	 polygonOptions: {
-    fillColor: '#226247', 
-    fillOpacity: 1.0}  
+    fillColor: '#226247',
+    fillOpacity: 1.0}
  },
   {
     where: "'YEAR' = '2012'",
 	 polygonOptions: {
-    fillColor: '#2c8057', 
-    fillOpacity: .8}  
+    fillColor: '#2c8057',
+    fillOpacity: .8}
  },
   {
     where: "'YEAR' = '2011'",
 	 polygonOptions: {
-    fillColor: '#6ab64d', 
-    fillOpacity: 1.0}  
+    fillColor: '#6ab64d',
+    fillOpacity: 1.0}
  },
  {
     where: "'YEAR' = '2010'",
 	 polygonOptions: {
-    fillColor: '#d3d627', 
-    fillOpacity: 1.0}  
+    fillColor: '#d3d627',
+    fillOpacity: 1.0}
  },
   {
     where: "'YEAR' = '2009'",
 	 polygonOptions: {
-    fillColor: '#f7ec1f', 
-    fillOpacity: 0.5}  
+    fillColor: '#f7ec1f',
+    fillOpacity: 0.5}
  },
   {
     where: "'YEAR' = '2008'",
 	 polygonOptions: {
-    fillColor: '#eed47b', 
-    fillOpacity: 0.3}  
+    fillColor: '#eed47b',
+    fillOpacity: 0.3}
  },
   {
     where: "'YEAR' = '2007'",
 	 polygonOptions: {
-    fillColor: '#ebb45d', 
-    fillOpacity: 0.2}  
+    fillColor: '#ebb45d',
+    fillOpacity: 0.2}
  },
   {
     where: "'YEAR' = '2006'",
 	 polygonOptions: {
-    fillColor: '#fcb017', 
-    fillOpacity: 0.4}  
+    fillColor: '#fcb017',
+    fillOpacity: 0.4}
  },
   {
     where: "'YEAR' = '2005'",
 	 polygonOptions: {
-    fillColor: '#d76930', 
-    fillOpacity: 0.6}  
+    fillColor: '#d76930',
+    fillOpacity: 0.6}
  },
  {
     where: "'YEAR' = '2004'",
 	 polygonOptions: {
-    fillColor: '#d03132', 
-    fillOpacity: .8}  
+    fillColor: '#d03132',
+    fillOpacity: .8}
  },
 
 
@@ -766,7 +827,7 @@ layers[3] = new google.maps.FusionTablesLayer({
     where: "'YEAR' = '2003'",
 	 polygonOptions: {
     fillColor: '#901a1c',
-	   fillOpacity: 1.0}  
+	   fillOpacity: 1.0}
  }
  ] ,
 
@@ -804,14 +865,14 @@ layers[6]= new google.maps.FusionTablesLayer({
 		}
   }
 //Php code to collect data for the official utilized and underutlized areas from the database.
-<?php 
+<?php
 foreach($data as $marker)
 {
-	$lat = $marker['Latitude']; 
-    $lon = $marker['Longitude']; 
-    $loc = $marker['Location']; 
-	$desc = $marker['Description']; 
-	$vac = $marker['Derelict']; 
+	$lat = $marker['Latitude'];
+    $lon = $marker['Longitude'];
+    $loc = $marker['Location'];
+	$desc = $marker['Description'];
+	$vac = $marker['Derelict'];
 ?>
 //Takes the data from the server side databases and inserts it into the javascript arrays on the client side..
  var lati  = "<?php echo $lat;?>";
@@ -847,8 +908,8 @@ for (var g = 0; g < lati.length ;g++) {
 var latt = lati[g];
 var lonn = longi[g];
 if (latt === a1 && lonn === b1) {
-//finding the location name for a particular location 
-loooo= loca[g];	 
+//finding the location name for a particular location
+loooo= loca[g];
 }}
 //Binds an info window with the marker with the parameters as marker,map,latitude,longitude and location name.
 bindInfoWindow(marker, map, a1, b1,loooo) ;
@@ -876,7 +937,7 @@ for (var g = 0; g < lati.length ;g++) {
 var latt = lati[g];
 var lonn = longi[g];
 if (latt === a1 && lonn === b1) {
-loooo= loca[g];	 
+loooo= loca[g];
 }}
 //Binds an info window with each marker on the map.
 bindInfoWindow(marker, map, a1, b1,loooo) ;
@@ -886,6 +947,7 @@ bindInfoWindow(marker, map, a1, b1,loooo) ;
 ?>
 //position controls on the map (legend and search controls).
 var input = (document.getElementById("pac-input"));
+
 //var input5 = (document.getElementById("legend"));
 //map.controls[google.maps.ControlPosition.TOP_CENTER].push(input5);
 //Creating Search functionality for the map.
@@ -896,7 +958,7 @@ var markers1= [];
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
 //Click Listener for the places changed event in the Search Box.
-google.maps.event.addListener(searchBox, 'places_changed', function() {
+document.getElementById("layer8").addEventListener("click", function(){
 {
  var places = searchBox.getPlaces();
  for (var i = 0, marker; marker = markers1[i]; i++) {
@@ -941,7 +1003,7 @@ google.maps.event.addListener(marker, 'mouseover', function(event) {
 //Creating mouseover event for the marker.
 sessionStorage.setItem("lll", ' ');
 sessionStorage.setItem("llll", ' ');
-sessionStorage.setItem("locat", ' ');	
+sessionStorage.setItem("locat", ' ');
 var latln = event.latLng;
 var lngs = latln.lat();
 var lats = latln.lng();
@@ -959,32 +1021,32 @@ h =  '<div style="width:300px; height:180px;font-family:Source Sans Pro, sans-se
 }
 }
 var infoWindow = new google.maps.InfoWindow({
-  content : h 
+  content : h
 });
 infoWindow.open(map, marker);
  if(activeWindow != null)
                        activeWindow.close();
-					    
-                     //Store new window in global variable 
-                    activeWindow = infoWindow; 
+
+                     //Store new window in global variable
+                    activeWindow = infoWindow;
 
 });
 // here i want to show tooltip with location got from event  (event.latLng)
 }
 //Validating email id used for subscribing to the list.
-function ValidateEmail()   
-{  
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email1.value))  
-  {  
-    return (true)  
-  }  
-    alert("You have entered an invalid email address!") 
-	document.getElementById('email1').value = ""; 
+function ValidateEmail()
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email1.value))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+	document.getElementById('email1').value = "";
 	document.getElementById("email1").focus();
-    return (false)  
-}  
+    return (false)
+}
 function setFocusToTextBox(){
-    
+
 }
 
 //Acts as a flip flop for the display of the markers between user site details which are added by the users and official utilized /underutilized Areas for the button Discover a site.
@@ -996,7 +1058,7 @@ google.maps.event.addListener(marker, 'click', function(event) {
 //Creates a session storage variable for the location,latitude and longitudeassign it null and then later assign it with the concern data.
 sessionStorage.setItem("lll", ' ');
 sessionStorage.setItem("llll", ' ');
-sessionStorage.setItem("locat", ' ');	
+sessionStorage.setItem("locat", ' ');
 var latlnn = event.latLng;
 var lngsn = latlnn.lat();
 var latsn = latlnn.lng();
@@ -1006,7 +1068,7 @@ sessionStorage.setItem("locat", llllll);
 var found = false;
 //Creates an info window for the marker.
 var infoWindow = new google.maps.InfoWindow({
-	content : b1 
+	content : b1
 });
 infoWindow.open(map, marker);
 });
@@ -1019,7 +1081,7 @@ function placeMarker(location){
     // This marker is 20 pixels wide by 32 pixels tall.
     size: new google.maps.Size(30, 35)
 	};
-	 
+
    marker = new google.maps.Marker({
    position: location,
    map: map,
@@ -1034,7 +1096,7 @@ sessionStorage.setItem("lll", lngss);
 sessionStorage.setItem("llll", latss);
 //Creating an infowindow to store the info window contents to the marker.
 var infowindow = new google.maps.InfoWindow({
-// content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng() + '<br>Enter The Description:' + infoWindowHtml + '<br>View The Description: ' + infoWindowHtml1 + '<br>Update The //Description: ' + infoWindowHtml2 
+// content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng() + '<br>Enter The Description:' + infoWindowHtml + '<br>View The Description: ' + infoWindowHtml1 + '<br>Update The //Description: ' + infoWindowHtml2
 content : contents
 });
 infowindow.open(map,marker);
@@ -1050,7 +1112,7 @@ function addasite()
 }
 //This method will be called on the select change event of the drop down box.
 function selectchange()
-{ 
+{
 //Removing the layers from the map,if any.
 	layers[6].setMap(null);
     layers[3].setMap(null);
@@ -1061,7 +1123,7 @@ function selectchange()
  layers[i].setMap(map);
 //Creating listener for the click event on the overlayed layer on the map.
  google.maps.event.addListener(layers[i], 'click', function(e) {
-//Excluding the layer for the Protected Structures 
+//Excluding the layer for the Protected Structures
 if(i!=1&&i!=6){
 //Capturing the data for the infowindow and assigning it to a div element.
 contentstring = e.infoWindowHtml;
@@ -1075,28 +1137,22 @@ capture.innerHTML= null;
 var div = document.createElement('div');
 div.innerHTML = contentstring;
 capture.appendChild(div);
-}); 
+});
 }
 else {
 layers[i].setMap(null);
 contentstring = '';
 }
-	   
+
 }
 
-function searc()
-{
-	
-	
-	
-}
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <body onLoad="initialize()">
 
-<form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">
+<form id="myForm" method="post" action="test.php" enctype="multipart/form-data" autocomplete="off">
     <!-- Fixed navbar -->
       <div style="background-color:#00afc9;">
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;">
@@ -1108,74 +1164,77 @@ function searc()
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:20%;width:20%;border-top:hidden;" /></a>
+          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:37%;width:37%;border-top:hidden;" /></a>
         </div>
         </div>
         <div class="container">
         <div id="navbar" class="navbar-collapse collapse" style="float:right;">
           <ul class="nav navbar-nav">
-            <li><a id="home" href="#" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
-            <li><a href="#works" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOW IT WORKS</a></li>
-            <li><a href="#try" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">TRY IT OUT</a></li>
-              <li><a id="about" href="#about" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">ABOUT</a></li>
-           
-             <li><a href="#mail" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">MAILING LIST</a></li>
+            <li><a href="#menu1" id="fiftha" class="active" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
+            <li><a href="#menu2" id="firsta" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOW IT WORKS</a></li>
+            <li><a href="#menu3" id="seconda" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">TRY IT OUT</a></li>
+              <li><a href="#menu4" id="thirda"  style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">ABOUT</a></li>
+
+             <li><a href="#menu5" id="fourtha"  style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">MAILING LIST</a></li>
              <li><a href="https://www.facebook.com/reusingdublin/" target="_blank"><img style="float:!important;" href="https://www.facebook.com/reusingdublin/" src="facebook.png"></img></a></li>
                <li><a href="https://www.twitter.com/reusingdublin/" target="_blank"><img style="float:!important;" href="https://www.twitter.com/reusingdublin/"  src="twitter.png"></img></a></li>
-           
-       
+
+
           </ul>
         </div><!--/.nav-collapse -->
         </div>
       </div>
     </nav>
    </div>
-     <div class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
-   <div class="row">    <!-- Main component for a primary marketing message or call to action -->
-<div  class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
+     <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
+<div class="row"><!-- Main component for a primary marketing message or call to action -->
+<div class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
       <div class="jumbotron"   style="background-color:#022a3c;height:auto;margin-top:5%;"  >
-      
-      <div  style="padding:5%;" align="left">
-      
-      
-        <p style="color:white;font-family:'Source Sans Pro', sans-serif;font-size:40px;margin-top:1%;line-height: 1.0;text-align:left;">Welcome to Reusing Dublin, a space to discover and share information about vacant or underused spaces in Dublin</p><br>
-        <p  style="color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;">Join us in unlocking the potential of the spaces in our city</p>
-      </div>
-      </div>
-      </div>
-       </div>
-      <br>
-      
-<div  class="col-md-12" > <br></div>
 
-  <div class="row">    <!-- Main component for a primary marketing message or call to action -->
-<div  class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
-      <div class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
-      
+      <div  style="padding:5%;" align="left">
+
+
+        <p style="color:white;font-family:'Source Sans Pro', sans-serif;font-size:40px;margin-top:1%;line-height: 1.0;text-align:left;">Welcome to Reusing Dublin, a space to discover and share information about vacant or underused spaces in Dublin</p><br>
+        <p  style="color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;line-height: 1.0;text-align:left;">Join us in unlocking the potential of the spaces in our city.</p>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <br>
+
+
+
+   <div class="row">  <!-- Main component for a primary marketing message or call to action -->
+<section id="menu2"  class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
+      <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
+
       <div style="padding:5%">
-        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">How it works</p>
-        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;">Using the map below, discover or add information about any underused sites you have noticed.</p>
-        <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
-                <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;"><b>Share your information</b> about a site.   </p><br/>
-            <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;"><b>Connect with others</b> who might be interested in the site.   </p>
+        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;line-height: 1.0;">How it works</p>
+        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;line-height: 1.0;">Using the map below, discover or add information about any underused sites you have noticed.</p>
+        <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;line-height: 1.0;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
+                <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Share your information</b> about a site.   </p><br/>
+            <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Connect with others</b> who might be interested in the site.   </p>
+
       </div>
       </div>
-      </div>
+      </section>
+
       </div>
       </div>
 
 <div i d="try">
 </div>
 
-
-<div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
+<section id="menu3">
+<div  id="menu3" class="container"  style="padding-top:20px;margin-left:2%;" align="center">
 <div  class="col-md-4"  style="margin-bottom:5px;">
-<input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=   
+<input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=
 "center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
 </div>
 
 <div  class="col-md-4"  style="margin-bottom:5px;">
-<select  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:auto;" id="pac-input1" align= 
+<select  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:auto;" id="pac-input1" align=
 "center" onChange="selectchange()">
 <option align="center">MORE INFORMATION</option>
 <option value="3">DCC DEVELOPMENT PLAN ZONINGS</option>
@@ -1185,12 +1244,11 @@ function searc()
 </select>
 </div>
 
-<div    class="col-md-4"  style="margin-bottom:5px;float:left;"> 
-<input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=   
+<div    class="col-md-4"  style="margin-bottom:5px;float:left;">
+<input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=
 "center" value="FIND AN AREA"/>
 <input id="pac-input" style="color:#00afc9;border:none;font-size:17px;margin-left:1px;float:left;width:100px;" type="text" placeholder="SEARCH BOX" >
-<input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO"  onClick=   
-"javascript:searc()"/>
+<input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO" />
 <br/>
 <br/>
 <br/>
@@ -1198,7 +1256,7 @@ function searc()
 </div>
 
 
-<div class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
+<div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
 <div id="googleMap" align="center" style="width:100%;height:600px;float:left;border:thin;" ></div>
 
 <input type="hidden"  name="messages" ID="messages" width="50" height="10" readonly>
@@ -1206,16 +1264,17 @@ function searc()
 <div id="capture" align="justify" style="width:100%;background-color:#8ec63f;float:left;">
 </div>
 </div>
+</section>
 
-	<div  id="about"  >    	
-				         
-    
-    
-    <div class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
+	<div >
+
+
+
+    <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
 	  <div class="row">
 		<div class="col-sm-6" style="margin-left:7%;padding:5%;" >
 
-	
+
          <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">About the Project </p>
 					<p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">Reusing Dublin responds to the observation that we don’t use space in
 our city efficiently - and sometimes we don’t use it at all.
@@ -1241,26 +1300,29 @@ Resilience and Sustainability).
 
 </p>
 		</div>
-        
+
 		</div>
-       
+
     </div>
- </div>
- 
-     <div class="container" id="mail" style="padding-top:60px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" align="center"> <p>Subscribe to our newsletter email to get notification about</br>
+ </section>
+
+     <div class="container"  style="padding-top:60px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" align="center"> <p>Subscribe to our mailing list to get notification about</br>
 upcoming news, latest project activities and much more!</p>
-<div align="justify" style="width:100%">
+<section id="menu5" align="justify" style="width:100%">
 <input type="email" class="abc" name='email' style="background-color:#00afc9;width:58%;height:40px;float:left;border:none;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" id='email1' placeholder="Your Email Address">
 							<input type="submit" id="subscribe" style="background-color:#F00;color:white;height:40px;border:none;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:41%;margin-left:-1px;" name="added" class="subS" value="SUBSCRIBE" onClick="javascript:ValidateEmail();"/>
-                            </div>
-                                                <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:auto;width:25%;float:!important;margin-left:1%;"><img  src="Eu_logo1.png" style="height:auto;width:25%;float:!important;margin-left:1%;" ><img  src="images/turas.png"  style="height:auto;width:25%;float:!important;margin-left:1%;"></div>
-                           
-                     
-     </div>
+                            </section>
+                                                <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:13%;width:13%;float:!important;margin-left:1%;"><img  src="Eu_logo1.png" style="width:10%;float:!important;margin-left:1%;" ><img  src="images/turas.png"  style="height:17%;width:17%;float:!important;margin-left:1%;"></div>
+
+
+     </section>
     <!-- Bootstrap core JavaScript--->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <div class="container" style="margin-bottom:0%;float:center;" align="justify" >
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Reusing Dublin</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+    </div>
   </body>
 </html>
