@@ -171,7 +171,10 @@ function cll()
 
  <body onload="initialize()" style="background-color:#f4e851">
 
-
+     <!-- Fixed navbar -->
+     <?php
+     require_once('includes/header.php');
+     ?>
 
 
 
@@ -180,36 +183,7 @@ function cll()
 
 
 
-    <!-- Fixed navbar -->
-    <div style="background-color:#00afc9;">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;">
-      <div class="container" >
-        <div class="navbar-header" >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:37%;width:37%;border-top:hidden;" /></a>
-        </div>
-        </div>
-        <div class="container">
-        <div id="navbar" class="navbar-collapse collapse" style="float:right;margin-top:-4%;">
-          <ul class="nav navbar-nav">
-            <li><a onClick="cll();" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
-            <li><a href="#works" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:19px;">LEARN MORE ABOUT THE SITE</a></li>
-            <li><a href="http://www.facebook.com/reusingdublin" target="_blank"><img style="float:!important;" href="www.facebook.com" src="facebook.png"></img></a></li>
-               <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="www.twitter.com"  src="twitter.png"></img></a></li>
 
-
-          </ul>
-
-        </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </nav>
-   </div>
 
 
    <div class="container-fluid"  id="works" >
@@ -269,7 +243,7 @@ function cll()
     </label>
     <br/><br/>
     <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
- <a href="http://wwww.facebook.com/reusingdublin.ie" style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;">Start a conversation about this site on Facebook:</a>
+ <a href="http://wwww.facebook.com/reusingdublin.ie" style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;">Start a conversation about this site on Facebook</a>
       <br/>  <br/>
 
 

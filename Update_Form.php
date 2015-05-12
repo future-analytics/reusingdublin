@@ -4,7 +4,7 @@ $result2 = mysqli_query($con,"SELECT * FROM SiteDetails");
 while($row1 = mysqli_fetch_assoc($result2))
 {
 	$data1[] = $row1;
-	
+
 }
 $msg="";
 $latitude = mysqli_real_escape_string($con, $_POST['lat1']);
@@ -88,7 +88,7 @@ $msg = "Data Updated Successfully!";
 }
 catch(PDOException $e)
 {
-echo 
+echo
 $msg = "Error: " . $e->getMessage();
 }
 $conn = null;
@@ -96,21 +96,21 @@ $result2 = mysqli_query($con,"SELECT * FROM SiteDetails");
 while($row1 = mysqli_fetch_assoc($result2))
 {
 	$data1[] = $row1;
-	
+
 }
 foreach($data1 as $marker1)
 {
-	  $latitu  = $marker1['latitude']; 
-      $longi  = 	$marker1['longitude']; 
-      $adress = $marker1['adress']; 
+	  $latitu  = $marker1['latitude'];
+      $longi  = 	$marker1['longitude'];
+      $adress = $marker1['adress'];
 	  $owner = $marker1['owner'];
-	  $zoning  = $marker1['zoning']; 
-	  $planningistory  = $marker1['planningistory']; 
-	  $size  = $marker1['size']; 
+	  $zoning  = $marker1['zoning'];
+	  $planningistory  = $marker1['planningistory'];
+	  $size  = $marker1['size'];
 	  $heritage  = $marker1['heritage'];
-	  $derelict  = $marker1['derelict']; 
+	  $derelict  = $marker1['derelict'];
 	  $desription  = $marker1['desription'];
-	   $suguses  = $marker1['Suggesteduses'];  
+	   $suguses  = $marker1['Suggesteduses'];
 }
 
 }
@@ -128,7 +128,7 @@ foreach($data1 as $marker1)
 
     <title>Update Information Details</title>
 
-    	
+
  <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
@@ -137,12 +137,12 @@ foreach($data1 as $marker1)
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
-	
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-    
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -159,7 +159,7 @@ foreach($data1 as $marker1)
 </head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript">
 
@@ -180,24 +180,24 @@ var heritage = [];
 var derelict = [];
 var desription = [];
 var  suggesteduse = [];
- <?php 
+ <?php
 
 foreach($data1 as $marker1)
 {
-	  $latitu  = $marker1['latitude']; 
-      $longi  = 	$marker1['longitude']; 
-      $adress = $marker1['adress']; 
+	  $latitu  = $marker1['latitude'];
+      $longi  = 	$marker1['longitude'];
+      $adress = $marker1['adress'];
 	  $owner = $marker1['owner'];
-	  $zoning  = $marker1['zoning']; 
-	  $planningistory  = $marker1['planningistory']; 
-	  $size  = $marker1['size']; 
+	  $zoning  = $marker1['zoning'];
+	  $planningistory  = $marker1['planningistory'];
+	  $size  = $marker1['size'];
 	  $heritage  = $marker1['heritage'];
-	  $derelict  = $marker1['derelict']; 
+	  $derelict  = $marker1['derelict'];
 	  $desription  = $marker1['desription'];
-	   $suguses  = $marker1['Suggesteduses'];  
+	   $suguses  = $marker1['Suggesteduses'];
 
-	  
-	  
+
+
 ?>
  var lati  = <?php echo $latitu;?>;
      lat.push(lati);
@@ -206,7 +206,7 @@ foreach($data1 as $marker1)
      lon.push(long);
 	  var loca  = "<?php echo $adress;?>";
       address.push(loca);
-	 
+
 	  var owners  = "<?php echo $owner;?>";
       owner.push(owners);
 	   var zonings  = "<?php echo $zoning;?>";
@@ -223,11 +223,11 @@ foreach($data1 as $marker1)
      desription.push(desriptions);
 	  var suggesteduses = "<?php echo $suguses;?>";
      suggesteduse.push(suggesteduses);
- 
+
 
 
 <?php
-	
+
 }
 ?>
 
@@ -256,8 +256,8 @@ else
 	document.getElementById("lon").value = b;
 }
    document.getElementById("lat").value = a;
-  
-var longitudes = document.getElementById("lon").value; 
+
+var longitudes = document.getElementById("lon").value;
 
 for (i = 0;i<lat.length;i++) {
 
@@ -290,11 +290,11 @@ var astorPlace = new google.maps.LatLng(a,b);
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-	  
-  
+
+
    panorama = new google.maps.StreetViewPanorama(document.getElementById('map-canv'));
    sv.getPanoramaByLocation(astorPlace, 50, processSVData);
-  
+
 
 }
 
@@ -325,22 +325,22 @@ function processSVData(data, status) {
       });
       panorama.setVisible(true);
     });
-  } 
+  }
 }
 function back(){
 document.getElementById("messages").value = document.getElementById("matter").value + ' '+'for the location' + ' ' + c + ' ' + 'with latitude' + ' ' +  document.getElementById("lat").value +  ' ' + 'and longitude' + ' ' + document.getElementById("lon").value +' ' + 'from' + ' ' + document.getElementById("email").value;
-	
+
 }
 function goback()
 {
-	
+
 	this.close();
 	}
 	function show()
-{ 	
- 
- 
-        
+{
+
+
+
         var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1; //January is 0!
@@ -348,34 +348,34 @@ function goback()
 
 if(dd<10) {
 dd='0'+dd
-} 
+}
 if(mm<10) {
 mm='0'+mm
-} 
+}
 today = mm+'/'+dd+'/'+yyyy;
 document.getElementById("dateone").value = today;
 
 
       location.reload(true);
 		alert('Data Updating...Wait for Few Seconds!');
-	
+
 }
    function cll()
 	{
 		this.close();
-		
+
 	}
 	  function myFunction()
 	{
-		
+
 		window.open("Insert5.php",'Ratting',"height=700,width=700,scrollbars=1");
-		
+
 	}
 	  function myFunction1()
 	{
-		
+
 		window.open("Insert7.php",'Ratting',"height=700,width=700,scrollbars=1");
-		
+
 	}
 
 google.maps.event.addDomListener(window, 'load',initialize);
@@ -385,82 +385,55 @@ google.maps.event.addDomListener(window, 'load',initialize);
 
  <body onload="initialize()" style="background-color:#f4e851">
 
+	<?php
+	require_once('includes/header.php');
+	?>
 
 
 
 
-  	
+
                        <form name="form1"  action="Update_Form.php" method="post"  enctype="multipart/form-data" autocomplete="off">
-             	
- 
 
-    <!-- Fixed navbar -->
-    <div style="background-color:#00afc9;">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;">
-      <div class="container" >
-        <div class="navbar-header" >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <a onClick="cll();">     <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:27%;width:27%;border-top:hidden;" /></a>
-        </div>
-        </div>
-        <div class="container">
-        <div id="navbar" class="navbar-collapse collapse" style="float:right;margin-top:-4%;">
-          <ul class="nav navbar-nav">
-            <li><a onClick="cll();" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
-            <li><a href="#works" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:19px;">LEARN MORE ABOUT THE SITE</a></li>
-            <li><a href="http://www.facebook.com/reusingdublin" target="_blank"><img style="float:!important;" href="http://www.facebook.com/reusingdublin" src="facebook.png"></img></a></li>
-               <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="http://www.twitter.com/reusingdublin"  src="twitter.png"></img></a></li>
-           
-       
-          </ul>
-        
-        </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </nav>
-   </div>
-    
-  
+
+
+
+
    <div class="container-fluid" id="works"  >
       <input type="hidden" name="lat1" ID="lat" value ="default" size="40"><br><br/><br/>
       <input type="hidden" name="lon1" ID="lon" value ="default" size="40"><br><br/><br/>
           <div style="width:100%;margin-right:80px;border:none;background-color:#FFF;padding:0px;background-color:transparent;border:none;" class="well sidebar-nav">
             <div style="margin-left:100px;margin-top:0px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:bold;color:#960;">
   <?php echo $msg ?>
-  </div> 
+  </div>
             <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"><b>Update a space</font>
             <br/>
             <br/>
-             
-            
-            <div id="map-canv"   style="height:300px;width:45%;float:left;" ></div> 
-            
+
+
+            <div id="map-canv"   style="height:300px;width:45%;float:left;" ></div>
+
    <div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
-         <br/><br/> <br/>   
+         <br/><br/> <br/>
     <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;margin-right:1%;margin-top:4%;">
     Have you an Idea for the site?
-        
+
 
          </b>
-      
+
       <label style="width:100%;">
-                
-       
-  <textarea name="comments" id="comments"   style="height:240px;width:100%;float:left;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;width:100%;" wrap="hard"  placeholder="Enter your idea regarding the site/location here"></textarea> 
-  </label> 
+
+
+  <textarea name="comments" id="comments"   style="height:240px;width:100%;float:left;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;width:100%;" wrap="hard"  placeholder="Enter your idea regarding the site/location here"></textarea>
+  </label>
    <br/><br/>
-            
-                        
+
+
  <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;margin-right:1%;">
     Tell us something about this site/location. For example:</b>
-    
+
      <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;color:#036A78;">
-     
+
          <select style="width:100%;">
   <option value="1">Why do you think this site is in its current condition?</option>
   <option value="2">What has the site been previously used for?</option>
@@ -474,31 +447,31 @@ google.maps.event.addDomListener(window, 'load',initialize);
 </select>
          </b>
        <br/><br/>
-  
+
       <label style="width:100%;">
-       
-  
-    
-  <textarea name="comment" id="commen"   style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;height:240px;" wrap="hard"  placeholder="Enter your idea regarding the site/location here"></textarea> 
-  </label> 
+
+
+
+  <textarea name="comment" id="commen"   style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;height:240px;" wrap="hard"  placeholder="Enter your idea regarding the site/location here"></textarea>
+  </label>
     <br/><br/>
 
-      
-   
-   
-    
- 
 
 
- 
- 
+
+
+
+
+
+
+
    <label >
-     
+
      <button  style="background-color:#00afc9;color:#FFF;margin-left:40px;height:50px;width:300px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;" onClick="myFunction(); return false;" >ADD A PHOTO</button>
     </label>
    <br/><br/>
     <label >
-     
+
      <button  style="background-color:#00afc9;color:#FFF;margin-left:40px;height:50px;width:300px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;" onClick="myFunction1(); return false;" >ADD A FILE</button>
     </label>
    <br/><br/>
@@ -508,37 +481,37 @@ google.maps.event.addDomListener(window, 'load',initialize);
       <label style="width:100%;">
       <input type="text" style="width:100%;border:float:right;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;" name="address" id="address" placeholder="Enter a valid address" required />
          </label>
-     
+
       <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">
      Ownership Details:
 
    </b>
-     <br/>  
+     <br/>
       <label style="width:100%;">
       <input type="text" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" name="address1" id="address1"  / >
     </label>
-     <br/>  
+     <br/>
       <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">
      Zoning :
      </b>
-     <br/>  
+     <br/>
       <label style="width:100%;">
       <input type="text" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" name="address2" id="address2"   / >
     </label >
-     <br/>  
+     <br/>
       <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">
     Planning History:
      </b>
-     <br/>  
+     <br/>
       <label style="width:100%;">
-      
+
       <input type="text" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" name="address3" id="address3"   / >
     </label>
-     <br/>  
+     <br/>
       <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">
      Size / Area (Sqm):
      </b>
-       
+
       <label style="width:100%;">
       <input type="text" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" name="address4" id="address4"  onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"   / >
        <span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
@@ -554,34 +527,34 @@ google.maps.event.addDomListener(window, 'load',initialize);
             return ret;
         }
     </script>
-     
-     <br/> 
+
+     <br/>
       <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">
     Heritage Designation:
      </b>
-     
+
       <label style="width:100%;">
       <input type="text" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;" name="address5" id="address5" / >
     </label>
-     
+
        <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
-    Is the site officially derelict? 
+    Is the site officially derelict?
      </b>
            <label style="width:100%;">
       <input type="text" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;" name="address6" id="address6"  / >
     </label>
-    
-       <br/>  <br/>
-    
-    
 
-       
-   
-   
- 
+       <br/>  <br/>
+
+
+
+
+
+
+
      <div style="margin-top:5px;border:none;">
-    
-<input type="button" name="submits"  style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:42%;background-color:#00afc9;color:white;" value="BACK"  onClick="javascript:goback()"/ >      
+
+<input type="button" name="submits"  style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:42%;background-color:#00afc9;color:white;" value="BACK"  onClick="javascript:goback()"/ >
 <input type="submit" name="added" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:47%;background-color:#00afc9;color:white;" value="UPLOAD" onClick="javascript:show()" />
 </div>
 
@@ -589,15 +562,15 @@ google.maps.event.addDomListener(window, 'load',initialize);
 <br/>
   <br/>
 <br/>
-         
- 
-    
+
+
+
    </div>
-   
+
    </div>
     <input type="hidden" name="dateone" ID="dateone" size="40">
-   </form> 
-     
+   </form>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
