@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<script type="application/javascript">
+function PostData() {
+    // 1. Create XHR instance - Start
+    var xhr;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+        xhr = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    else {
+        throw new Error("Ajax is not supported by this browser");
+    }
+    // 1. Create XHR instance - End
+    
+    // 2. Define what to do when XHR feed you the response from the server - Start
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status == 200 && xhr.status < 300) {
+                document.getElementById('div1').innerHTML = xhr.responseText;
+            }
+        }
+    }
+    // 2. Define what to do when XHR feed you the response from the server - Start
+
+    var userid = document.getElementById("userid").value;
+
+    // 3. Specify your action, location and Send to the server - Start 
+    xhr.open('POST', 'verify.php');
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("userid=" + userid);
+	xhr.send("password=" + pwd);
+    // 3. Specify your action, location and Send to the server - End
+}
+</script>
+<body>
+<form>
+    <label for="userid">User ID :</label>
+    <input type="text" name ="userid" id="userid" onblur="PostData()" />
+    <input type="text" name ="pwd" id="pwd" onblur="PostData()" />
+    <div id="div1"></div>
+    <input type="button" value ="Check" onclick="PostData()" />
+</form>
+</body>
+</html>
