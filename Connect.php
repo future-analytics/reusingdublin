@@ -230,9 +230,6 @@ function cll()
    <div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
          <br/><br/> <br/>   
 
-  <div style="margin-top:20%;">    
- <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;">Contact Details</font><br/>
-            <br/>
     
     <br/>
        <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
@@ -245,7 +242,7 @@ function cll()
      
     
        <br/>  <br/>
-        <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">Phone Number:
+        <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;width:100%;">Contact Details:
      </b>
        <input type="text" name="phonenumber" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;"  id="phonenum" align="absmiddle" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" required />
     <br/>
@@ -272,13 +269,9 @@ function cll()
     </label>
     <br/><br/>
     <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
-    Start a conversation about this site on Facebook(link to facebook):</b>
+ <a href="http://wwww.facebook.com/reusingdublin.ie" style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;">Start a conversation about this site on Facebook:</a>
       <br/>  <br/>
-   <label  style="width:100%;">
-    <input type="text" name="facebookp" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" id="facebookp1" align="absmiddle" />
-    </label>
-
-       
+         
    
    </div>
  
@@ -295,7 +288,7 @@ function cll()
          
  
     
-   </div>
+ 
    
    </div>
    

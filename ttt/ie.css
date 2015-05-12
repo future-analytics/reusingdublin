@@ -1,0 +1,6 @@
+#header-wrapper {
+  width:expression((document.compatMode && document.compatMode == 'CSS1Compat') ?
+                   (document.documentElement.clientWidth < 817 ? "817px" : "100%" ) :
+                   (document.body.clientWidth < 817 ? "817px" : "100%")
+                   );
+}
