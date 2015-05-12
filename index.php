@@ -572,37 +572,39 @@ var markerCluster1 = new MarkerClusterer(map, gmarkers1);
 var gmarkers = [];
 //Creating click listener for the map.
 google.maps.event.addListener(map, 'click', function(event) {
-//Place a marker only when user clicks on the Add A Site Button which is controlled by the variable y.
-if(y==1)
-{
-var location = event.latLng;
-var lat1 = location.lat();
-var lon1 = location.lng();
-//Stores the variable in session storage.
-sessionStorage.setItem("lll", lat1);
-sessionStorage.setItem("llll", lon1);
-//Places marker on the map on the click event of the map.
-placeMarker(location);
-}
-y = 0;
+    //Place a marker only when user clicks on the Add A Site Button which is controlled by the variable y.
+    if(y==1)
+    {
+        var location = event.latLng;
+        var lat1 = location.lat();
+        var lon1 = location.lng();
+        //Stores the variable in session storage.
+        sessionStorage.setItem("lll", lat1);
+        sessionStorage.setItem("llll", lon1);
+        console.log(lat1);
+        console.log(lon1);
+        //Places marker on the map on the click event of the map.
+        placeMarker(location);
+    }
+    y = 0;
 });
 //Adding KML layers on the map.
 layers[1] = new google.maps.KmlLayer(src1, {
-suppressInfoWindows: true,
-preserveViewport: false,
-map: map,
+    suppressInfoWindows: true,
+    preserveViewport: false,
+    map: map,
 });
 layers[1].setMap(null);
 //Creating click listener for the layer overlayed on the map.
 google.maps.event.addListener(layers[1], 'click', function(event){
-//Places a marker only when the button Add A Site is clicked on.
-if(y==1)
-{
-var location1 = event.latLng;
-//Place the marker on the layer taking that point co-ordinates as the parameter.
-placeMarker(location1);
-}
-y = 0;
+    //Places a marker only when the button Add A Site is clicked on.
+    if(y==1)
+    {
+        var location1 = event.latLng;
+        //Place the marker on the layer taking that point co-ordinates as the parameter.
+        placeMarker(location1);
+    }
+    y = 0;
 });
 //Takes a layer in the form of fusion table.
 layers[2] = new google.maps.FusionTablesLayer({
@@ -1070,9 +1072,9 @@ infoWindow.open(map, marker);
 //Placing marker on the map ona given location.
 function placeMarker(location){
     var image = {
-    url:'http://www.factest.ie/dublinapp/images/icon1.png',
-    // This marker is 20 pixels wide by 32 pixels tall.
-    size: new google.maps.Size(30, 35)
+        url:'http://www.factest.ie/dublinapp/images/icon1.png',
+        // This marker is 28 pixels wide by 27 pixels tall.
+        size: new google.maps.Size(28, 27)
 	};
 
    marker = new google.maps.Marker({
@@ -1100,42 +1102,43 @@ marker.setMap(null);
 }
 //Function called on the click event of the button 'Add A Site' to change the variable y value.
 function addasite()
-{   alert(' Left Click on the Map with your mouse to Add a New Site !');
-	y = 1;
+{   
+    alert(' Left Click on the Map with your mouse to Add a New Site !');
+    y = 1;
 }
 //This method will be called on the select change event of the drop down box.
 function selectchange()
 {
-//Removing the layers from the map,if any.
-	layers[6].setMap(null);
+    //Removing the layers from the map,if any.
+    layers[6].setMap(null);
     layers[3].setMap(null);
     layers[2].setMap(null);
     layers[4].setMap(null);
- var i = document.getElementById("pac-input1").value;
- if (layers[i].getMap() === null) {
- layers[i].setMap(map);
-//Creating listener for the click event on the overlayed layer on the map.
- google.maps.event.addListener(layers[i], 'click', function(e) {
-//Excluding the layer for the Protected Structures
-if(i!=1&&i!=6){
-//Capturing the data for the infowindow and assigning it to a div element.
-contentstring = e.infoWindowHtml;
-}
-else
-{
-contentstring = '';
-}
-var capture = document.getElementById('capture');
-capture.innerHTML= null;
-var div = document.createElement('div');
-div.innerHTML = contentstring;
-capture.appendChild(div);
-});
-}
-else {
-layers[i].setMap(null);
-contentstring = '';
-}
+    var i = document.getElementById("pac-input1").value;
+    if (layers[i].getMap() === null) {
+    layers[i].setMap(map);
+    //Creating listener for the click event on the overlayed layer on the map.
+    google.maps.event.addListener(layers[i], 'click', function(e) {
+    //Excluding the layer for the Protected Structures
+    if(i!=1&&i!=6){
+    //Capturing the data for the infowindow and assigning it to a div element.
+    contentstring = e.infoWindowHtml;
+    }
+    else
+    {
+    contentstring = '';
+    }
+    var capture = document.getElementById('capture');
+    capture.innerHTML= null;
+    var div = document.createElement('div');
+    div.innerHTML = contentstring;
+    capture.appendChild(div);
+    });
+    }
+    else {
+    layers[i].setMap(null);
+    contentstring = '';
+    }
 
 }
 
