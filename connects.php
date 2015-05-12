@@ -187,17 +187,15 @@ function cll()
             <div style="margin-left:100px;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;color:#960;">
   <?php echo $msg ?>
   </div> 
-            <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"> Tell us your idea for this site and fill out your contact details below</font><br/>
+            <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"> Tell us your idea for this site and fill out your contact details below!</font><br/>
             
             <br/>
             <br/>
 <div id="map-canv"   style="height:300px;width:45%;float:left;" ></div> 
 <div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
 <br/><br/> <br/> 
-<div style="margin-top:15%;">
-<font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"><b>
-             Contact Details
-             </font>  
+
+  
 <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
 Name:
 </b>
@@ -205,7 +203,7 @@ Name:
 <input type="text"  style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;" name="name1"  id="name2" align="absmiddle" required/>
 </label>
 <br/>  <br/>
-<b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">Phone Number:
+<b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">Contact Details:
 </b>
 <input type="text" name="phonenumber" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;"  id="phonenum" align="absmiddle" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" required />
 <br/>
@@ -230,7 +228,7 @@ specialKeys.push(190);
 </label>
 <br/><br/>
 <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
-Start a conversation about this site on the Facebook(link to Facebook):</b>
+<a href="http://www.facebook.com/reusingdublin"> Start a conversation about this site on the Facebook</a>:</b>
 <br/>  <br/>
 <label  style="width:100%;">
 <input type="text" name="facebookp" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" id="facebookp1" align="absmiddle" />
@@ -245,7 +243,7 @@ Start a conversation about this site on the Facebook(link to Facebook):</b>
 <br/>
 <br/>
 </div>
-</div>
+
 </form>  
      
 <!-- Bootstrap core JavaScript

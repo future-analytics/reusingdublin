@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("172.16.0.57","u1046393_turas","Soamin123@","db1046393_dublin");
+require('db.php');
 $result1 = mysqli_query($con,"SELECT * FROM Address2");
 while($row = mysqli_fetch_assoc($result1))
 {

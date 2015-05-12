@@ -261,7 +261,8 @@ this.close();
 <ul class="nav navbar-nav">
 <li><a onClick="cll();" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
 <li><a href="#works" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:19px;">LEARN MORE ABOUT THE SITE</a></li>
-
+<li><a href="https://instagram.com/reusingdublin/" target="_blank"><img style="float:!important;" href="https://instagram.com/reusingdublin/" src="instagram19.png"></img></a></li>
+<li><a href="reusingdublin@gmail.com" target="_blank"><img style="float:!important;" href="reusingdublin@gmail.com"  src="email131.png"></img></a></li>
 <li><a href="http://www.facebook.com/reusingdublin" target="_blank"><img style="float:!important;" href="http://www.facebook.com/reusingdublin" src="facebook.png"></img></a></li>
 <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="http://www.twitter.com/reusingdublin"  src="twitter.png"></img></a></li>
 </ul>
