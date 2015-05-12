@@ -1,0 +1,12 @@
+{
+  "transport": "ftp",
+  "uploadOnSave": false,
+  "hostname": "ftp.d1046393.cp.irishdomains.com",
+  "port": "21",
+  "target": "/webspace/httpdocs/staging.reusingdublin.ie",
+  "ignore": [
+    ".git/**"
+  ],
+  "username": "fac",
+  "password": "FOKHxeB2VIE_2HUV"
+}
