@@ -1,7 +1,8 @@
 <?php
 //Php code for assigning markers and site to the map
 //creating coonection elements with the database
- $con=mysqli_connect("172.16.0.57","u1046393_turas","Soamin123@","db1046393_dublin");
+// $con=mysqli_connect("172.16.0.57","u1046393_turas","Soamin123@","db1046393_dublin");
+require_once('db.php');
  if (mysqli_connect_errno()) {
  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
@@ -469,7 +470,7 @@ infoWindow.open(map, marker7);
 //Store new window in global variable 
 activeWindow = infoWindow; 
 });
-<?php 
+<?php
 foreach($data1 as $marker1)
 {
 $latitud = $marker1['latitude']; 
