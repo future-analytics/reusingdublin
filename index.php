@@ -1,15 +1,11 @@
 <?php
-/**
- * @author Priyanka Singh
- *
- */
-//Php code for assigning markers and site to the map
-//creating coonection elements with the database
-// $con=mysqli_connect("172.16.0.57","u1046393_turas","Soamin123@","db1046393_dublin");
+/*
+@author Priyanka Singh
+*/
 require_once('db.php');
- if (mysqli_connect_errno()) {
- echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+
+//Php code for assigning markers and site to the map
+
 //Fetching official utilized and underutilized markers.
 $result1 = mysqli_query($con,"SELECT * FROM Address1");
 while($row = mysqli_fetch_assoc($result1))
@@ -95,7 +91,7 @@ if($send_contact)
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
@@ -172,11 +168,9 @@ input[type='email']::-ms-input-placeholder {
 	font-weight:600;
 	color:#000;
 }
-li:active {
-    background-color:#FF0;
-}
+
 li:hover {
-    background-color:#FFF;
+    font-color:#FFF;
 }
   @media only screen and (max-width : 768px)  {
 	  .news{margin-top:-20px;} 
@@ -194,14 +188,11 @@ li:hover {
 	}
 	
  }
- #navbar li a.current {
-    background-color:#FFF;
-    color:white;  
+
+ .active {
+color:#FFF;
 }
-#navbar a:hover, #navbar a.active {
-    background: #666;
-    color: #fff;
-}
+
     	 
 </style> 
     <title>Home | ReusingDublin</title>
@@ -222,21 +213,8 @@ li:hover {
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script>
-$(function(){
-  $('a').each(function() {
-    if ($(window.scroll(0,200))) {
-      $(home).addClass('active');
-    }
-	   if ($(window.scroll(0,400))) {
-      $(about).addClass('active');
-    }
-  });
-});
-</script>
+    
   </head>
-
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -248,13 +226,94 @@ $(function(){
 
 </script>
 
+<script type="text/javascript">
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 110
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+$(window).on("hashchange", function () {
+    window.scrollTo(window.scrollX, window.scrollY - 200);
+});
+
+ $(document).scroll(function () {
+  $('a[href="#menu1"]').addClass('active');
+  	    document.getElementById("fiftha").style.color = "White"
+    var scroll_top = $(document).scrollTop();
+    var one_top = $('#menu1').position().top;
+    var two_top = $('#menu2').position().top;
+	var three_top = $('#menu3').position().top;
+    var four_top = $('#menu4').position().top;
+	var five_top = $('#menu5').position().top;
+	if(scroll_top<one_top)
+	{
+		    document.getElementById("fiftha").style.color = "White";
+	}
+
+    if (scroll_top >=scroll_top && scroll_top < two_top) {
+              $('a[href="#menu2"]').addClass('active');
+			    document.getElementById("fourtha").style.color = "Black"
+				 document.getElementById("thirda").style.color = "Black"
+				  document.getElementById("seconda").style.color = "Black"
+				   document.getElementById("firsta").style.color = "White"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu3"]').removeClass('active');
+		 $('a[href="#menu1"]').removeClass('active');
+	
+    }
+	
+	 if (scroll_top >two_top && scroll_top < three_top) {
+              $('a[href="#menu3"]').addClass('active');
+			    document.getElementById("fourtha").style.color = "Black"
+				 document.getElementById("thirda").style.color = "Black"
+				  document.getElementById("seconda").style.color = "White"
+				   document.getElementById("firsta").style.color = "Black"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu2"]').removeClass('active');
+		 $('a[href="#menu4"]').removeClass('active');
+		 $('a[href="#menu1"]').removeClass('active');
+		 	 
+    }
+
+ if (scroll_top >three_top && scroll_top < four_top) {
+              $('a[href="#menu4"]').addClass('active');
+			  document.getElementById("fourtha").style.color = "Black"
+				 document.getElementById("thirda").style.color = "White"
+				  document.getElementById("seconda").style.color = "Black"
+				   document.getElementById("firsta").style.color = "Black"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu3"]').removeClass('active');
+		      $('a[href="#menu5"]').removeClass('active');
+			  $('a[href="#menu1"]').removeClass('active');
+			  
+    }
+
+ if (scroll_top >four_top && scroll_top < five_top) {
+              $('a[href="#menu5"]').addClass('active');
+			    document.getElementById("fourtha").style.color = "White"
+				 document.getElementById("thirda").style.color = "Black"
+				  document.getElementById("seconda").style.color = "Black"
+				   document.getElementById("firsta").style.color = "Black"
+				    document.getElementById("fiftha").style.color = "Black"
+		 $('a[href="#menu4"]').removeClass('active');
+		 $('a[href="#menu1"]').removeClass('active');
+		
+    }
 
 
+});
 </script> 
 
-<script type="application/javascript">
-$("a[href*='" + location.pathname + "']").addClass("active");
-</script>
+
   
 <script type="text/javascript">
 //initializing the variables
@@ -320,11 +379,10 @@ function goclicky(meh)
 {
     var x = screen.width/2 - 700/2;
     var y = screen.height/2 - 450/2;
-    window.open(meh.href, 'sharegplus','height=700,width=700,left='+x+',top='+y);
+    window.open(meh.href, 'sharegplus','scrollbars = 1,height=700,width=700,left='+x+',top='+y);
 }	
 function initialize()
 { 
-    
 //Creates an OSM Map type option for the Map.
 var osmMapTypeOptions = {
 getTileUrl: function(coord, zoom) {
@@ -345,7 +403,7 @@ var showurl;
 showurl = "<?php echo $nn?>";
 if(showurl === "")
 {  
-	 //window.open('http://www.turas-cities.org/follow_us');
+	 window.open('http://www.turas-cities.org/follow_us');
 	
 	
 }
@@ -474,7 +532,7 @@ infoWindow.open(map, marker7);
 //Store new window in global variable 
 activeWindow = infoWindow; 
 });
-<?php
+<?php 
 foreach($data1 as $marker1)
 {
 $latitud = $marker1['latitude']; 
@@ -891,6 +949,7 @@ bindInfoWindow(marker, map, a1, b1,loooo) ;
 ?>
 //position controls on the map (legend and search controls).
 var input = (document.getElementById("pac-input"));
+
 //var input5 = (document.getElementById("legend"));
 //map.controls[google.maps.ControlPosition.TOP_CENTER].push(input5);
 //Creating Search functionality for the map.
@@ -901,7 +960,7 @@ var markers1= [];
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
 //Click Listener for the places changed event in the Search Box.
-google.maps.event.addListener(searchBox, 'places_changed', function() {
+document.getElementById("layer8").addEventListener("click", function(){
 {
  var places = searchBox.getPlaces();
  for (var i = 0, marker; marker = markers1[i]; i++) {
@@ -1089,19 +1148,13 @@ contentstring = '';
 	   
 }
 
-function searc()
-{
-	
-	
-	
-}
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <body onLoad="initialize()">
 
-<form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">
+<form id="myForm" method="post" action="test.php" enctype="multipart/form-data" autocomplete="off">
     <!-- Fixed navbar -->
       <div style="background-color:#00afc9;">
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;">
@@ -1113,18 +1166,18 @@ function searc()
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:20%;width:20%;border-top:hidden;" /></a>
+          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:37%;width:37%;border-top:hidden;" /></a>
         </div>
         </div>
         <div class="container">
         <div id="navbar" class="navbar-collapse collapse" style="float:right;">
           <ul class="nav navbar-nav">
-            <li><a id="home" href="#" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
-            <li><a href="#works" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOW IT WORKS</a></li>
-            <li><a href="#try" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">TRY IT OUT</a></li>
-              <li><a id="about" href="#about" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">ABOUT</a></li>
+            <li><a href="#menu1" id="fiftha" class="active" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
+            <li><a href="#menu2" id="firsta" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOW IT WORKS</a></li>
+            <li><a href="#menu3" id="seconda" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">TRY IT OUT</a></li>
+              <li><a href="#menu4" id="thirda"  style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">ABOUT</a></li>
            
-             <li><a href="#mail" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">MAILING LIST</a></li>
+             <li><a href="#menu5" id="fourtha"  style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">MAILING LIST</a></li>
              <li><a href="https://www.facebook.com/reusingdublin/" target="_blank"><img style="float:!important;" href="https://www.facebook.com/reusingdublin/" src="facebook.png"></img></a></li>
                <li><a href="https://www.twitter.com/reusingdublin/" target="_blank"><img style="float:!important;" href="https://www.twitter.com/reusingdublin/"  src="twitter.png"></img></a></li>
            
@@ -1135,45 +1188,48 @@ function searc()
       </div>
     </nav>
    </div>
-     <div class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
-   <div class="row">    <!-- Main component for a primary marketing message or call to action -->
-<div  class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
+     <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
+<div class="row"><!-- Main component for a primary marketing message or call to action -->
+<div class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
       <div class="jumbotron"   style="background-color:#022a3c;height:auto;margin-top:5%;"  >
       
       <div  style="padding:5%;" align="left">
       
       
         <p style="color:white;font-family:'Source Sans Pro', sans-serif;font-size:40px;margin-top:1%;line-height: 1.0;text-align:left;">Welcome to Reusing Dublin, a space to discover and share information about vacant or underused spaces in Dublin</p><br>
-        <p  style="color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;">Join us in unlocking the potential of the spaces in our city</p>
+        <p  style="color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;line-height: 1.0;text-align:left;">Join us in unlocking the potential of the spaces in our city.</p>
       </div>
       </div>
       </div>
-       </div>
+      </div>
+      
       <br>
       
-<div  class="col-md-12" > <br></div>
 
-  <div class="row">    <!-- Main component for a primary marketing message or call to action -->
-<div  class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
-      <div class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
+
+   <div class="row">  <!-- Main component for a primary marketing message or call to action -->
+<section id="menu2"  class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
+      <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
       
       <div style="padding:5%">
-        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">How it works</p>
-        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;">Using the map below, discover or add information about any underused sites you have noticed.</p>
-        <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
-                <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;"><b>Share your information</b> about a site.   </p><br/>
-            <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;"><b>Connect with others</b> who might be interested in the site.   </p>
+        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;line-height: 1.0;">How it works</p>
+        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;line-height: 1.0;">Using the map below, discover or add information about any underused sites you have noticed.</p>
+        <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;line-height: 1.0;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
+                <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Share your information</b> about a site.   </p><br/>
+            <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Connect with others</b> who might be interested in the site.   </p>
+      
       </div>
       </div>
-      </div>
+      </section>
+     
       </div>
       </div>
 
 <div i d="try">
 </div>
 
-
-<div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
+<section id="menu3">
+<div  id="menu3" class="container"  style="padding-top:20px;margin-left:2%;" align="center">
 <div  class="col-md-4"  style="margin-bottom:5px;">
 <input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=   
 "center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
@@ -1194,8 +1250,7 @@ function searc()
 <input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=   
 "center" value="FIND AN AREA"/>
 <input id="pac-input" style="color:#00afc9;border:none;font-size:17px;margin-left:1px;float:left;width:100px;" type="text" placeholder="SEARCH BOX" >
-<input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO"  onClick=   
-"javascript:searc()"/>
+<input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO" />
 <br/>
 <br/>
 <br/>
@@ -1203,7 +1258,7 @@ function searc()
 </div>
 
 
-<div class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
+<div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
 <div id="googleMap" align="center" style="width:100%;height:600px;float:left;border:thin;" ></div>
 
 <input type="hidden"  name="messages" ID="messages" width="50" height="10" readonly>
@@ -1211,12 +1266,13 @@ function searc()
 <div id="capture" align="justify" style="width:100%;background-color:#8ec63f;float:left;">
 </div>
 </div>
+</section>
 
-	<div  id="about"  >    	
+	<div >    	
 				         
     
     
-    <div class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
+    <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
 	  <div class="row">
 		<div class="col-sm-6" style="margin-left:7%;padding:5%;" >
 
@@ -1250,7 +1306,7 @@ Resilience and Sustainability).
 		</div>
        
     </div>
- </div>
+ </section>
  
 <?php
 require_once('includes/footer.php');

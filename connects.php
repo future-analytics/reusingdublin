@@ -37,12 +37,12 @@ echo "Data Uploaded !";
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
-	
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-    
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -59,8 +59,7 @@ echo "Data Uploaded !";
 </head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript">
 var map;
 var panorama;
@@ -81,16 +80,16 @@ var astorPlace = new google.maps.LatLng(a,b);
     center: astorPlace,
     zoom: 18,
     streetViewControl:false,
-	scrollwheel: false 
+	scrollwheel: false
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-	  
-  
+
+
    panorama = new google.maps.StreetViewPanorama(document.getElementById('map-canv'));
    sv.getPanoramaByLocation(astorPlace, 50, processSVData);
-  
+
 }
 
 
@@ -120,21 +119,21 @@ function processSVData(data, status) {
       });
       panorama.setVisible(true);
     });
-  } 
+  }
 }
 function goback()
 {
 	 var win1 = window.open("View_Form.php");
   win1.focus();
   this.close();
-	
+
 }
 function cll()
 {
 	 var win1 = window.open("View_Form.php");
   win1.focus();
   this.close();
-	
+
 }
 
 
@@ -144,8 +143,8 @@ function cll()
 
  <body onload="initialize()" style="background-color:#f4e851">
  <form   action="notifyssss.php" method="post"  enctype="multipart/form-data" autocomplete="off">
-             	
- 
+
+
 
     <!-- Fixed navbar -->
     <div style="background-color:#00afc9;">
@@ -158,7 +157,7 @@ function cll()
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:20%;width:20%;border-top:hidden;" /></a>
+          <a onClick="cll();">  <img src="reusing-drraft-13.04-04.png"  style="margin-top:7%;height:37%;width:37%;border-top:hidden;" /></a>
         </div>
         </div>
         <div class="container">
@@ -167,35 +166,31 @@ function cll()
             <li><a onClick="cll();" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
             <li><a href="#works" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:19px;">LEARN MORE ABOUT THE SITE</a></li>
             <li><a href="http://www.facebook.com/reusingdublin" target="_blank"><img style="float:!important;" href="www.facebook.com" src="facebook.png"></img></a></li>
-               <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="www.twitter.com"  src="twitter.png"></img></a></li>
-           
-       
+            <li><a href="http://www.twitter.com/reusingdublin" target="_blank"><img style="float:!important" href="www.twitter.com"  src="twitter.png"></img></a></li>
+
+
           </ul>
-        
+
         </div><!--/.nav-collapse -->
         </div>
       </div>
     </nav>
    </div>
-    
-  
-   <div class="container-fluid"  id="works" >
-    
-          <div style="width:100%;margin-right:80px;border:none;background-color:#FFF;padding:0px;background-color:transparent;border:none;" class="well sidebar-nav">
-          <input type="hidden" name="lat1" ID="lat" size="40"><br><br/><br/>
-      <input type="hidden" name="lon1" ID="lon" size="40"><br><br/><br/>
-            <div style="margin-left:100px;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;color:#960;">
-  <?php echo $msg ?>
-  </div> 
-            <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"> Tell us your idea for this site and fill out your contact details below!</font><br/>
-            
-            <br/>
-            <br/>
-<div id="map-canv"   style="height:300px;width:45%;float:left;" ></div> 
-<div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
-<br/><br/> <br/> 
 
-  
+
+   <div class="container-fluid"  id="works" >
+    <div style="width:100%;margin-right:80px;border:none;background-color:#FFF;padding:0px;background-color:transparent;border:none;" class="well sidebar-nav">
+     <input type="hidden" name="lat1" ID="lat" size="40"><br><br/><br/>
+     <input type="hidden" name="lon1" ID="lon" size="40"><br><br/><br/>
+    <div style="margin-left:100px;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;color:#960;">
+  <?php echo $msg ?>
+  </div>
+<font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;">Tell us your idea for this site and fill out your contact details below.</font><br/>
+<br/>
+<br/>
+<div id="map-canv"   style="height:300px;width:45%;float:left;" ></div>
+<div id="map-canvas"  style="height:300px;width:45%;float:right;" >   </div>
+<br/><br/> <br/>
 <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
 Name:
 </b>
@@ -219,7 +214,7 @@ specialKeys.push(190);
             document.getElementById("error").style.display = ret ? "none" : "inline";
             return ret;
         }
-		    </script>
+</script>
     <br/><br/>
  <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;" >
  Email ID:</b><br/>  <br/>
@@ -228,13 +223,10 @@ specialKeys.push(190);
 </label>
 <br/><br/>
 <b style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;float:left;width:100%;">
-<a href="http://www.facebook.com/reusingdublin"> Start a conversation about this site on the Facebook</a>:</b>
-<br/>  <br/>
-<label  style="width:100%;">
-<input type="text" name="facebookp" style="font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:regular;float:left;width:100%;width:100%;" id="facebookp1" align="absmiddle" />
-</label>
+<a href="http://www.facebook.com/reusingdublin">Start a conversation about this site on Facebook</a></b>
+<br/><br/>
 <div style="margin-top:5px;border:none;">
- <input type="button" name="submits"  style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;float:left;width:42%;background-color:#00afc9;color:white;" value="BACK"  onClick="javascript:goback()"/ >      
+ <input type="button" name="submits"  style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;float:left;width:42%;background-color:#00afc9;color:white;" value="BACK"  onClick="javascript:goback()"/ >
 <input type="submit" name="added" style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;float:left;width:44%;background-color:#00afc9;color:white;" value="UPLOAD"/>
 </div>
 </div>
@@ -243,9 +235,8 @@ specialKeys.push(190);
 <br/>
 <br/>
 </div>
+</form>
 
-</form>  
-     
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
