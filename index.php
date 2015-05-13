@@ -231,9 +231,7 @@ $(function() {
     }
   });
 });
-$(window).on("hashchange", function () {
-    window.scrollTo(window.scrollX, window.scrollY - 200);
-});
+
 
  $(document).scroll(function () {
   $('a[href="#menu1"]').addClass('active');
@@ -263,6 +261,9 @@ $(window).on("hashchange", function () {
 
 	 if (scroll_top >two_top && scroll_top < three_top) {
               $('a[href="#menu3"]').addClass('active');
+              $(window).on("hashchange", function () {
+                  window.scrollTo(window.scrollX, window.scrollY -300);
+              });
 			    document.getElementById("fourtha").style.color = "Black"
 				 document.getElementById("thirda").style.color = "Black"
 				  document.getElementById("seconda").style.color = "White"
@@ -289,6 +290,9 @@ $(window).on("hashchange", function () {
 
  if (scroll_top >four_top && scroll_top < five_top) {
               $('a[href="#menu5"]').addClass('active');
+              $(window).on("hashchange", function () {
+                  window.scrollTo(window.scrollX, window.scrollY + 300);
+              });
 			    document.getElementById("fourtha").style.color = "White"
 				 document.getElementById("thirda").style.color = "Black"
 				  document.getElementById("seconda").style.color = "Black"
@@ -1168,8 +1172,8 @@ require_once('includes/header.php');
 
 
 
-   <div class="row">  <!-- Main component for a primary marketing message or call to action -->
-<section id="menu2"  class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
+   <section id="menu2" class="row">  <!-- Main component for a primary marketing message or call to action -->
+<div   class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
       <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
 
       <div style="padding:5%">
@@ -1181,16 +1185,15 @@ require_once('includes/header.php');
 
       </div>
       </div>
-      </section>
+  </div>
 
       </div>
       </div>
 
-<div i d="try">
-</div>
+
 
 <section id="menu3">
-<div  id="menu3" class="container"  style="padding-top:20px;margin-left:2%;" align="center">
+<div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
 <div  class="col-md-4"  style="margin-bottom:5px;">
 <input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=
 "center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
@@ -1216,7 +1219,7 @@ require_once('includes/header.php');
 <br/>
 <br/>
 </div>
-</div>
+</section>
 
 
 <div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
