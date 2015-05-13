@@ -8,7 +8,7 @@
   </div>
   <div class="container" >
   <div id="navbar" class="navbar-collapse collapse" style="float:right;">
-    <ul class="nav navbar-nav" style="margin-top:-5%;">
+    <ul class="nav navbar-nav" style="margin-top:-4%;">
         <li><a href="#menu1" id="fiftha" class="active" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOME</a></li>
         <li><a href="#menu2" id="firsta" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">HOW IT WORKS</a></li>
         <li><a href="#menu3" id="seconda" style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:19px;">TRY IT OUT</a></li>
