@@ -1080,7 +1080,7 @@ google.maps.event.addDomListener(window, 'load',initialize);
     <font style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;" align="center">Have we made a mistake</font>
 
 
-     <p style="margin-left:3%;"><a href="emailphp.php" style="color:#FFF;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;margin-top:10px;"  class="btn btn-primary btn-large">LET US KNOW</a></p>
+     <p style="margin-left:3%;"><a href="emailphp.php?numb=<?php echo "1"?>" style="color:#FFF;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;margin-top:10px;"  class="btn btn-primary btn-large">LET US KNOW</a></p>
         </br>
 
 
@@ -1088,7 +1088,7 @@ google.maps.event.addDomListener(window, 'load',initialize);
 
 
 
-      <p style="margin-left:3%;"><a href="emailphp.php" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;margin-top:10px;" class="btn btn-primary btn-large">TELL US MORE</a></p>
+      <p style="margin-left:3%;"><a href="emailphp.php?numb=<?php echo "2"?>" style="color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:semibold;margin-top:10px;" class="btn btn-primary btn-large">TELL US MORE</a></p>
        </br>
 
 
