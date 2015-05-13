@@ -1,10 +1,31 @@
 <?php
+require_once('db.php');
+$num = $_GET["numb"];
+$latitude = $_POST['lat1'];
+$longitude = $_POST['lon1'];
+$results = mysqli_query($con,"select adress from SiteDetails where latitude = '$latitude' AND longitude = '$longitude'");
+while($rows = mysqli_fetch_assoc($results))
+{
+	$resultset[] = $rows;
+	$location= $resultset['adress'];
+
+}
 if(isset($_POST['added']))
 {
 $subject = $_POST['subjects'];
 $message = $_POST['messages'] ;
 $mail_from= $_POST['email'] ;
-$header = " : <$mail_from>";
+if($num=="1")
+{
+	$header = "Let us know: Site ".$location."";
+}
+else
+{
+	$header = "Further Info: Site ".$location."";
+}
+
+
+
 $to = "james.sweeney@futureanalytics.ie";
 $send_contact= mail($to,$subject,$message,$header);
 if($send_contact)

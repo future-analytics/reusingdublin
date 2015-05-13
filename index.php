@@ -47,11 +47,11 @@ if (!mysqli_query($con,$sql)){
  die('Error: ' . mysqli_error($con));
 }
 $subject = $_POST["email"];
-$message = "The following Person wants to Register with Us: ".$_POST["email"]." Thanks \n";
-$mail_from= $_POST['email'] ;
+$message = "The following Person wants to Register with Us:".$_POST["email"]." Thanks \n";
+$mail_from="".$_POST["email"]." wants to subscribe to Reusingdublin.\n";
 $header = " : <$mail_from>";
 $to = "james.sweeney@futureanalytics.ie";
-$send_contact= mail($to,$subject,$message,$header);
+$send_contact= @mail($to,$subject,$message,$header);
 if($send_contact)
 {    $nn = "";}
 }
@@ -1146,7 +1146,7 @@ contentstring = '';
 <?php
 require_once('includes/header.php');
 ?>
-<form id="myForm" method="post" action="test.php" enctype="multipart/form-data" autocomplete="off">
+<form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">
     <!-- Fixed navbar -->
 
      <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
