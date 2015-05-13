@@ -81,12 +81,11 @@ if($send_contact)
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
-<script type="text/javascript" src="OpenLayers.js"></script>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
@@ -269,9 +268,9 @@ $(window).on("hashchange", function () {
 				  document.getElementById("seconda").style.color = "White"
 				   document.getElementById("firsta").style.color = "Black"
 				    document.getElementById("fiftha").style.color = "Black"
-		 $('a[href="#menu2"]').removeClass('active');
-		 $('a[href="#menu4"]').removeClass('active');
-		 $('a[href="#menu1"]').removeClass('active');
+	          	 $('a[href="#menu2"]').removeClass('active');
+	           	 $('a[href="#menu4"]').removeClass('active');
+	         	 $('a[href="#menu1"]').removeClass('active');
 
     }
 
@@ -282,7 +281,7 @@ $(window).on("hashchange", function () {
 				  document.getElementById("seconda").style.color = "Black"
 				   document.getElementById("firsta").style.color = "Black"
 				    document.getElementById("fiftha").style.color = "Black"
-		 $('a[href="#menu3"]').removeClass('active');
+		      $('a[href="#menu3"]').removeClass('active');
 		      $('a[href="#menu5"]').removeClass('active');
 			  $('a[href="#menu1"]').removeClass('active');
 
