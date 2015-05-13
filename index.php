@@ -1269,13 +1269,13 @@ Resilience and Sustainability).
     </div>
  </section>
 
-     <section id="menu5" class="container"  style="padding-top:60px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" align="center"> <p>Subscribe to our mailing list to get notification about</br>
-upcoming news, latest project activities and much more!</p>
+
+ <section id="menu5" class="container" id="mail" style="padding-top:60px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" align="center"> <p style="width:100%;">Subscribe to our newsletter email to get notification about upcoming news, latest project activities and much more!</p>
 <div align="justify" style="width:100%">
 <input type="email" class="abc" name='email' style="background-color:#00afc9;width:58%;height:40px;float:left;border:none;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" id='email1' placeholder="Your Email Address">
-							<input type="submit" id="subscribe" style="background-color:#F00;color:white;height:40px;border:none;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:41%;margin-left:-1px;" name="added" class="subS" value="SUBSCRIBE" onClick="javascript:ValidateEmail();"/>
+                        <input type="submit" id="subscribe" style="background-color:#F00;color:white;height:40px;border:none;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:41%;margin-left:-1px;" name="added" class="subS" value="SUBSCRIBE" onClick="javascript:ValidateEmail();"/>
                         </div>
-                                                <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:13%;width:13%;float:!important;margin-left:1%;"><img  src="Eu_logo1.png" style="width:10%;float:!important; margin: 0px 40px;" ><img  src="images/turas.png"  style="height:17%;width:17%;float:!important;margin-left:1%;"></div>
+                                            <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:auto;width:25%;float:!important;margin-left:1%;"><img  src="Eu_logo1.png" style="height:auto;width:25%;float:!important;margin:0 40px;" ><img  src="images/turas.png"  style="height:auto;width:25%;float:!important;margin-left:1%;"></div>
 
 
 
