@@ -2,3 +2,5 @@
 
 # files
 db.php
+.remote-sync.json
+sftp-config.json

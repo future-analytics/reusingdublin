@@ -1,10 +1,30 @@
 <?php
+require_once('db.php');
+$num = $_GET["numb"];
+$latitude = $_POST['lat1'];
+$longitude = $_POST['lon1'];
+$results = mysqli_query($con,"select Location from Address1 where Latitude = '$latitude' AND Longitude = '$longitude'");
+while($rows = mysqli_fetch_assoc($results))
+{
+	$resultset[] = $rows;
+	$location= $resultset['Location'];
+
+}
+
 if(isset($_POST['added']))
 {
-$subject = $_POST['subjects'];
+
 $message = $_POST['messages'] ;
 $mail_from= $_POST['email'] ;
-$header = " : <$mail_from>";
+if($num=="1")
+{
+	$header = "Let us know: Site ".$location."";
+}
+else
+{
+	$header = "Further Info: Site ".$location."";
+}
+
 $to = "james.sweeney@futureanalytics.ie";
 $send_contact= mail($to,$subject,$message,$header);
 if($send_contact)
@@ -167,7 +187,7 @@ function cll()
 	<?php
 	require_once('includes/header.php');
 	?>
-  	
+
  <form   action="notifyss.php" method="post"  enctype="multipart/form-data" autocomplete="off">
 
 
