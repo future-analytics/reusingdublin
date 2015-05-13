@@ -1101,7 +1101,7 @@ marker.setMap(null);
 }
 //Function called on the click event of the button 'Add A Site' to change the variable y value.
 function addasite()
-{   
+{
     alert(' Left Click on the Map with your mouse to Add a New Site !');
     y = 1;
 }
@@ -1271,6 +1271,6 @@ Resilience and Sustainability).
 
     </div>
  </section>
- 
+
 <?php
 require_once('includes/footer.php');
