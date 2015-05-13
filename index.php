@@ -1275,7 +1275,7 @@ Resilience and Sustainability).
 <input type="email" class="abc" name='email' style="background-color:#00afc9;width:58%;height:40px;float:left;border:none;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" id='email1' placeholder="Your Email Address">
                         <input type="submit" id="subscribe" style="background-color:#F00;color:white;height:40px;border:none;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:41%;margin-left:-1px;" name="added" class="subS" value="SUBSCRIBE" onClick="javascript:ValidateEmail();"/>
                         </div>
-                                            <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:auto;width:25%;float:!important;margin-left:1%;"><img  src="Eu_logo1.png" style="height:auto;width:25%;float:!important;margin:0 40px;" ><img  src="images/turas.png"  style="height:auto;width:25%;float:!important;margin-left:1%;"></div>
+                                            <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:auto;width:25%;float:!important;margin-left:1%;"><img  src="Eu_logo1.png" style="height:auto;width:25%;float:!important;margin:0 3%;" ><img  src="images/turas.png"  style="height:auto;width:25%;float:!important;margin-left:1%;"></div>
 
 
 
