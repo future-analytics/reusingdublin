@@ -47,11 +47,11 @@ if (!mysqli_query($con,$sql)){
  die('Error: ' . mysqli_error($con));
 }
 $subject = $_POST["email"];
-$message = "The following Person wants to Register with Us: ".$_POST["email"]." Thanks \n";
-$mail_from= $_POST['email'] ;
+$message = "The following Person wants to Register with Us:".$_POST["email"]." Thanks \n";
+$mail_from="".$_POST["email"]." wants to subscribe to Reusingdublin.\n";
 $header = " : <$mail_from>";
 $to = "james.sweeney@futureanalytics.ie";
-$send_contact= mail($to,$subject,$message,$header);
+$send_contact= @mail($to,$subject,$message,$header);
 if($send_contact)
 {    $nn = "";}
 }
@@ -231,9 +231,7 @@ $(function() {
     }
   });
 });
-$(window).on("hashchange", function () {
-    window.scrollTo(window.scrollX, window.scrollY - 200);
-});
+
 
  $(document).scroll(function () {
   $('a[href="#menu1"]').addClass('active');
@@ -263,6 +261,9 @@ $(window).on("hashchange", function () {
 
 	 if (scroll_top >two_top && scroll_top < three_top) {
               $('a[href="#menu3"]').addClass('active');
+              $(window).on("hashchange", function () {
+                  window.scrollTo(window.scrollX, window.scrollY -300);
+              });
 			    document.getElementById("fourtha").style.color = "Black"
 				 document.getElementById("thirda").style.color = "Black"
 				  document.getElementById("seconda").style.color = "White"
@@ -289,6 +290,9 @@ $(window).on("hashchange", function () {
 
  if (scroll_top >four_top && scroll_top < five_top) {
               $('a[href="#menu5"]').addClass('active');
+              $(window).on("hashchange", function () {
+                  window.scrollTo(window.scrollX, window.scrollY + 300);
+              });
 			    document.getElementById("fourtha").style.color = "White"
 				 document.getElementById("thirda").style.color = "Black"
 				  document.getElementById("seconda").style.color = "Black"
@@ -1149,7 +1153,7 @@ function selectchange()
 <?php
 require_once('includes/header.php');
 ?>
-<form id="myForm" method="post" action="test.php" enctype="multipart/form-data" autocomplete="off">
+<form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">
     <!-- Fixed navbar -->
 
      <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
@@ -1171,8 +1175,8 @@ require_once('includes/header.php');
 
 
 
-   <div class="row">  <!-- Main component for a primary marketing message or call to action -->
-<section id="menu2"  class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
+   <section id="menu2" class="row">  <!-- Main component for a primary marketing message or call to action -->
+<div   class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
       <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
 
       <div style="padding:5%">
@@ -1184,16 +1188,15 @@ require_once('includes/header.php');
 
       </div>
       </div>
-      </section>
+  </div>
 
       </div>
       </div>
 
-<div i d="try">
-</div>
+
 
 <section id="menu3">
-<div  id="menu3" class="container"  style="padding-top:20px;margin-left:2%;" align="center">
+<div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
 <div  class="col-md-4"  style="margin-bottom:5px;">
 <input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=
 "center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
@@ -1219,7 +1222,7 @@ require_once('includes/header.php');
 <br/>
 <br/>
 </div>
-</div>
+</section>
 
 
 <div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
@@ -1271,6 +1274,32 @@ Resilience and Sustainability).
 
     </div>
  </section>
+<<<<<<< HEAD
 
 <?php
 require_once('includes/footer.php');
+=======
+
+
+ <section id="menu5" class="container" id="mail" style="padding-top:60px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" align="center">
+      <p style="width:100%;margin-left:7%;" align="center;">Subscribe to our newsletter email to get notification about upcoming news, latest project activities and much more!</p>
+<div align="justify" style="width:100%">
+<input type="email" class="abc" name='email' style="background-color:#00afc9;width:58%;height:40px;float:left;border:none;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" id='email1' placeholder="Your Email Address">
+                        <input type="submit" id="subscribe" style="background-color:#F00;color:white;height:40px;border:none;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:41%;margin-left:-1px;" name="added" class="subS" value="SUBSCRIBE" onClick="javascript:ValidateEmail();"/>
+                        </div>
+                                            <div style="width:100%;padding:5%;">       <img  src="reusing-drraft-13 04-03.png" style="height:13%;width:13%;margin-left:12%;"><img  src="Eu_logo1.png" style="height:8%;width:25%;float:!important;margin:0 5%;" ><img  src="images/turas.png"  style="height:17%;width:17%;float:!important;margin-left:1%;"></div>
+
+
+
+ </section>
+
+    <!-- Bootstrap core JavaScript--->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <div class="container" style="margin-bottom:0%;float:center;" align="justify" >
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Reusing Dublin</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+  </body>
+</html>
+>>>>>>> master
