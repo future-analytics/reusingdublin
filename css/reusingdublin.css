@@ -1,27 +1,30 @@
-header.reusingdublin{
+nav#reusingdublin{
 	background-color: #00afc9;
 	height: 112px;
 }
-header img#logo{
-	width: 140px;
-	height: 50px;
+nav#reusingdublin a.navbar-brand{
 	margin: 30px 0 0 0;
 }
-header nav.navbar{
+nav#reusingdublin a.navbar-brand img{
+	width: 140px;
+	height: 50px;
+}
+nav#reusingdublin #navbar{
 	background-color: #00afc9;
 	border: 0;
-	margin: 45px 0 0;
+	margin: 60px 0 0;
+	height: 50px !important;
 }
-header nav.navbar ul.page-links li,
-header nav.navbar ul.social-links li{
+nav#reusingdublin #navbar ul.page-links li,
+nav#reusingdublin #navbar ul.social-links li{
 	list-style: none;
 	float: left;
 }
-header nav.navbar ul > li > a{
+nav#reusingdublin #navbar ul > li > a{
 	color:#000 !important;
 	font-family:'Source Sans Pro', sans-serif;
 	font-size:19px;
 }
-header nav.navbar ul > li > a:hover{
+nav#reusingdublin #navbar ul > li > a:hover{
 	color:#fff !important;
 }

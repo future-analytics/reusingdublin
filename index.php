@@ -82,7 +82,6 @@ if($send_contact)
 <!-- Custom styles for this template -->
 <!-- <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet"> -->
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
-<link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
