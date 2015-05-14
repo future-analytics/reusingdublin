@@ -418,7 +418,7 @@ map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 //Settings the contents for the marker infowindow.
 contents = '<div id="ppp" style="width:280px; height:150px;">' + '<a href="Entry_Form.php" onclick="goclicky(this); return false;" target="_blank" style="background-color:#f4e851;border:none;font-family:Source Sans Pro, sans-serif;font-size:17px;height:40px;width:280px;color:black;font-weight:600;" class="btn btn-primary btn-large"  >ENTER THE DESCRIPTION</a>' + '<br/>' +'<a href="Update_Form.php" onclick="goclicky(this); return false;" target="_blank"   style="background-color:#f4e851;border:none;height:40px;width:280px;;margin-top:5px;color:black;font-size:17px;font-weight:600;font-family:Source Sans Pro, sans-serif" class="btn btn-primary btn-large" target="_blank">UPDATE THE DESCRIPTION</a>' + '<br/>' + '<a href="View_Form.php"  style="background-color:#f4e851;border:none;height:40px;width:280px;color:black;margin-top:5px;font-size:17px;font-family:Source Sans Pro, sans-serif;font-weight:600;" class="btn btn-primary btn-large" target="_blank">VIEW THE DESCRIPTION</a>' + '</div>' ;
 //Setting the source for the luas kmz file.
-var src2 = 'http://factest.ie/kmls/Luas.kmz'
+var src2 = 'http://www.reusingdublin.ie/Luas.kmz'
 var UCLAParking = new google.maps.KmlLayer(src2,{ suppressInfoWindows: true,
 preserveViewport:true,
 map: map});
@@ -562,7 +562,7 @@ var llllll= locatt[z];
 var mylatlng =new google.maps.LatLng(xx,yy);
 //Initializes the Image of the marker for the user sites;
 var image = {
-url:'http://www.factest.ie/timber/icon1.png',
+url:'http://www.reusingdublin.ie/icon1.png',
 // This marker is 20 pixels wide by 32 pixels tall.
 size: new google.maps.Size(30, 35)
 };
@@ -898,7 +898,7 @@ if(derelict == 'Vacant Land')
 	var loooo   = "<?php echo $marker['Location']; ?>";
 	var mylatlng =new google.maps.LatLng(<?php echo $marker['Latitude']; ?>,<?php echo $marker['Longitude'];?>);
 	var image = {
-    url:'http://www.factest.ie/timber/icon2.png',
+    url:'http://www.reusingdublin.ie/icon2.png',
     // This marker is 20 pixels wide by 32 pixels tall.
     size: new google.maps.Size(30, 35)
 	};
@@ -928,7 +928,7 @@ else
 var mylatlng =new google.maps.LatLng(<?php echo $marker['Latitude']; ?>,<?php echo $marker['Longitude'];?>);
 var lll   = "<?php echo $marker['Latitude']; ?>";
 var image = {
-    url:'http://www.factest.ie/timber/icon3.png',
+    url:'http://www.reusingdublin.ie/icon3.png',
    // This marker is 20 pixels wide by 32 pixels tall.
    size: new google.maps.Size(30, 35)
 };
@@ -1085,7 +1085,7 @@ infoWindow.open(map, marker);
 //Placing marker on the map ona given location.
 function placeMarker(location){
     var image = {
-        url:'http://www.factest.ie/dublinapp/images/icon1.png',
+        url:'http://www.reusingdublin.ie/icon1.png',
         // This marker is 28 pixels wide by 27 pixels tall.
         size: new google.maps.Size(28, 27)
 	};
