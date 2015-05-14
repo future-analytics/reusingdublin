@@ -1,5 +1,5 @@
 <div style="background-color:#00afc9;">
-<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%;height:20%">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#00afc9;border:none;width:100%">
 <div class="container" >
   <div class="navbar-header" >
 
