@@ -4,7 +4,7 @@
 */
 ?>
 <section id="menu5" class="container"  style="padding-top:60px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" align="center">
-	<p>Subscribe to our mailing list to get notification about</br>
+	<p style="margin-left:25%">Subscribe to our mailing list to get notification about</br>
 	upcoming news, latest project activities and much more!</p>
 	<div align="justify" style="width:100%">
 		<input type="email" class="abc" name='email' style="background-color:#00afc9;width:58%;height:40px;float:left;border:none;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;" id='email1' placeholder="Your Email Address">
