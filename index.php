@@ -23,10 +23,12 @@ if(isset($_POST['added']))
 
 $result3 = mysqli_query($con,"SELECT * FROM emailss");
 while($row3 = mysqli_fetch_assoc($result3))
-{	$data3[] = $row3;
+{	
+$data3[] = $row3;
 }
 foreach($data3 as $data4)
-{$ttt= $_POST['email'];
+{
+$ttt= $_POST['email'];
 $ggg = $data4['email'];
 if(($ggg == $ttt )&&(!empty($ttt)))
 {
@@ -60,25 +62,25 @@ if($send_contact)
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 <link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'>
 <link rel="stylesheet" type="text/css" href="css/slicknav.css">
 <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
 <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -87,69 +89,68 @@ if($send_contact)
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <style>
 input[type='text']::-webkit-input-placeholder {
-	font-family:'Source Sans Pro', sans-serif;
-	font-size:17px;
-	font-weight:600;
-   color: #00afc9;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:17px;
+		font-weight:600;
+		color: #00afc9;
 }
 
 
 input[type='text']::-moz-placeholder { /* Firefox 18- */
-      color: #00afc9;
-	  font-family:'Source Sans Pro', sans-serif;
-	font-size:20px;
-	font-weight:600;
+		color: #00afc9;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:20px;
+		font-weight:600;
 }
 
 input[type='text']::-moz-placeholder {  /* Firefox 19+ */
-      color: #00afc9;
-	  font-family:'Source Sans Pro', sans-serif;
-	font-size:20px;
-	font-weight:600;
+		color: #00afc9;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:20px;
+		font-weight:600;
 }
 
 input[type='text']::-ms-input-placeholder {
-      color: #00afc9;
-	  font-family:'Source Sans Pro', sans-serif;
-	font-size:20px;
-	font-weight:600;
+		color: #00afc9;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:20px;
+		font-weight:600;
 }
 input[type='email']::-webkit-input-placeholder {
-	font-family:'Source Sans Pro', sans-serif;
-	font-size:17px;
-	font-weight:600;
-   color: #FFF;
-   align:center;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:17px;
+		font-weight:600;
+		color: #FFF;
+		align:center;
 }
 
 
 input[type='email']::-moz-placeholder { /* Firefox 18- */
-      color: #FFF;
-	  font-family:'Source Sans Pro', sans-serif;
-	font-size:20px;
-	font-weight:600;
-	align:center;
+		color: #FFF;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:20px;
+		font-weight:600;
+		align:center;
 }
 
 input[type='email']::-moz-placeholder {  /* Firefox 19+ */
-      color: #FFF;
-	  font-family:'Source Sans Pro', sans-serif;
-	font-size:20px;
-	font-weight:600;
-	align:center;
+		color: #FFF;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:20px;
+		font-weight:600;
+		align:center;
 }
 
 input[type='email']::-ms-input-placeholder {
-      color: #FFF;
-	  font-family:'Source Sans Pro', sans-serif;
-	font-size:20px;
-	font-weight:600;
-	align:center;
+		color: #FFF;
+		font-family:'Source Sans Pro', sans-serif;
+		font-size:20px;
+		font-weight:600;
+		align:center;
 }
 .ppp.a
 {
@@ -162,25 +163,25 @@ input[type='email']::-ms-input-placeholder {
 li:hover {
     font-color:#FFF;
 }
-  @media only screen and (max-width : 768px)  {
-	  .news{margin-top:-20px;}
-  }
-   @media screen and (max-width: 768px)
- {
-    br
-    {
-       display: none
-
-    }
+@media only screen and (max-width : 768px)  {
+  .news{margin-top:-20px;}
+}
+@media screen and (max-width: 768px)
+{
+	br
+	{
+	   display: none
+	
+	}
 	.jumbotron
 	{
 		width:90%;
 	}
 
- }
+}
 
  .active {
-color:#FFF;
+	color:#FFF;
 }
 
 
@@ -216,25 +217,25 @@ color:#FFF;
 
 </script>
 
-<script type="text/javascript">
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top - 110
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+		<script type="text/javascript">
+        $(function() {
+						$('a[href*=#]:not([href=#])').click(function() {
+						if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+						$('html,body').animate({
+						scrollTop: target.offset().top - 110
+						}, 1000);
+						return false;
+						}
+						}
+						});
+        });
 
     //handle the scroll event 
     $(document).scroll(function () {
-
+        document.getElementById("firsta").style.color   = "White";
         //global constants for page part y px's
         var scroll_top  = $(document).scrollTop();
         var one_btm     = $('#menu1').position().top;
@@ -246,8 +247,8 @@ $(function() {
         //home
         //$('a[href="#menu1"]').addClass('active');
         //document.getElementById("fiftha").style.color = "White";
-        console.log(scroll_top, two_top);
-        if(scroll_top<two_top)
+        
+        if(scroll_top<one_btm)
         {
             console.log('foobar');
             $('a[href="#menu1"]').addClass('active');
@@ -321,35 +322,35 @@ $(function() {
 
 <script type="text/javascript">
 //initializing the variables
-var activeWindow = new google.maps.InfoWindow();
-var markers = [];
-var src1 = 'http://factest.ie/areaoutline.kml';
-var contentstring;
-var map;
-var x = 0;
-var test = [];
-var y = 0;
-var z = 0;
-var contents;
-var a = [];
-var b = [];
-var c = [];
-var d = [];
-var e = [];
-var ff = [];
-var numbbb = 0;
-var bounds = new google.maps.LatLngBounds();
-var layers = [];
-var latitudes = [];
-var longitudes = [];
-var locatt = [];
-var latitudess = [];
-var longitudess = [];
-var locattt = [];
-var location ;
-var gmarkers1 = [];
-var gmarkers=[];
-var mapProp;
+			var activeWindow = new google.maps.InfoWindow();
+			var markers = [];
+			var src1 = 'http://factest.ie/areaoutline.kml';
+			var contentstring;
+			var map;
+			var x = 0;
+			var test = [];
+			var y = 0;
+			var z = 0;
+			var contents;
+			var a = [];
+			var b = [];
+			var c = [];
+			var d = [];
+			var e = [];
+			var ff = [];
+			var numbbb = 0;
+			var bounds = new google.maps.LatLngBounds();
+			var layers = [];
+			var latitudes = [];
+			var longitudes = [];
+			var locatt = [];
+			var latitudess = [];
+			var longitudess = [];
+			var locattt = [];
+			var location ;
+			var gmarkers1 = [];
+			var gmarkers=[];
+			var mapProp;
 var myCenter=new google.maps.LatLng(53.347884693,-6.2731253419999575);
 //initializing the map properties and style to be used
 var mapProp = {
@@ -446,10 +447,10 @@ activeWindow.close();
 //Store new window in global variable
 activeWindow = infoWindow;
 });
-	var marker2 =  new google.maps.Marker({
-		position : position2,
-		map : map,
-		title: 'Heuston Station'
+			var marker2 =  new google.maps.Marker({
+			position : position2,
+			map : map,
+			title: 'Heuston Station'	
 	});
 google.maps.event.addListener(marker2, 'mouseover', function(event) {
 var infoWindow = new google.maps.InfoWindow({
@@ -672,17 +673,7 @@ layers[2] = new google.maps.FusionTablesLayer({
     fillOpacity: .9}
  }
 
-
-
-
-
-
-
-
-
-
-
- ] ,
+] ,
         map: map,
 		suppressInfoWindows: true,
         styleId: 2,
@@ -757,99 +748,98 @@ layers[3] = new google.maps.FusionTablesLayer({
   y = 0;
   });
  layers[4]= new google.maps.FusionTablesLayer({
-       query: {
-       select: "col0",
-	      from: "1yqEULmUVjBJp8MO83rNMs3W9mUh_vnx5xEslAFsr"
-
-            },
-  styles: [
-   {
-    where: "'YEAR' = '2014'",
-	 polygonOptions: {
-    fillColor: '#112d2e',
-    fillOpacity: 1.0}
+		query: {
+		select: "col0",
+		from: "1yqEULmUVjBJp8MO83rNMs3W9mUh_vnx5xEslAFsr"
+		
+		},
+		styles: [
+		{
+		where: "'YEAR' = '2014'",
+		polygonOptions: {
+		fillColor: '#112d2e',
+		fillOpacity: 1.0}
+		},
+  {
+		where: "'YEAR' = '2013'",
+		polygonOptions: {
+		fillColor: '#226247',
+		fillOpacity: 1.0}
  },
   {
-    where: "'YEAR' = '2013'",
-	 polygonOptions: {
-    fillColor: '#226247',
-    fillOpacity: 1.0}
+		where: "'YEAR' = '2012'",
+		polygonOptions: {
+		fillColor: '#2c8057',
+		fillOpacity: .8}
  },
   {
-    where: "'YEAR' = '2012'",
-	 polygonOptions: {
-    fillColor: '#2c8057',
-    fillOpacity: .8}
- },
-  {
-    where: "'YEAR' = '2011'",
-	 polygonOptions: {
-    fillColor: '#6ab64d',
-    fillOpacity: 1.0}
+		where: "'YEAR' = '2011'",
+		polygonOptions: {
+		fillColor: '#6ab64d',
+		fillOpacity: 1.0}
  },
  {
-    where: "'YEAR' = '2010'",
-	 polygonOptions: {
-    fillColor: '#d3d627',
-    fillOpacity: 1.0}
+		where: "'YEAR' = '2010'",
+		polygonOptions: {
+		fillColor: '#d3d627',
+		fillOpacity: 1.0}
  },
   {
-    where: "'YEAR' = '2009'",
-	 polygonOptions: {
-    fillColor: '#f7ec1f',
-    fillOpacity: 0.5}
+		where: "'YEAR' = '2009'",
+		polygonOptions: {
+		fillColor: '#f7ec1f',
+		fillOpacity: 0.5}
  },
   {
-    where: "'YEAR' = '2008'",
-	 polygonOptions: {
-    fillColor: '#eed47b',
-    fillOpacity: 0.3}
+		where: "'YEAR' = '2008'",
+		polygonOptions: {
+		fillColor: '#eed47b',
+		fillOpacity: 0.3}
  },
   {
-    where: "'YEAR' = '2007'",
-	 polygonOptions: {
-    fillColor: '#ebb45d',
-    fillOpacity: 0.2}
+		where: "'YEAR' = '2007'",
+		polygonOptions: {
+		fillColor: '#ebb45d',
+		fillOpacity: 0.2}
  },
   {
-    where: "'YEAR' = '2006'",
-	 polygonOptions: {
-    fillColor: '#fcb017',
-    fillOpacity: 0.4}
+		where: "'YEAR' = '2006'",
+		polygonOptions: {
+		fillColor: '#fcb017',
+		fillOpacity: 0.4}
  },
   {
-    where: "'YEAR' = '2005'",
-	 polygonOptions: {
-    fillColor: '#d76930',
-    fillOpacity: 0.6}
+		where: "'YEAR' = '2005'",
+		polygonOptions: {
+		fillColor: '#d76930',
+		fillOpacity: 0.6}
  },
  {
-    where: "'YEAR' = '2004'",
-	 polygonOptions: {
-    fillColor: '#d03132',
-    fillOpacity: .8}
+		where: "'YEAR' = '2004'",
+		polygonOptions: {
+		fillColor: '#d03132',
+		fillOpacity: .8}
  },
-
 
 {
-    where: "'YEAR' = '2003'",
-	 polygonOptions: {
-    fillColor: '#901a1c',
-	   fillOpacity: 1.0}
+		where: "'YEAR' = '2003'",
+		polygonOptions: {
+		fillColor: '#901a1c',
+		fillOpacity: 1.0}
  }
  ] ,
 
-suppressInfoWindows: true,
-map: map,
-styleId: 2,
-templateId: 2
+		suppressInfoWindows: true,
+		map: map,
+		styleId: 2,
+		templateId: 2
 
 });
 google.maps.event.addListener(layers[4], 'click', function(event){
 if(y==1)
 {
- var location5 = event.latLng;
- placeMarker(location5);
+		var location5 = event.latLng;
+		placeMarker(location5);
 }
 y = 0;
 });
@@ -1000,31 +990,31 @@ var markerCluster = new MarkerClusterer(map, gmarkers);
 }
 //Binding an info window with the official utilized and underutilized markers .
 function bindInfoWindow(marker, map,a1,b1,loooo) {
-var location;
-var desc;
-var h;
-var lat = a1;
-var lon = b1;
-var found = false;
-sessionStorage.setItem("locat", loooo);
-google.maps.event.addListener(marker, 'mouseover', function(event) {
-//Creating mouseover event for the marker.
-sessionStorage.setItem("lll", ' ');
-sessionStorage.setItem("llll", ' ');
-sessionStorage.setItem("locat", ' ');
-var latln = event.latLng;
-var lngs = latln.lat();
-var lats = latln.lng();
-//Setting session storage variable as null and assign it the variable obtained from the click event of the mouseover event.
-sessionStorage.setItem("lll", lngs);
-sessionStorage.setItem("llll", lats);
-sessionStorage.setItem("locat", loooo);
-var found = false;
-for(var n = 0; n < a.length && !found; n++) {
-if (a[n] == lngs && b[n]== lats) {
-found = true;
-location = c[n];
-desc = d[n];
+		var location;
+		var desc;
+		var h;
+		var lat = a1;
+		var lon = b1;
+		var found = false;
+		sessionStorage.setItem("locat", loooo);
+		google.maps.event.addListener(marker, 'mouseover', function(event) {
+		//Creating mouseover event for the marker.
+		sessionStorage.setItem("lll", ' ');
+		sessionStorage.setItem("llll", ' ');
+		sessionStorage.setItem("locat", ' ');
+		var latln = event.latLng;
+		var lngs = latln.lat();
+		var lats = latln.lng();
+		//Setting session storage variable as null and assign it the variable obtained from the click event of the mouseover event.
+		sessionStorage.setItem("lll", lngs);
+		sessionStorage.setItem("llll", lats);
+		sessionStorage.setItem("locat", loooo);
+		var found = false;
+		for(var n = 0; n < a.length && !found; n++) {
+		if (a[n] == lngs && b[n]== lats) {
+		found = true;
+		location = c[n];
+		desc = d[n];
 h =  '<div style="width:300px; height:180px;font-family:Source Sans Pro, sans-serif;font-size:20px;font-weight:bold;">' + " " + location + '</br>' +'</br>'+ '</br>' + '<a href="ViewData.php"  style="background-color:#9dd7e3;border:none;font-family:Source Sans Pro, sans-serif;font-size:17px;height:40px;width:280px;color:black;font-weight:600;" class="btn btn-primary btn-large" target="_blank">LEARN MORE ABOUT THE SITE</a>' + '<br/>' + '</div>';
 }
 }
@@ -1032,12 +1022,10 @@ var infoWindow = new google.maps.InfoWindow({
   content : h
 });
 infoWindow.open(map, marker);
- if(activeWindow != null)
-                       activeWindow.close();
-
-                     //Store new window in global variable
-                    activeWindow = infoWindow;
-
+if(activeWindow != null)
+activeWindow.close();
+//Store new window in global variable
+activeWindow = infoWindow;
 });
 // here i want to show tooltip with location got from event  (event.latLng)
 }
@@ -1084,35 +1072,35 @@ infoWindow.open(map, marker);
 
 //Placing marker on the map ona given location.
 function placeMarker(location){
-    var image = {
-        url:'http://www.reusingdublin.ie/icon1.png',
-        // This marker is 28 pixels wide by 27 pixels tall.
-        size: new google.maps.Size(28, 27)
-	};
-
-   marker = new google.maps.Marker({
-   position: location,
-   map: map,
-   icon : image,
-   title: 'Click Here for more details'
-});
-markers.push(marker);
-var lngss = location.lat();
-var latss = location.lng();
-//Creating a session storage variable to store the latitude and longitude information in it.
-sessionStorage.setItem("lll", lngss);
-sessionStorage.setItem("llll", latss);
-//Creating an infowindow to store the info window contents to the marker.
-var infowindow = new google.maps.InfoWindow({
-// content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng() + '<br>Enter The Description:' + infoWindowHtml + '<br>View The Description: ' + infoWindowHtml1 + '<br>Update The //Description: ' + infoWindowHtml2
-content : contents
-});
-infowindow.open(map,marker);
-//Adding double click event on the google maps.
-google.maps.event.addListener(marker, 'dblclick', function(event) {
-marker.setMap(null);
-});
-}
+		var image = {
+		url:'http://www.reusingdublin.ie/icon1.png',
+		// This marker is 28 pixels wide by 27 pixels tall.
+		size: new google.maps.Size(28, 27)
+		};
+		
+		marker = new google.maps.Marker({
+		position: location,
+		map: map,
+		icon : image,
+		title: 'Click Here for more details'
+		});
+		markers.push(marker);
+		var lngss = location.lat();
+		var latss = location.lng();
+		//Creating a session storage variable to store the latitude and longitude information in it.
+		sessionStorage.setItem("lll", lngss);
+		sessionStorage.setItem("llll", latss);
+		//Creating an infowindow to store the info window contents to the marker.
+		var infowindow = new google.maps.InfoWindow({
+		// content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng() + '<br>Enter The Description:' + infoWindowHtml + '<br>View The Description: ' + infoWindowHtml1 + '<br>Update The //Description: ' + infoWindowHtml2
+		content : contents
+		});
+		infowindow.open(map,marker);
+		//Adding double click event on the google maps.
+		google.maps.event.addListener(marker, 'dblclick', function(event) {
+		marker.setMap(null);
+		});
+		}
 //Function called on the click event of the button 'Add A Site' to change the variable y value.
 function addasite()
 {
@@ -1164,126 +1152,122 @@ function selectchange()
 require_once('includes/header.php');
 ?>
 <form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">
-    <!-- Fixed navbar -->
-
-     <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
-<div class="row"><!-- Main component for a primary marketing message or call to action -->
-<div class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
-      <div class="jumbotron"   style="background-color:#022a3c;height:auto;margin-top:5%;"  >
-
-      <div  style="padding:5%;" align="left">
-
-
-        <p style="color:white;font-family:'Source Sans Pro', sans-serif;font-size:40px;margin-top:1%;line-height: 1.0;text-align:left;">Welcome to Reusing Dublin, a space to discover and share information about vacant or underused spaces in Dublin</p><br>
-        <p  style="color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;line-height: 1.0;text-align:left;">Join us in unlocking the potential of the spaces in our city.</p>
-      </div>
-      </div>
-      </div>
-      </div>
-
-      <br>
+            <!-- Fixed navbar -->
+            <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
+            <div class="row"><!-- Main component for a primary marketing message or call to action -->
+            <div class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
+            <div class="jumbotron"   style="background-color:#022a3c;height:auto;margin-top:5%;"  >
+            <div  style="padding:5%;" align="left">
+            <p style="color:white;font-family:'Source Sans Pro', sans-serif;font-size:40px;margin-top:1%;line-height: 1.0;text-align:left;">Welcome to Reusing Dublin, a space to discover and share information about vacant or underused spaces in Dublin</p><br>
+            <p  style="color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;line-height: 1.0;text-align:left;">Join us in unlocking the potential of the spaces in our city.</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            <br>
 
 
 
-   <section id="menu2" class="row">  <!-- Main component for a primary marketing message or call to action -->
-<div   class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
-      <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
-
-      <div style="padding:5%">
-        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;line-height: 1.0;">How it works</p>
-        <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;line-height: 1.0;">Using the map below, discover or add information about any underused sites you have noticed.</p>
-        <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;line-height: 1.0;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
-                <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Share your information</b> about a site.   </p><br/>
-            <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Connect with others</b> who might be interested in the site.   </p>
-
-      </div>
-      </div>
-  </div>
-
-      </div>
-      </div>
-
-
-
-<section id="menu3">
-<div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
-<div  class="col-md-4"  style="margin-bottom:5px;">
-<input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=
-"center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
-</div>
-
-<div  class="col-md-4"  style="margin-bottom:5px;">
-<select  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:auto;" id="pac-input1" align=
-"center" onChange="selectchange()">
-<option align="center">MORE INFORMATION</option>
-<option value="3">DCC DEVELOPMENT PLAN ZONINGS</option>
-<option value="6">PROTECTED STRUCTURES</option>
-<option value="2">BUILDINGS USAGE</option>
-<option value="4">DCC PLANNING APPLICATIONS</option>
-</select>
-</div>
-
-<div    class="col-md-4"  style="margin-bottom:5px;float:left;">
-<input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=
-"center" value="FIND AN AREA"/>
-<input id="pac-input" style="color:#00afc9;border:none;font-size:17px;margin-left:1px;float:left;width:100px;" type="text" placeholder="SEARCH BOX" >
-<input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO" />
-<br/>
-<br/>
-<br/>
-</div>
-</section>
+            <section id="menu2" class="row">  <!-- Main component for a primary marketing message or call to action -->
+            <div   class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
+            <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
+            
+            <div style="padding:5%">
+            <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;line-height: 1.0;">How it works</p>
+            <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;line-height: 1.0;">Using the map below, discover or add information about any underused sites you have noticed.</p>
+            <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;line-height: 1.0;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
+                    <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Share your information</b> about a site.   </p><br/>
+                <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Connect with others</b> who might be interested in the site.   </p>
+            
+            </div>
+            </div>
+            </div>
+            
+            </div>
+            </div>
 
 
-<div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
-<div id="googleMap" align="center" style="width:100%;height:600px;float:left;border:thin;" ></div>
+            
+            <section id="menu3">
+            <div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
+            <div  class="col-md-4"  style="margin-bottom:5px;">
+            <input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=
+            "center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
+            </div>
+            
+            <div  class="col-md-4"  style="margin-bottom:5px;">
+            <select  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:auto;" id="pac-input1" align=
+            "center" onChange="selectchange()">
+            <option align="center">MORE INFORMATION</option>
+            <option value="3">DCC DEVELOPMENT PLAN ZONINGS</option>
+            <option value="6">PROTECTED STRUCTURES</option>
+            <option value="2">BUILDINGS USAGE</option>
+            <option value="4">DCC PLANNING APPLICATIONS</option>
+            </select>
+            </div>
+            
+            <div    class="col-md-4"  style="margin-bottom:5px;float:left;">
+            <input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=
+            "center" value="FIND AN AREA"/>
+            <input id="pac-input" style="color:#00afc9;border:none;font-size:17px;margin-left:1px;float:left;width:100px;" type="text" placeholder="SEARCH BOX" >
+            <input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO" />
+            <br/>
+            <br/>
+            <br/>
+            </div>
+            </section>
 
-<input type="hidden"  name="messages" ID="messages" width="50" height="10" readonly>
 
-<div id="capture" align="justify" style="width:100%;background-color:#8ec63f;float:left;">
-</div>
-</div>
-</section>
-
-	<div >
-
-
-
-    <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
-	  <div class="row">
-		<div class="col-sm-6" style="margin-left:7%;padding:5%;" >
-
-
-         <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">About the Project </p>
-					<p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">Reusing Dublin responds to the observation that we don’t use space in
-our city efficiently - and sometimes we don’t use it at all.
-</p>
-<p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-Reusing Dublin attempts to map underused spaces in order to identify
-opportunities for using the city more efficiently for the benefit of
-everyone.</p>
-<p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-
-Underused spaces include sites and buildings that are not used at all
-(vacant) or that are only partly in use. It also includes spaces that may
-have a use, like a roof or a grassed area, but that could accommodate
-additional uses.
-
-</p>
-<p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-Re-using Dublin is an experimental research project that is part of
-a wider EU FP7 project called <u>TURAS</u> (Transitioning towards Urban
-Resilience and Sustainability).
+            <div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
+            <div id="googleMap" align="center" style="width:100%;height:600px;float:left;border:thin;" ></div>
+            
+            <input type="hidden"  name="messages" ID="messages" width="50" height="10" readonly>
+            
+            <div id="capture" align="justify" style="width:100%;background-color:#8ec63f;float:left;">
+            </div>
+            </div>
+            </section>
+            
+            <div >
 
 
 
-</p>
-		</div>
-
-		</div>
-
-    </div>
- </section>
-
-<?php
-require_once('includes/footer.php');
+                <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
+                <div class="row">
+                <div class="col-sm-6" style="margin-left:7%;padding:5%;" >
+                
+                
+                <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">About the Project </p>
+                        <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">Reusing Dublin responds to the observation that we don’t use space in
+                our city efficiently - and sometimes we don’t use it at all.
+                </p>
+                <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                Reusing Dublin attempts to map underused spaces in order to identify
+                opportunities for using the city more efficiently for the benefit of
+                everyone.</p>
+                <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                
+                Underused spaces include sites and buildings that are not used at all
+                (vacant) or that are only partly in use. It also includes spaces that may
+                have a use, like a roof or a grassed area, but that could accommodate
+                additional uses.
+                
+                </p>
+                <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                Re-using Dublin is an experimental research project that is part of
+                a wider EU FP7 project called <u>TURAS</u> (Transitioning towards Urban
+                Resilience and Sustainability).
+                
+                
+                
+                </p>
+                </div>
+                
+                </div>
+                
+                </div>
+                </section>
+            
+            <?php
+            require_once('includes/footer.php');
+            ?>
