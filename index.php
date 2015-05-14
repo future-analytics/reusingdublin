@@ -8,205 +8,205 @@ require_once('db.php');
 $result1 = mysqli_query($con,"SELECT * FROM Address1");
 while($row = mysqli_fetch_assoc($result1))
 {
-$data[] = $row;
+    $data[] = $row;
 }
 //Fetching user customized markers.
 $result2 = mysqli_query($con,"SELECT * FROM SiteDetails");
 while($row1 = mysqli_fetch_assoc($result2))
 {
-$data1[] = $row1;
+    $data1[] = $row1;
 }
 $nn = "1";
 //Email to the administrator when we click on the button name Added.
 if(isset($_POST['added']))
 {
 
-$result3 = mysqli_query($con,"SELECT * FROM emailss");
-while($row3 = mysqli_fetch_assoc($result3))
-{	
-$data3[] = $row3;
-}
-foreach($data3 as $data4)
-{
-$ttt= $_POST['email'];
-$ggg = $data4['email'];
-if(($ggg == $ttt )&&(!empty($ttt)))
-{
-$x = '123';
-$nn = "1";
+    $result3 = mysqli_query($con,"SELECT * FROM emailss");
+    while($row3 = mysqli_fetch_assoc($result3))
+    {	
+        $data3[] = $row3;
+    }
+    foreach($data3 as $data4)
+    {
+        $ttt= $_POST['email'];
+        $ggg = $data4['email'];
+        if(($ggg == $ttt )&&(!empty($ttt)))
+        {
+            $x = '123';
+            $nn = "1";
 
-break;
-}
-else
-{
-$x ="";
-}
-}
-$ee = $_POST['email'];
-if(empty($x)&&(!empty($ee))){
-$sql="INSERT INTO emailss(email) VALUES ('$ee')";
-if (!mysqli_query($con,$sql)){
- die('Error: ' . mysqli_error($con));
-}
-$subject = $_POST["email"];
-$message = "The following Person wants to Register with Us:".$_POST["email"]." Thanks \n";
-$mail_from="".$_POST["email"]." wants to subscribe to Reusingdublin.\n";
-$header = " : <$mail_from>";
-$to = "james.sweeney@futureanalytics.ie";
-$send_contact= @mail($to,$subject,$message,$header);
-if($send_contact)
-{    $nn = "";}
-}
+            break;
+        }
+        else
+        {
+            $x ="";
+        }
+    }
+    $ee = $_POST['email'];
+    if(empty($x)&&(!empty($ee))){
+        $sql="INSERT INTO emailss(email) VALUES ('$ee')";
+        if (!mysqli_query($con,$sql)){
+            die('Error: ' . mysqli_error($con));
+        }
+        $subject = $_POST["email"];
+        $message = "The following Person wants to Register with Us:".$_POST["email"]." Thanks \n";
+        $mail_from="".$_POST["email"]." wants to subscribe to Reusingdublin.\n";
+        $header = " : <$mail_from>";
+        $to = "james.sweeney@futureanalytics.ie";
+        $send_contact= @mail($to,$subject,$message,$header);
+        if($send_contact){
+            $nn = "";
+        }
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-<link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'>
-<link rel="stylesheet" type="text/css" href="css/slicknav.css">
-<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
-<!-- Bootstrap core CSS -->
-<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<!-- <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet"> -->
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<style>
-input[type='text']::-webkit-input-placeholder {
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:17px;
-		font-weight:600;
-		color: #00afc9;
-}
-
-
-input[type='text']::-moz-placeholder { /* Firefox 18- */
-		color: #00afc9;
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:20px;
-		font-weight:600;
-}
-
-input[type='text']::-moz-placeholder {  /* Firefox 19+ */
-		color: #00afc9;
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:20px;
-		font-weight:600;
-}
-
-input[type='text']::-ms-input-placeholder {
-		color: #00afc9;
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:20px;
-		font-weight:600;
-}
-input[type='email']::-webkit-input-placeholder {
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:17px;
-		font-weight:600;
-		color: #FFF;
-		align:center;
-}
-
-
-input[type='email']::-moz-placeholder { /* Firefox 18- */
-		color: #FFF;
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:20px;
-		font-weight:600;
-		align:center;
-}
-
-input[type='email']::-moz-placeholder {  /* Firefox 19+ */
-		color: #FFF;
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:20px;
-		font-weight:600;
-		align:center;
-}
-
-input[type='email']::-ms-input-placeholder {
-		color: #FFF;
-		font-family:'Source Sans Pro', sans-serif;
-		font-size:20px;
-		font-weight:600;
-		align:center;
-}
-.ppp.a
-{
-	font-family:'Source Sans Pro', sans-serif;
-	font-size:17px;
-	font-weight:600;
-	color:#000;
-}
-
-li:hover {
-    font-color:#FFF;
-}
-@media only screen and (max-width : 768px)  {
-  .news{margin-top:-20px;}
-}
-@media screen and (max-width: 768px)
-{
-	br
-	{
-	   display: none
-	
-	}
-	.jumbotron
-	{
-		width:90%;
-	}
-
-}
-
- .active {
-	color:#FFF;
-}
-
-
-</style>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>Home | ReusingDublin</title>
-
-   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'>
+    <link rel="stylesheet" type="text/css" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <!-- <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet"> -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
 
-    <link href="css/reusingdublin.css" type="text/css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <style>
+    input[type='text']::-webkit-input-placeholder {
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:17px;
+    		font-weight:600;
+    		color: #00afc9;
+    }
 
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    input[type='text']::-moz-placeholder { /* Firefox 18- */
+    		color: #00afc9;
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:20px;
+    		font-weight:600;
+    }
 
-  </head>
+    input[type='text']::-moz-placeholder {  /* Firefox 19+ */
+    		color: #00afc9;
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:20px;
+    		font-weight:600;
+    }
+
+    input[type='text']::-ms-input-placeholder {
+    		color: #00afc9;
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:20px;
+    		font-weight:600;
+    }
+    input[type='email']::-webkit-input-placeholder {
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:17px;
+    		font-weight:600;
+    		color: #FFF;
+    		align:center;
+    }
+
+
+    input[type='email']::-moz-placeholder { /* Firefox 18- */
+    		color: #FFF;
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:20px;
+    		font-weight:600;
+    		align:center;
+    }
+
+    input[type='email']::-moz-placeholder {  /* Firefox 19+ */
+    		color: #FFF;
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:20px;
+    		font-weight:600;
+    		align:center;
+    }
+
+    input[type='email']::-ms-input-placeholder {
+    		color: #FFF;
+    		font-family:'Source Sans Pro', sans-serif;
+    		font-size:20px;
+    		font-weight:600;
+    		align:center;
+    }
+    .ppp.a
+    {
+    	font-family:'Source Sans Pro', sans-serif;
+    	font-size:17px;
+    	font-weight:600;
+    	color:#000;
+    }
+
+    li:hover {
+        font-color:#FFF;
+    }
+    @media only screen and (max-width : 768px)  {
+      .news{margin-top:-20px;}
+    }
+    @media screen and (max-width: 768px)
+    {
+    	br
+    	{
+    	   display: none
+    	
+    	}
+    	.jumbotron
+    	{
+    		width:90%;
+    	}
+
+    }
+
+     .active {
+    	color:#FFF;
+    }
+
+
+    </style>
+
+       <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+
+        <link href="css/reusingdublin.css" type="text/css" rel="stylesheet">
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -1148,6 +1148,7 @@ function selectchange()
 //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
+    </head>
 <body onLoad="initialize()">
 <?php
 require_once('includes/header.php');
