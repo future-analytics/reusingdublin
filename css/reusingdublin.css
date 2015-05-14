@@ -20,6 +20,9 @@ nav#reusingdublin #navbar ul.social-links li{
 	list-style: none;
 	float: left;
 }
+nav#reusingdublin #navbar ul.page-links{
+	margin-left: 130px;
+}
 nav#reusingdublin #navbar ul > li > a{
 	color:#000 !important;
 	font-family:'Source Sans Pro', sans-serif;
