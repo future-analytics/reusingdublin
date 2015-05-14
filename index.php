@@ -232,7 +232,7 @@ $(function() {
   });
 });
 
-    //handle the scroll event
+    //handle the scroll event 
     $(document).scroll(function () {
 
         //global constants for page part y px's
