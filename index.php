@@ -77,7 +77,7 @@ if($send_contact)
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
+    <!-- <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet"> -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -190,8 +190,8 @@ color:#FFF;
    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
+
+    <link href="css/reusingdublin.css" type="text/css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
