@@ -1,0 +1,27 @@
+header.reusingdublin{
+	background-color: #00afc9;
+	height: 112px;
+}
+header img#logo{
+	width: 140px;
+	height: 50px;
+	margin: 30px 0 0 0;
+}
+header nav.navbar{
+	background-color: #00afc9;
+	border: 0;
+	margin: 45px 0 0;
+}
+header nav.navbar ul.page-links li,
+header nav.navbar ul.social-links li{
+	list-style: none;
+	float: left;
+}
+header nav.navbar ul > li > a{
+	color:#000 !important;
+	font-family:'Source Sans Pro', sans-serif;
+	font-size:19px;
+}
+header nav.navbar ul > li > a:hover{
+	color:#fff !important;
+}
