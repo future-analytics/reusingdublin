@@ -31,6 +31,7 @@ var ReusingDublin = function(){
 	 * @todo Merge this method with self::homeScroll()
 	 */
 	this.navLinks = function(){
+		return;
         $('#navbar ul li a').css('color', '#000');
         $(this).css('color', '#fff');
 	}
@@ -38,6 +39,7 @@ var ReusingDublin = function(){
 	/**
 	 * Highlight homepage nav link on page scroll
 	 * @member ReusingDublin
+	 * @todo fix hack: add 110px to scroll_top - daithi
 	 * @author Priyanka
 	 */
 	this.homeScroll =  function () {
@@ -51,13 +53,11 @@ var ReusingDublin = function(){
         var four_top    = $('#menu4').position().top;
         var five_top    = $('#menu5').position().top;
 
-        //home
-        //$('a[href="#menu1"]').addClass('active');
-        //document.getElementById("fiftha").style.color = "White";
+        //hack
+        scroll_top += 111;
         
         if(scroll_top<two_top)
         {
-            console.log('home white');
             document.getElementById("fiftha").style.color = "White";
             document.getElementById("fourtha").style.color  = "Black";
             document.getElementById("thirda").style.color   = "Black";
@@ -67,7 +67,6 @@ var ReusingDublin = function(){
 
         //how it works
         else if (scroll_top < three_top) {
-            console.log('how white');
             document.getElementById("fourtha").style.color  = "Black";
             document.getElementById("thirda").style.color   = "Black";
             document.getElementById("seconda").style.color  = "Black";
@@ -78,8 +77,7 @@ var ReusingDublin = function(){
         }
 
         //try it out
-        else if (scroll_top < four_top) {
-            console.log('try white');
+        else if (scroll_top <= four_top) {
             $(window).on("hashchange", function(){
                 window.scrollTo(window.scrollX, window.scrollY -300);
             });
@@ -94,8 +92,7 @@ var ReusingDublin = function(){
         }
 
         //about
-        else if(scroll_top < five_top){
-            console.log('about white');
+        else if(scroll_top <= five_top){
             document.getElementById("fourtha").style.color  = "Black";
             document.getElementById("thirda").style.color   = "White";
             document.getElementById("seconda").style.color  = "Black";
@@ -107,7 +104,7 @@ var ReusingDublin = function(){
         }
 
         //mailing list
-        else {
+        if(scroll_top + $(window).height() > $(document).height()) {
             $(window).on("hashchange", function(){
                 window.scrollTo(window.scrollX, window.scrollY + 300);
             });
