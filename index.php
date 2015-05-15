@@ -194,7 +194,6 @@ if(isset($_POST['added']))
 
         <!-- Custom styles for this template -->
 
-        <link href="css/reusingdublin.css" type="text/css" rel="stylesheet">
 
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -1071,14 +1070,13 @@ function selectchange()
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-    <script src="js/global.js" type="text/javascript"></script>
-    </head>
 <body onLoad="initialize()">
 <?php
 /**
  * get the header for the homepage
  */
 define('IS_HOMEPAGE', 1);
+require_once('includes/head.php');
 require_once('includes/header.php');
 ?>
 <form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">
