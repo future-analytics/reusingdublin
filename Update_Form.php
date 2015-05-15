@@ -22,69 +22,69 @@ $ans7 = mysqli_real_escape_string($con, $_POST['comments']);
 $var1 = nl2br(htmlspecialchars(stripslashes($ans7)));
 $ip= mysqli_real_escape_string($con, $_POST['ip']);
 /**
-@author Priyanka Singh 08/05/2015
-This file do the Update of the sitedetails using pdo classes Update.
-**/
+ * @author Priyanka Singh 08/05/2015
+ * This file do the Update of the sitedetails using pdo classes Update.
+ **/
 if(isset($_POST['added']))
 {
 try {
-$servername = "172.16.0.57";
-$username = "u1046393_turas";
-$password = "Soamin123@";
-$dbname = "db1046393_dublin";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$latitude =trim($_POST['lat1']);
-$longitude = trim($_POST['lon1']);
-$address = trim($_POST['address']);
-$var8 = nl2br(htmlspecialchars(stripslashes($address)));
-$comment = trim($_POST['comment']);
-$var = nl2br(htmlspecialchars(stripslashes($comment)));
-$ans1 = trim($_POST['address1']);
-$var7 = nl2br(htmlspecialchars(stripslashes($ans1)));
-$ans2 = trim($_POST['address2']);
-$var6 = nl2br(htmlspecialchars(stripslashes($ans2)));
-$ans3 = trim($_POST['address3']);
-$var5 = nl2br(htmlspecialchars(stripslashes($ans3)));
-$ans4 = trim($_POST['address4']);
-$var4 = nl2br(htmlspecialchars(stripslashes($ans4)));
-$ans5 = trim($_POST['address5']);
-$var3 = nl2br(htmlspecialchars(stripslashes($ans5)));
-$ans6 =trim($_POST['address6']);
-$var2 = nl2br(htmlspecialchars(stripslashes($ans6)));
-$ans7 =trim($_POST['comments']);
-$var1 = nl2br(htmlspecialchars(stripslashes($ans7)));
-$dates =trim($_POST['dateone']);
-$ip= trim($_POST['ip']);
-if ( isset( $_SERVER["HTTP_CF_CONNECTING_IP"] ) ) {
-$ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
-}
-if ( isset( $_SERVER["HTTP_X_FORWARDED_FOR"] ) ) {
-$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-}
-if ( isset( $_SERVER["REMOTE_ADDR"] ) ) {
-$ip = $_SERVER['REMOTE_ADDR'];
-}
-if(((!empty($latitude))&&(!empty($longitude)))&&((!empty($address))||(!empty($comment))))
-{
-$stmt = $conn->prepare("UPDATE SiteDetails SET adress = :address,owner = :owner,zoning =:zoning,planningistory = :planningistory , size = :size,derelict= :derelict ,heritage = :heritage,desription = :desription,ip = :ip,Suggesteduses = :Suggesteduses,Date_of_Entry=:dates where latitude = :latitude AND longitude = :longitude");
-$stmt->bindParam(':latitude', $latitude);
-$stmt->bindParam(':longitude', $longitude);
-$stmt->bindParam(':address', $var8);
-$stmt->bindParam(':owner', $var7);
-$stmt->bindParam(':zoning', $var6);
-$stmt->bindParam(':dates', $dates);
-$stmt->bindParam(':planningistory', $var5);
-$stmt->bindParam(':size', $var4);
-$stmt->bindParam(':derelict', $var3);
-$stmt->bindParam(':heritage', $var2);
-$stmt->bindParam(':desription', $var);
-$stmt->bindParam(':ip', $ip);
-$stmt->bindParam(':Suggesteduses', $var1);
-$stmt->execute();
- }
-$msg = "Data Updated Successfully!";
+    $servername = "172.16.0.57";
+    $username = "u1046393_turas";
+    $password = "Soamin123@";
+    $dbname = "db1046393_dublin";
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $latitude =trim($_POST['lat1']);
+    $longitude = trim($_POST['lon1']);
+    $address = trim($_POST['address']);
+    $var8 = nl2br(htmlspecialchars(stripslashes($address)));
+    $comment = trim($_POST['comment']);
+    $var = nl2br(htmlspecialchars(stripslashes($comment)));
+    $ans1 = trim($_POST['address1']);
+    $var7 = nl2br(htmlspecialchars(stripslashes($ans1)));
+    $ans2 = trim($_POST['address2']);
+    $var6 = nl2br(htmlspecialchars(stripslashes($ans2)));
+    $ans3 = trim($_POST['address3']);
+    $var5 = nl2br(htmlspecialchars(stripslashes($ans3)));
+    $ans4 = trim($_POST['address4']);
+    $var4 = nl2br(htmlspecialchars(stripslashes($ans4)));
+    $ans5 = trim($_POST['address5']);
+    $var3 = nl2br(htmlspecialchars(stripslashes($ans5)));
+    $ans6 =trim($_POST['address6']);
+    $var2 = nl2br(htmlspecialchars(stripslashes($ans6)));
+    $ans7 =trim($_POST['comments']);
+    $var1 = nl2br(htmlspecialchars(stripslashes($ans7)));
+    $dates =trim($_POST['dateone']);
+    $ip= trim($_POST['ip']);
+    if ( isset( $_SERVER["HTTP_CF_CONNECTING_IP"] ) ) {
+    $ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+    }
+    if ( isset( $_SERVER["HTTP_X_FORWARDED_FOR"] ) ) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    if ( isset( $_SERVER["REMOTE_ADDR"] ) ) {
+    $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    if(((!empty($latitude))&&(!empty($longitude)))&&((!empty($address))||(!empty($comment))))
+    {
+    $stmt = $conn->prepare("UPDATE SiteDetails SET adress = :address,owner = :owner,zoning =:zoning,planningistory = :planningistory , size = :size,derelict= :derelict ,heritage = :heritage,desription = :desription,ip = :ip,Suggesteduses = :Suggesteduses,Date_of_Entry=:dates where latitude = :latitude AND longitude = :longitude");
+    $stmt->bindParam(':latitude', $latitude);
+    $stmt->bindParam(':longitude', $longitude);
+    $stmt->bindParam(':address', $var8);
+    $stmt->bindParam(':owner', $var7);
+    $stmt->bindParam(':zoning', $var6);
+    $stmt->bindParam(':dates', $dates);
+    $stmt->bindParam(':planningistory', $var5);
+    $stmt->bindParam(':size', $var4);
+    $stmt->bindParam(':derelict', $var3);
+    $stmt->bindParam(':heritage', $var2);
+    $stmt->bindParam(':desription', $var);
+    $stmt->bindParam(':ip', $ip);
+    $stmt->bindParam(':Suggesteduses', $var1);
+    $stmt->execute();
+     }
+    $msg = "Data Updated Successfully!";
 }
 catch(PDOException $e)
 {
