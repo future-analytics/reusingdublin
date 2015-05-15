@@ -1075,6 +1075,10 @@ function selectchange()
     </head>
 <body onLoad="initialize()">
 <?php
+/**
+ * get the header for the homepage
+ */
+define('IS_HOMEPAGE', 1);
 require_once('includes/header.php');
 ?>
 <form id="myForm" method="post" action="index.php" enctype="multipart/form-data" autocomplete="off">

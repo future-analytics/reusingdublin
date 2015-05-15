@@ -101,6 +101,7 @@ while($row5 = mysqli_fetch_assoc($result5))
 
  <link href="css/bootstrap-responsive.css" rel="stylesheet">
  <link href="css/bootstrap.css" rel="stylesheet">
+ <link href="css/reusingdublin.css" type="text/css" rel="stylesheet">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
