@@ -13,8 +13,22 @@
         <div id="navbar" class="collapse navbar-collapse">
 
             <ul class="nav navbar-nav page-links">
-                <li><a href="#menu1" id="fiftha">HOME</a></li>
+                <li>
+                    <a href="#menu1" id="fiftha">HOME</a>
+                </li>
+                <script type="text/javascript">
+                /**
+                 * @todo refactor homepage link to View_Form.php
+                 */
+                 if(window.opener){
+                    console.log('popup');
+                    $('#fiftha').click(function(){
+                        window.close();
+                    });
+                }
+                </script>
                 <?php
+                //homepage links
                 if (defined('IS_HOMEPAGE'))
                 {
                     ?>
