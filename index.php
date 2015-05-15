@@ -234,89 +234,13 @@ if(isset($_POST['added']))
 						});
         });
 
-    //handle the scroll event 
-    $(document).scroll(function () {
-        document.getElementById("firsta").style.color   = "White";
-        //global constants for page part y px's
-        var scroll_top  = $(document).scrollTop();
-        var one_btm     = $('#menu1').position().top;
-        var two_top     = $('#menu2').position().top;
-        var three_top   = $('#menu3').position().top;
-        var four_top    = $('#menu4').position().top;
-        var five_top    = $('#menu5').position().top;
-
-        //home
-        //$('a[href="#menu1"]').addClass('active');
-        //document.getElementById("fiftha").style.color = "White";
-        
-        if(scroll_top<one_btm)
-        {
-            console.log('foobar');
-            $('a[href="#menu1"]').addClass('active');
-            document.getElementById("fiftha").style.color = "White";
-            document.getElementById("fourtha").style.color  = "Black";
-            document.getElementById("thirda").style.color   = "Black";
-            document.getElementById("seconda").style.color  = "Black";
-            document.getElementById("firsta").style.color   = "Black";
-        }
-
-        //how it works
-        else if (scroll_top >=scroll_top && scroll_top < two_top) {
-            $('a[href="#menu2"]').addClass('active');
-            document.getElementById("fourtha").style.color  = "Black";
-            document.getElementById("thirda").style.color   = "Black";
-            document.getElementById("seconda").style.color  = "Black";
-            document.getElementById("firsta").style.color   = "White";
-            document.getElementById("fiftha").style.color   = "Black";
-            $('a[href="#menu3"]').removeClass('active');
-            $('a[href="#menu1"]').removeClass('active');
-        }
-
-        //try it out
-        else if (scroll_top >two_top && scroll_top < three_top) {
-            $('a[href="#menu3"]').addClass('active');
-            $(window).on("hashchange", function(){
-                window.scrollTo(window.scrollX, window.scrollY -300);
-            });
-            document.getElementById("fourtha").style.color  = "Black";
-            document.getElementById("thirda").style.color   = "Black";
-            document.getElementById("seconda").style.color  = "White";
-            document.getElementById("firsta").style.color   = "Black";
-            document.getElementById("fiftha").style.color   = "Black";
-            $('a[href="#menu2"]').removeClass('active');
-            $('a[href="#menu4"]').removeClass('active');
-            $('a[href="#menu1"]').removeClass('active');
-        }
-
-        //about
-        else if(scroll_top > three_top && scroll_top < four_top){
-            $('a[href="#menu4"]').addClass('active');
-            document.getElementById("fourtha").style.color  = "Black";
-            document.getElementById("thirda").style.color   = "White";
-            document.getElementById("seconda").style.color  = "Black";
-            document.getElementById("firsta").style.color   = "Black";
-            document.getElementById("fiftha").style.color   = "Black";
-            $('a[href="#menu3"]').removeClass('active');
-            $('a[href="#menu5"]').removeClass('active');
-            $('a[href="#menu1"]').removeClass('active');
-        }
-
-        //mailing list
-        else if (scroll_top >four_top && scroll_top < five_top) {
-            $('a[href="#menu5"]').addClass('active');
-            $(window).on("hashchange", function(){
-                window.scrollTo(window.scrollX, window.scrollY + 300);
-            });
-            document.getElementById("fourtha").style.color  = "White";
-            document.getElementById("thirda").style.color   = "Black";
-            document.getElementById("seconda").style.color  = "Black";
-            document.getElementById("firsta").style.color   = "Black";
-            document.getElementById("fiftha").style.color   = "Black";
-            $('a[href="#menu4"]').removeClass('active');
-            $('a[href="#menu1"]').removeClass('active');
-        }
-
+    $('#navbar ul li a').click(function(){
+        console.log(this);
+        $('#navbar ul li a').color = '#000';
+        $(this).color = '#fff';
     });
+
+
 </script>
 
 
@@ -1147,7 +1071,7 @@ function selectchange()
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-
+    <script src="js/global.js" type="text/javascript"></script>
     </head>
 <body onLoad="initialize()">
 <?php
