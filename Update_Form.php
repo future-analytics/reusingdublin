@@ -11,25 +11,7 @@ while($row1 = mysqli_fetch_assoc($result2))
 {
     $data1[] = $row1;
 }
-/**
-* @deprecated
-*
-$msg="";
-$latitude = mysqli_real_escape_string($con, $_POST['lat1']);
-$longitude = mysqli_real_escape_string($con, $_POST['lon1']);
-$address = mysqli_real_escape_string($con, $_POST['address']);
-$comment = mysqli_real_escape_string($con, $_POST['comment']);
-$var = nl2br(htmlspecialchars(stripslashes($comment)));
-$ans1 = mysqli_real_escape_string($con, $_POST['address1']);
-$ans2 = mysqli_real_escape_string($con, $_POST['address2']);
-$ans3 = mysqli_real_escape_string($con, $_POST['address3']);
-$ans4 = mysqli_real_escape_string($con, $_POST['address4']);
-$ans5 = mysqli_real_escape_string($con, $_POST['address5']);
-$ans6 = mysqli_real_escape_string($con, $_POST['address6']);
-$ans7 = mysqli_real_escape_string($con, $_POST['comments']);
-$var1 = nl2br(htmlspecialchars(stripslashes($ans7)));
-$ip= mysqli_real_escape_string($con, $_POST['ip']);
-*/
+
 /**
 * @author Priyanka Singh 08/05/2015
 * This file do the Update of the sitedetails using pdo classes Update.
@@ -318,22 +300,22 @@ if(isset($_POST['added']))
     }
     function cll()
     {
-    this.close();
+        this.close();
     }
     function myFunction()
     {
-    window.open("Insert5.php",'Ratting',"height=700,width=700,scrollbars=1");
+        window.open("Insert5.php",'Ratting',"height=700,width=700,scrollbars=1");
     }
     function myFunction1()
     {
-    window.open("Insert7.php",'Ratting',"height=700,width=700,scrollbars=1");
+        window.open("Insert7.php",'Ratting',"height=700,width=700,scrollbars=1");
     }
     google.maps.event.addDomListener(window, 'load',initialize);
     </script>
-    <body onload="initialize()" style="background-color:#f4e851">
-        <?php
-        require_once('includes/header.php');
-        ?>
+    <?php
+    require_once('includes/head.php');
+    require_once('includes/header.php');
+    ?>
         <form name="form1"  action="Update_Form.php" method="post"  enctype="multipart/form-data" autocomplete="off">
             <div class="container-fluid" id="works"  >
                 <input type="hidden" name="lat1" ID="lat" value ="default" size="40"><br><br/><br/>
@@ -342,7 +324,9 @@ if(isset($_POST['added']))
                     <div style="margin-left:100px;margin-top:0px;font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:bold;color:#960;">
                         <?php if(isset($msg)) echo $msg; ?>
                     </div>
-                    <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"><b>Update a space</font>
+                    <span class="message">
+                        Update a space
+                    </span>
                     <br/>
                     <br/>
                     <div id="map-canv"   style="height:300px;width:45%;float:left;" ></div>
