@@ -21,19 +21,7 @@ var ReusingDublin = function(){
 
 		var self = this;
 
-		$('#navbar ul li a').click(self.navLinks);
 		$(document).scroll(self.homeScroll);
-	}
-
-	/**
-	 * Hack: force nav link highlight on click
-	 * @member ReusingDublin
-	 * @todo Merge this method with self::homeScroll()
-	 */
-	this.navLinks = function(){
-		return;
-        $('#navbar ul li a').css('color', '#000');
-        $(this).css('color', '#fff');
 	}
 
 	/**
