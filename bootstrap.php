@@ -15,7 +15,6 @@ spl_autoload_register(function($class){
 });
 
 //load configuration
-require_once(REUSINGDUBLIN_DIR . '/config.php');
-new Config($resuingdublinConfig);
+new Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
 
 $config = Config::getInstance();

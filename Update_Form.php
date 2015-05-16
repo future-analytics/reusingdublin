@@ -1,5 +1,12 @@
 <?php
-$con=mysqli_connect("172.16.0.57","u1046393_turas","Soamin123@","db1046393_dublin");
+/**
+ * Update site view.
+ */
+require_once('bootstrap.php');
+
+$configDB = Config::getInstance()
+	->get('db');
+$con=mysqli_connect($configDB['host'], $configDB['user'], $configDB['pass'], $configDB['name']);
 $result2 = mysqli_query($con,"SELECT * FROM SiteDetails");
 while($row1 = mysqli_fetch_assoc($result2))
 {

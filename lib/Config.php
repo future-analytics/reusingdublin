@@ -1,7 +1,7 @@
 <?php
 /**
  * Singleton config class.
- * 
+ *
  * @package ReusingDublin
  * @link http://github.com/future-analytics/reusingdublin
  * @author daithi coombes <webeire@gmail.com>
@@ -19,7 +19,6 @@ class Config
      */
     public function __construct(array $params)
     {
-
     	//set properties
     	foreach($params as $prop => $value)
     	{
@@ -31,6 +30,18 @@ class Config
 
     	self::$instance = $this;
     }
+
+	/**
+	 * Get a property
+	 * @param  string $prop The property name
+	 * @return mixed       The property value
+	 */
+	public function get($prop)
+	{
+		if(!property_exists($this, $prop))
+			throw new Exception('Config::get() Unkown property: '.$prop);
+		return $this->$prop;
+	}
 
 	/**
 	 * Get the config singleton instalce
