@@ -1,7 +1,10 @@
 <?php
-/*
-@author Priyanka Singh
-*/
+/**
+ * Usage: Create config.php file with an array matches the parameter required by
+ * ./lib/Config.php::__construct()
+ *
+ * @author Priyanka Singh
+ **/
 require_once('db.php');
 //Php code for assigning markers and site to the map
 //Fetching official utilized and underutilized markers.
@@ -23,7 +26,7 @@ if(isset($_POST['added']))
 
     $result3 = mysqli_query($con,"SELECT * FROM emailss");
     while($row3 = mysqli_fetch_assoc($result3))
-    {	
+    {
         $data3[] = $row3;
     }
     foreach($data3 as $data4)
@@ -174,7 +177,7 @@ if(isset($_POST['added']))
     	br
     	{
     	   display: none
-    	
+
     	}
     	.jumbotron
     	{
@@ -374,7 +377,7 @@ activeWindow = infoWindow;
 			var marker2 =  new google.maps.Marker({
 			position : position2,
 			map : map,
-			title: 'Heuston Station'	
+			title: 'Heuston Station'
 	});
 google.maps.event.addListener(marker2, 'mouseover', function(event) {
 var infoWindow = new google.maps.InfoWindow({
@@ -675,7 +678,7 @@ layers[3] = new google.maps.FusionTablesLayer({
 		query: {
 		select: "col0",
 		from: "1yqEULmUVjBJp8MO83rNMs3W9mUh_vnx5xEslAFsr"
-		
+
 		},
 		styles: [
 		{
@@ -1001,7 +1004,7 @@ function placeMarker(location){
 		// This marker is 28 pixels wide by 27 pixels tall.
 		size: new google.maps.Size(28, 27)
 		};
-		
+
 		marker = new google.maps.Marker({
 		position: location,
 		map: map,
@@ -1099,30 +1102,30 @@ require_once('includes/header.php');
             <section id="menu2" class="row">  <!-- Main component for a primary marketing message or call to action -->
             <div   class="col-md-4" style="margin-top:3%;float:left;margin-left:3%;" >
             <div  class="jumbotron"  id="works" style="background-color:#FFF;height:auto;margin-top:3%;" >
-            
+
             <div style="padding:5%">
             <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;line-height: 1.0;">How it works</p>
             <p style="color:#000;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:600;text-align:left;line-height: 1.0;">Using the map below, discover or add information about any underused sites you have noticed.</p>
             <p style="color:#000;background-color:#f4e851;font-family:'Source Sans Pro', sans-serif;font-size:28px; padding:10px;text-align:left;line-height: 1.0;"><b>Add a space</b> by clicking the 'add a site' tab and clicking on the location on the map.</p><br/>
                     <p style="color:#000;background-color:#cadd70;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Share your information</b> about a site.   </p><br/>
                 <p style="color:#000;background-color:#9dd7e3;font-family:'Source Sans Pro', sans-serif;font-size:28px;padding:10px;text-align:left;line-height: 1.0;"><b>Connect with others</b> who might be interested in the site.   </p>
-            
+
             </div>
             </div>
             </div>
-            
+
             </div>
             </div>
 
 
-            
+
             <section id="menu3">
             <div   class="container"  style="padding-top:20px;margin-left:2%;" align="center">
             <div  class="col-md-4"  style="margin-bottom:5px;">
             <input type="button" id="try"  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;" align=
             "center" value=" &nbsp;ADD A SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  onClick="javascript:addasite()"/>
             </div>
-            
+
             <div  class="col-md-4"  style="margin-bottom:5px;">
             <select  style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;width:auto;" id="pac-input1" align=
             "center" onChange="selectchange()">
@@ -1133,7 +1136,7 @@ require_once('includes/header.php');
             <option value="4">DCC PLANNING APPLICATIONS</option>
             </select>
             </div>
-            
+
             <div    class="col-md-4"  style="margin-bottom:5px;float:left;">
             <input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=
             "center" value="FIND AN AREA"/>
@@ -1148,14 +1151,14 @@ require_once('includes/header.php');
 
             <div  class="container" style="width:100%;height:100%;padding-top:10px;background-size:cover;" >
             <div id="googleMap" align="center" style="width:100%;height:600px;float:left;border:thin;" ></div>
-            
+
             <input type="hidden"  name="messages" ID="messages" width="50" height="10" readonly>
-            
+
             <div id="capture" align="justify" style="width:100%;background-color:#8ec63f;float:left;">
             </div>
             </div>
             </section>
-            
+
             <div >
 
 
@@ -1163,8 +1166,8 @@ require_once('includes/header.php');
                 <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
                 <div class="row">
                 <div class="col-sm-6" style="margin-left:7%;padding:5%;" >
-                
-                
+
+
                 <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">About the Project </p>
                         <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">Reusing Dublin responds to the observation that we don’t use space in
                 our city efficiently - and sometimes we don’t use it at all.
@@ -1174,28 +1177,28 @@ require_once('includes/header.php');
                 opportunities for using the city more efficiently for the benefit of
                 everyone.</p>
                 <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-                
+
                 Underused spaces include sites and buildings that are not used at all
                 (vacant) or that are only partly in use. It also includes spaces that may
                 have a use, like a roof or a grassed area, but that could accommodate
                 additional uses.
-                
+
                 </p>
                 <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
                 Re-using Dublin is an experimental research project that is part of
                 a wider EU FP7 project called <u>TURAS</u> (Transitioning towards Urban
                 Resilience and Sustainability).
-                
-                
-                
+
+
+
                 </p>
                 </div>
-                
+
                 </div>
-                
+
                 </div>
                 </section>
-            
+
             <?php
             require_once('includes/footer.php');
             ?>
