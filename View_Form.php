@@ -20,7 +20,7 @@ while($row2 = mysqli_fetch_assoc($result3))
 
 }
 
-    $result4 = mysqli_query($con,"SELECT * FROM file");
+$result4 = mysqli_query($con,"SELECT * FROM file");
 while($row3 = mysqli_fetch_assoc($result4))
 {
 	$data3[] = $row3;

@@ -1073,7 +1073,6 @@ function selectchange()
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-<body onLoad="initialize()">
 <?php
 /**
  * get the header for the homepage
@@ -1159,11 +1158,11 @@ require_once('includes/header.php');
             </div>
             </section>
 
-            <div >
-                <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
+            <div id="aboutUs">
+                <section id="menu4" class="container">
                     <div class="row">
-                        <div class="col-sm-6" style="margin-left:7%;padding:5%;" >
-                            <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">
+                        <div class="col-md-6">
+                            <p class="title">
                                 About the Project
                             </p>
                             <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
@@ -1187,18 +1186,15 @@ require_once('includes/header.php');
                                 Resilience and Sustainability).
                             </p>
                         </div>
-                        <div class="col-sm6">
+                        <div class="col-md-6 twitter-col">
                             <a class="twitter-timeline" href="https://twitter.com/ReusingDublin" data-widget-id="599143046584868864">
                                 Tweets by @ReusingDublin
                             </a>
-                            <script type="text/javascript">
-                                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                            </script>
+                            <script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </div>
                     </div>
                 </section>
             </div>
-
             <?php
             require_once('includes/footer.php');
             ?>

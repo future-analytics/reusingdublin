@@ -69,6 +69,27 @@ nav#reusingdublin #navbar ul > li > a{
 nav#reusingdublin #navbar ul > li > a:hover{
 	color:#fff !important;
 }
+/** global */
+ p.title{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}    
+/** index page */
+div.twitter-feed{
+    margin-right: 7%;
+    padding: 5%;
+}
+#aboutUs{
+    background-color: #f4e851;
+    width: 100%;
+}
+#aboutUs .container .row{
+    margin-top: 50px;
+}
+#aboutUs .container .row .twitter-col{
+    margin-top: 70px;
+}
 /** Update_Form.php */
 .message{
     font-family: 'Source Sans Pro', sans-serif;
