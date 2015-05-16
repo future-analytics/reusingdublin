@@ -1160,44 +1160,44 @@ require_once('includes/header.php');
             </section>
 
             <div >
-
-
-
                 <section id="menu4" class="container" style="background-color:#f4e851;width:100%;height:100%;margin-top:5%;" >
-                <div class="row">
-                <div class="col-sm-6" style="margin-left:7%;padding:5%;" >
-
-
-                <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">About the Project </p>
-                        <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">Reusing Dublin responds to the observation that we don’t use space in
-                our city efficiently - and sometimes we don’t use it at all.
-                </p>
-                <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-                Reusing Dublin attempts to map underused spaces in order to identify
-                opportunities for using the city more efficiently for the benefit of
-                everyone.</p>
-                <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-
-                Underused spaces include sites and buildings that are not used at all
-                (vacant) or that are only partly in use. It also includes spaces that may
-                have a use, like a roof or a grassed area, but that could accommodate
-                additional uses.
-
-                </p>
-                <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
-                Re-using Dublin is an experimental research project that is part of
-                a wider EU FP7 project called <u>TURAS</u> (Transitioning towards Urban
-                Resilience and Sustainability).
-
-
-
-                </p>
-                </div>
-
-                </div>
-
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6" style="margin-left:7%;padding:5%;" >
+                            <p style="font-family:'Source Sans Pro', sans-serif;font-size:40px;font-weight:bold;">
+                                About the Project
+                            </p>
+                            <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                                Reusing Dublin responds to the observation that we don’t use space in
+                                our city efficiently - and sometimes we don’t use it at all.
+                            </p>
+                            <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                                Reusing Dublin attempts to map underused spaces in order to identify
+                                opportunities for using the city more efficiently for the benefit of
+                                everyone.
+                            </p>
+                            <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                                Underused spaces include sites and buildings that are not used at all
+                                (vacant) or that are only partly in use. It also includes spaces that may
+                                have a use, like a roof or a grassed area, but that could accommodate
+                                additional uses.
+                            </p>
+                            <p style="font-family:'Source Sans Pro', sans-serif;font-size:20px;font-weight:regular;">
+                                Re-using Dublin is an experimental research project that is part of
+                                a wider EU FP7 project called <u>TURAS</u> (Transitioning towards Urban
+                                Resilience and Sustainability).
+                            </p>
+                        </div>
+                        <div class="col-sm6">
+                            <a class="twitter-timeline" href="https://twitter.com/ReusingDublin" data-widget-id="599143046584868864">
+                                Tweets by @ReusingDublin
+                            </a>
+                            <script type="text/javascript">
+                                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                            </script>
+                        </div>
+                    </div>
                 </section>
+            </div>
 
             <?php
             require_once('includes/footer.php');
