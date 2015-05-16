@@ -1,3 +1,4 @@
+/** override bootstrap navbar breakpoints **/
 @media (max-width: 1199px) {
     .navbar-header {
         float: none;
@@ -67,4 +68,10 @@ nav#reusingdublin #navbar ul > li > a{
 }
 nav#reusingdublin #navbar ul > li > a:hover{
 	color:#fff !important;
+}
+/** Update_Form.php */
+.message{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
 }

@@ -2,7 +2,7 @@
 /**
  * View head elements.
  *
- * @todo  move all elements to this file.
+ * @todo  move all head> elements to this file.
  * @author  daithi coombes <webeire@gmail.com>
  */
 ?>
