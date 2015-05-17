@@ -43,6 +43,8 @@
             <ul class="nav navbar-nav navbar-right social-links">
                 <li><a href="https://instagram.com/reusingdublin/" target="_blank"><img src="instagram19.png"/></a></li>
                 <li><a href="mailto:reusingdublin@gmail.com" target="_blank"><img src="email131.png"/></a></li>
+                <li><a href="https://www.facebook.com/reusingdublin/" target="_blank"><img href="https://www.facebook.com/reusingdublin/" src="facebook.png"/></a></li>
+                <li><a href="https://www.twitter.com/reusingdublin/" target="_blank"><img href="https://www.twitter.com/reusingdublin/"  src="twitter.png"/></a></li>
             </ul>
         </div>
     </div>
