@@ -74,151 +74,122 @@ if(isset($_POST['added']))
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | ReusingDublin</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'>
     <link rel="stylesheet" type="text/css" href="css/slicknav.css">
     <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <!-- <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet"> -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,700' rel='stylesheet' type='text/css'>
-
-        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>//-->
     <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
     <style>
-    input[type='text']::-webkit-input-placeholder {
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:17px;
-    		font-weight:600;
-    		color: #00afc9;
-    }
+        input[type='text']::-webkit-input-placeholder {
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:17px;
+        		font-weight:600;
+        		color: #00afc9;
+        }
 
 
-    input[type='text']::-moz-placeholder { /* Firefox 18- */
-    		color: #00afc9;
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:20px;
-    		font-weight:600;
-    }
+        input[type='text']::-moz-placeholder { /* Firefox 18- */
+        		color: #00afc9;
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:20px;
+        		font-weight:600;
+        }
 
-    input[type='text']::-moz-placeholder {  /* Firefox 19+ */
-    		color: #00afc9;
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:20px;
-    		font-weight:600;
-    }
+        input[type='text']::-moz-placeholder {  /* Firefox 19+ */
+        		color: #00afc9;
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:20px;
+        		font-weight:600;
+        }
 
-    input[type='text']::-ms-input-placeholder {
-    		color: #00afc9;
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:20px;
-    		font-weight:600;
-    }
-    input[type='email']::-webkit-input-placeholder {
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:17px;
-    		font-weight:600;
-    		color: #FFF;
-    		align:center;
-    }
-
-
-    input[type='email']::-moz-placeholder { /* Firefox 18- */
-    		color: #FFF;
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:20px;
-    		font-weight:600;
-    		align:center;
-    }
-
-    input[type='email']::-moz-placeholder {  /* Firefox 19+ */
-    		color: #FFF;
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:20px;
-    		font-weight:600;
-    		align:center;
-    }
-
-    input[type='email']::-ms-input-placeholder {
-    		color: #FFF;
-    		font-family:'Source Sans Pro', sans-serif;
-    		font-size:20px;
-    		font-weight:600;
-    		align:center;
-    }
-    .ppp.a
-    {
-    	font-family:'Source Sans Pro', sans-serif;
-    	font-size:17px;
-    	font-weight:600;
-    	color:#000;
-    }
-
-    li:hover {
-        font-color:#FFF;
-    }
-    @media only screen and (max-width : 768px)  {
-      .news{margin-top:-20px;}
-    }
-    @media screen and (max-width: 768px)
-    {
-    	br
-    	{
-    	   display: none
-
-    	}
-    	.jumbotron
-    	{
-    		width:90%;
-    	}
-
-    }
-
-     .active {
-    	color:#FFF;
-    }
+        input[type='text']::-ms-input-placeholder {
+        		color: #00afc9;
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:20px;
+        		font-weight:600;
+        }
+        input[type='email']::-webkit-input-placeholder {
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:17px;
+        		font-weight:600;
+        		color: #FFF;
+        		align:center;
+        }
 
 
+        input[type='email']::-moz-placeholder { /* Firefox 18- */
+        		color: #FFF;
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:20px;
+        		font-weight:600;
+        		align:center;
+        }
+
+        input[type='email']::-moz-placeholder {  /* Firefox 19+ */
+        		color: #FFF;
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:20px;
+        		font-weight:600;
+        		align:center;
+        }
+
+        input[type='email']::-ms-input-placeholder {
+        		color: #FFF;
+        		font-family:'Source Sans Pro', sans-serif;
+        		font-size:20px;
+        		font-weight:600;
+        		align:center;
+        }
+        .ppp.a
+        {
+        	font-family:'Source Sans Pro', sans-serif;
+        	font-size:17px;
+        	font-weight:600;
+        	color:#000;
+        }
+
+        li:hover {
+            font-color:#FFF;
+        }
+        @media only screen and (max-width : 768px)  {
+          .news{margin-top:-20px;}
+        }
+        @media screen and (max-width: 768px)
+        {
+        	br
+        	{
+        	   display: none
+
+        	}
+        	.jumbotron
+        	{
+        		width:90%;
+        	}
+
+        }
+
+         .active {
+        	color:#FFF;
+        }
     </style>
-
-       <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-
-
-        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-        <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-59451880-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 		<script type="text/javascript">
         $(function() {
