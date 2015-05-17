@@ -17,27 +17,26 @@
                     <a href="#menu1" id="fiftha">HOME</a>
                 </li>
                 <script type="text/javascript">
-                /**
-                 * @todo refactor homepage link to View_Form.php
-                 */
-                 if(window.opener){
-                    console.log('popup');
-                    $('#fiftha').click(function(){
-                        window.close();
-                    });
-                }
+                    /**
+                     * @todo refactor homepage link to View_Form.php
+                     */
+                     if(window.opener){
+                        $('#fiftha').click(function(){
+                            window.close();
+                        });
+                    };
                 </script>
                 <?php
-                //homepage links
-                if (defined('IS_HOMEPAGE'))
-                {
-                    ?>
-                    <li><a href="#menu2" id="firsta">HOW IT WORKS</a></li>
-                    <li><a href="#menu3" id="seconda">TRY IT OUT</a></li>
-                    <li><a href="#menu4" id="thirda">ABOUT</a></li>
-                    <li><a href="#menu5" id="fourtha">MAILING LIST</a></li>
-                    <?php
-                }
+                    //homepage links
+                    if (defined('IS_HOMEPAGE'))
+                    {
+                        ?>
+                        <li><a href="#menu2" id="firsta">HOW IT WORKS</a></li>
+                        <li><a href="#menu3" id="seconda">TRY IT OUT</a></li>
+                        <li><a href="#menu4" id="thirda">ABOUT</a></li>
+                        <li><a href="#menu5" id="fourtha">MAILING LIST</a></li>
+                        <?php
+                    }
                 ?>
             </ul>
             <ul class="nav navbar-nav navbar-right social-links">
@@ -47,7 +46,8 @@
                 <li><a href="https://www.twitter.com/reusingdublin/" target="_blank"><img href="https://www.twitter.com/reusingdublin/"  src="twitter.png"/></a></li>
             </ul>
         </div>
-    </div>
+
+    </div><!-- end container //-->
 </nav>
 
 <!--
