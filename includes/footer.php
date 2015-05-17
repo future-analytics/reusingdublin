@@ -20,6 +20,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+<script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
 <div class="container" style="margin-bottom:0%;float:center;" align="justify" >
 	<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Reusing Dublin</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 	<script>
