@@ -85,12 +85,13 @@ if(isset($_POST['added']))
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
 
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
-    <!--<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>//-->
-    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
     <style>
         input[type='text']::-webkit-input-placeholder {
         		font-family:'Source Sans Pro', sans-serif;
@@ -208,7 +209,6 @@ if(isset($_POST['added']))
         });
 
     $('#navbar ul li a').click(function(){
-        console.log(this);
         $('#navbar ul li a').color = '#000';
         $(this).color = '#fff';
     });
