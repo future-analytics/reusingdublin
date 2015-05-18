@@ -53,11 +53,6 @@ nav#reusingdublin #navbar{
 	margin: 60px 0 0;
 	height: 50px !important;
 }
-nav#reusingdublin #navbar ul.page-links li,
-nav#reusingdublin #navbar ul.social-links li{
-	list-style: none;
-	float: left;
-}
 nav#reusingdublin #navbar ul.page-links{
 	margin-left: 130px;
 }
