@@ -22,7 +22,24 @@ var ReusingDublin = function(){
 		var self = this;
 
 		$(document).scroll(self.homeScroll);
-	}
+        $(document).on('click','.navbar-collapse.in', self.mobileMenuClose);    //close mobile navbar onClick
+
+         $(".navbar").click(function(){
+            $('.navbar-collapse').removeClass('in');
+         })
+
+    }
+
+    /**
+     * Close the mobile navbar when item is clicked
+     * @param  {event} e
+     */
+    this.mobileMenuClose = function(e) {
+        console.log(e);
+        if( $(e.target).is('a') ) {
+            $(this).collapse('hide');
+        }
+    }
 
 	/**
 	 * Highlight homepage nav link on page scroll
