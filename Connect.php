@@ -168,11 +168,10 @@ function cll()
 
 </script>
 
-
- <body onload="initialize()" style="background-color:#f4e851">
-
-     <!-- Fixed navbar -->
+    <!-- Fixed navbar -->
      <?php
+     $bodyBG = '#f4e851';
+     require_once('includes/head.php');
      require_once('includes/header.php');
      ?>
 
@@ -192,7 +191,7 @@ function cll()
            <input type="hidden" name="lat1" ID="lat" size="40"><br><br/><br/>
       <input type="hidden" name="lon1" ID="lon" size="40"><br><br/><br/>
             <div style="margin-left:100px;margin-top:0px;font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;color:#960;font-weight:1000;font-size:30px;">
-  <?php echo $msg ?>
+  <?php if(isset($msg)) echo $msg; ?>
   </div>
             <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;">Tell us your idea for this site and fill out your contact details below.</font><br/>
             <br/>

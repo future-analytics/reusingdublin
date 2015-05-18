@@ -877,10 +877,9 @@ function pops()
 
 
 </script>
- <body onload="initialize()" style="background-color:#f4e851">
-
-
-	<?php
+ 	<?php
+ 	$bodyBG = '#f4e851';
+	require_once('includes/head.php');
 	require_once('includes/header.php');
 	?>
 
@@ -900,7 +899,7 @@ function pops()
       <input type="hidden" name="lon1" ID="lon" value ="default" size="40"><br><br/><br/>
           <div style="width:100%;margin-right:80px;border:none;background-color:#FFF;padding:0px;background-color:transparent;border:none;" class="well sidebar-nav">
             <div style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;color:#960;">
-  <?php echo $msg ?>
+  <?php if(isset($msg)) echo $msg; ?>
   </div>
             <font style="font-family:'Source Sans Pro', sans-serif;font-size:28px;font-weight:bold;"><b>Upload photograph for site/location</font>
             <br/>
