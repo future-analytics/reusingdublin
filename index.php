@@ -1036,7 +1036,7 @@ require_once('includes/header.php');
             <!-- Fixed navbar -->
             <div id="menu1" class="news" style="background-image:url('reusing-draft-13.04-02.png');background-size:cover; display: inline-block;width:100%; height:auto;">
             <div class="row"><!-- Main component for a primary marketing message or call to action -->
-            <div class="col-md-4" style="margin-top:7%;float:left;margin-left:3%;" >
+            <div class="col-md-4" style="margin-top:250px;float:left;margin-left:3%;" >
             <div class="jumbotron"   style="background-color:#022a3c;height:auto;margin-top:5%;"  >
             <div  style="padding:5%;" align="left">
             <p style="color:white;font-family:'Source Sans Pro', sans-serif;font-size:40px;margin-top:1%;line-height: 1.0;text-align:left;">Welcome to Reusing Dublin, a space to discover and share information about vacant or underused spaces in Dublin</p><br>
@@ -1088,10 +1088,10 @@ require_once('includes/header.php');
             </div>
 
             <div    class="col-md-4"  style="margin-bottom:5px;float:left;">
-            <input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;" align=
+            <input type="button"  id="additional" style="background-color:#00afc9;border:none;height:40px;color:#FFF;font-family:'Source Sans Pro', sans-serif;font-size:17px;font-weight:600;margin-bottom:0px;float:left;padding-right:20px;padding-leftt:10px;" align=
             "center" value="FIND AN AREA"/>
-            <input id="pac-input" style="color:#00afc9;border:none;font-size:17px;margin-left:1px;float:left;width:100px;" type="text" placeholder="SEARCH BOX" >
-            <input type="button" id="layer8" style="background-color:#8ec63f;border:none;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO" />
+            <input id="pac-input" style="color:#00afc9;border:none;font-size:17px;margin-left:1px;padding-top:7px;float:left;width:130px;" type="text" placeholder="SEARCH BOX" >
+            <input type="button" id="layer8" style="background-color:#8ec63f;border:none;padding:8px;font-size:17px;background-color:#F00;color:#000;margin-left:1px;float:left;" value="GO" />
             <br/>
             <br/>
             <br/>
@@ -1112,7 +1112,7 @@ require_once('includes/header.php');
             <div id="aboutUs">
                 <section id="menu4" class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-bottom:40px;">
                             <p class="title">
                                 About the Project
                             </p>
