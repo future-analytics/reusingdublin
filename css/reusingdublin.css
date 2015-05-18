@@ -36,6 +36,9 @@
         overflow: hidden!important;
     }
 }
+nav#reusingdublin #navbar .social-link{
+    float: left;
+}
 nav#reusingdublin{
 	background-color: #00afc9;
 	height: 112px;
@@ -49,9 +52,7 @@ nav#reusingdublin a.navbar-brand img{
 }
 nav#reusingdublin #navbar{
 	background-color: #00afc9;
-	border: 0;
-	margin: 60px 0 0;
-	height: 50px !important;
+	margin: 30px 0 0;
 }
 nav#reusingdublin #navbar ul.page-links{
 	margin-left: 130px;
