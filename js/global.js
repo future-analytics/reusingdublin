@@ -24,9 +24,12 @@ var ReusingDublin = function(){
 		$(document).scroll(self.homeScroll);
         $(document).on('click','.navbar-collapse.in', self.mobileMenuClose);    //close mobile navbar onClick
 
-         $(".navbar").click(function(){
+        $(".navbar").click(function(){
             $('.navbar-collapse').removeClass('in');
-         })
+        })
+        $(".navbar a").click(function(){
+            $('.navbar-collapse').removeClass('in');
+        })
 
     }
 
@@ -36,9 +39,7 @@ var ReusingDublin = function(){
      */
     this.mobileMenuClose = function(e) {
         console.log(e);
-        if( $(e.target).is('a') ) {
-            $(this).collapse('hide');
-        }
+       $('.navbar-collapse').removeClass('in');
     }
 
 	/**
