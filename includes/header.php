@@ -12,7 +12,7 @@
 
         <div id="navbar" class="collapse navbar-collapse">
 
-            <ul class="nav navbar-nav page-links">
+            <ul class="nav navbar-nav nav-stacked page-links">
                 <li>
                     <a href="#menu1" id="fiftha">HOME</a>
                 </li>
