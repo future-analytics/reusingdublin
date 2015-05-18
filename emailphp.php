@@ -55,19 +55,19 @@ $message = $_REQUEST['message'];
     <title>Email Reusing Dublin</title>
 
 
- <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
 
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -76,17 +76,11 @@ $message = $_REQUEST['message'];
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-	button.hover
-	{background-color:#06F;
-	}
+      button.hover
+      {background-color:#06F;
+      }
 	</style>
-  </head><link href="css/bootstrap-responsive.css" rel="stylesheet">
- <link href="css/bootstrap.css" rel="stylesheet">
 </head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript">
 var map;
 var panorama;
@@ -178,13 +172,9 @@ function cll()
 
 </script>
 
- <body onload="initialize()" style="background-color:#f4e851">
-
-
-
-
-
-	<?php
+ 	<?php
+  $bodyBG = '#f4e851';
+  require_once('includes/head.php');
 	require_once('includes/header.php');
 	?>
 
