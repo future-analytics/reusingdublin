@@ -13,6 +13,8 @@ class Config
 	protected $db;
     /** @var string The url query string */
     protected $query;
+    /** @var array An array of url params as routes */
+    public $routes;
 	private static $instance;
 
     /**
@@ -80,6 +82,19 @@ class Config
 
         // check return value for singleton persistence.
         return self::getInstance();
+    }
+
+    /**
+     * create routes from url query.
+     * @subpackage Router
+     * @param string $query The url query.
+     */
+    private function setQuery($query)
+    {
+        if(!$query)
+            $query = 'index';
+
+        $this->routes = explode("/", $query);
     }
 
     /**
