@@ -4,7 +4,6 @@
  * @author daithi coombes <webeire@gmail.com>
  */
 
-define('REUSINGDUBLIN_DIR', realpath(dirname(__FILE__)));
 
 
 spl_autoload_register(function($class){
