@@ -13,7 +13,7 @@
 $scripts_btn_back = array(
     'emailphp.php',
     'Connect.php',
-    'Share.php',
+    'share.php',
     'InsertDoc.php',
     'InsertVideos.php',
     'InsertPhotographs.php',
