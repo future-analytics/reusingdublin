@@ -196,10 +196,10 @@ document.getElementById("date").value = today;
 
 </script>
 
-
  <body onload="initialize()" style="background-color:#f4e851">
 
      <?php
+     require_once('includes/head.php');
      require_once('includes/header.php');
      ?>
 
