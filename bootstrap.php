@@ -29,5 +29,8 @@ spl_autoload_register(function($class){
 new Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
 
 $config = Config::getInstance();
-$config->set('query', $_GET['q']);
+$query = (isset($_GET['q'])) ?
+	$_GET['q'] :
+	null;
+$config->set('query', $query);
 // end load configuration
