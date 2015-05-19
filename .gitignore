@@ -1,7 +1,6 @@
 # directories
 
 # files
-db.php
 config.php
 .remote-sync.json
 sftp-config.json
