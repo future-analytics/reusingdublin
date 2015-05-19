@@ -1,3 +1,22 @@
+/* navbar */
+nav#mainNav{
+	background-color: #00AFC9;
+}
+nav#mainNav .navbar-nav > li > a{
+	font-family: "Source Sans Pro",sans-serif;
+	font-size: 19px;
+
+}
+nav#mainNav .navbar-brand{
+	padding-top: 25px;
+}
 nav#mainNav #social-links > li{
 	float: left !important;
 }
+nav#mainNav .navbar-nav > .active > a,
+nav#mainNav .navbar-nav > .active > a:focus,
+nav#mainNav .navbar-nav > .active > a:hover{
+	color: #fff;
+	background: none;
+}
+/* end navbar */
