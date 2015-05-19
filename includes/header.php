@@ -1,3 +1,31 @@
+<?php
+/**
+ * The header and nav view file.
+ * @author daithi coombes <david.coombes@futureanalytics.ie>
+ */
+
+
+/**
+ * List of php filenames for scripts that will use a back button instead of
+ * home link.
+ * @var array
+ */
+$scripts_btn_back = array(
+    'emailphp.php',
+    'Connect.php',
+    'Share.php',
+    'InsertDoc.php',
+    'InsertVideos.php',
+    'InsertPhotographs.php',
+);
+
+
+// get home link status
+(in_array(trim($_SERVER['SCRIPT_NAME'], "/"), $scripts_btn_back)) ?
+    $home_link = false :
+    $home_link = true;
+
+?>
 <nav id="reusingdublin" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
 
@@ -14,7 +42,11 @@
 
             <ul class="nav navbar-nav nav-stacked page-links">
                 <li>
-                    <a href="#menu1" id="fiftha">HOME</a>
+                    <?php if( $home_link===true ): ?>
+                        <a href="#menu1" id="fiftha">HOME</a>
+                    <?php else: ?>
+                        <a href="javascript:history.back()">BACK</a>
+                    <?php endif; ?>
                 </li>
                 <script type="text/javascript">
                     /**
