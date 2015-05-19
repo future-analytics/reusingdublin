@@ -11,6 +11,8 @@ class Config
 
 	/** @var array An array of database parameters */
 	protected $db;
+    /** @var string The url query string */
+    protected $query;
 	private static $instance;
 
     /**
@@ -53,6 +55,31 @@ class Config
     		throw new Exception("ReusingDublin Config::getInstance singleton instance not constructed");
     	}
     	return self::$instance;
+    }
+
+    /**
+     * Set a property.
+     * @param string $prop The property name.
+     * @param mixed $value The property value.
+     * @return Config Returns this singleton for chaining.
+     */
+    public function set($prop, $value)
+    {
+
+        // try setter
+        $method = 'set'.ucfirst($prop);
+        if(method_exists($this, $method)){
+            $this->$method($value);
+        }
+
+        // try set property
+        if(property_exists(__CLASS__, $prop))
+            $this->$prop = $value;
+        else
+            throw new Exception('Config::set unkown property: '.$prop);
+
+        // check return value for singleton persistence.
+        return self::getInstance();
     }
 
     /**

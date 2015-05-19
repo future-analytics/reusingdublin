@@ -5,7 +5,18 @@
  */
 
 
+// debug?
+if(defined(REUSINGDUBLIN_DEBUG) && REUSINGDUBLIN_DEBUG==1){
+	ini_set('display_errors', 'on');
+	error_reporting(E_ALL);
+}// end debug
 
+
+
+/**
+ * Autoloader.
+ * @param string $class The class name including namespace
+ */
 spl_autoload_register(function($class){
 
 	$file = REUSINGDUBLIN_DIR . '/lib/' . $class . '.php';
@@ -13,7 +24,10 @@ spl_autoload_register(function($class){
 		require_once($file);
 });
 
+
 //load configuration
 new Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
 
 $config = Config::getInstance();
+$config->set('query', $_GET['q']);
+// end load configuration
