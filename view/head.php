@@ -6,7 +6,13 @@
  * @author  daithi coombes <webeire@gmail.com>
  */
 ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8"/>
+    	
+        <title>Reusing Dublin <?php echo $data->title; ?></title>
 
-        <link href="css/reusingdublin.css" type="text/css" rel="stylesheet" />
-	</head>
-	<body onLoad="initialize()" <?php if(isset($bodyBG)) echo 'style="background-color:'.$bodyBG.'"'; ?>>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    </head>
+    <body>
