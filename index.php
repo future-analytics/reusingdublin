@@ -34,7 +34,13 @@ $config->set('query', $query);
 
 
 /**
+ * Controller
+ */
+$controller = \ReusingDublin\Controller::factory($config->routes);
+
+
+/**
  * Print View
  */
-\ReusingDublin\View::getView();
+\ReusingDublin\View::getView($controller);
 // end Print View
