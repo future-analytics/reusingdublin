@@ -23,7 +23,14 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#home">HOME<span class="sr-only">(current)</span></a></li>
+                            <li class="active">
+                                <?php
+                                (\ReusingDublin\Config::getInstance()->routes[0]=='index') ?
+                                    $home_link = '#welcome' :
+                                    $home_link = '/';
+                                ?>
+                                <a href="<?php echo $home_link; ?>">HOME</a>
+                            </li>
                             <li><a href="#how-it-works">HOW IT WORKS</a></li>
                             <li><a href="#try-it-out">TRY IT OUT</a></li>
                             <li><a href="#about">ABOUT</a></li>

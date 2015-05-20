@@ -6,6 +6,7 @@ class Index extends Controller{
 
 	public function action()
 	{
+		$this->data['title'] = 'Homepage';
 		return $this;
 	}
 }
