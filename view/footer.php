@@ -9,7 +9,7 @@
             <div class="row affiliates">
                 <img src="/assets/images/logo-185x65.png" alt="reusing dublin logo"/> 
                 <img src="/assets/images/logo-eu.png" alt="EU Logo">
-                <img src="/assets/images/logo-turas.png">
+                <img src="/assets/images/logo-turas.png" alt="Turas Logo">
             </div>
             <div class="row license">
                 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
