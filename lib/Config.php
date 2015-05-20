@@ -86,6 +86,10 @@ class Config
 
     /**
      * create routes from url query.
+     *
+     * Routes:
+     *  - /site/
+     *  - /site/email/
      * @subpackage Router
      * @param string $query The url query.
      */
