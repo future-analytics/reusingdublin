@@ -88,8 +88,13 @@ class Config
      * create routes from url query.
      *
      * Routes:
+     *  - /site
      *  - /site/
-     *  - /site/email/
+     *  - /site/edit/$urlencode_site_street
+     *  - /form/let-us-know
+     *  - /form/tell-us-more
+     *  - /form/connect
+     *  - /form/share (this should allow sharing of page, not collecing more information)
      * @subpackage Router
      * @param string $query The url query.
      */
