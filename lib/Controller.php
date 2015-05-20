@@ -11,6 +11,7 @@ class Controller{
 
 	public $action;
 	public $class;
+	public $data = array();
 
 	/**
 	 * Factory method.
@@ -41,7 +42,7 @@ class Controller{
 	{
 
 		if($dataType=='OBJECT')
-			return $this->data;
+			return (object) $this->data;
 
 		return $this->data;
 	}

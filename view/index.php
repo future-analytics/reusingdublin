@@ -4,7 +4,12 @@
  * @package ReusingDublin
  * @author daithi coombes <david.coombes@futureanalytics.ie>
  */
+
+/**
+ * @todo  remove this debug code.
+ */
 ?>
+	<!-- debug code 
 	<section class="container">
 		<h1>Index.php</h1>
 
@@ -20,4 +25,18 @@
 			</ul>
 		</p>
 	</section>
-<?php
+	//-->
+
+		<section id="welcome">
+
+			<p class="strong">
+				Welcome to Reusing Dublin, a
+				space to discover and share
+				information about vacant or
+				underused spaces in Dublin
+			</p>
+			<p class="subtext">
+				Join us in unlocking the potential of the
+				spaces in our city
+			</p>
+		</section>
