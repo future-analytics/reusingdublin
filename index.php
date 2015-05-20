@@ -15,4 +15,4 @@ define('REUSINGDUBLIN_DEBUG',	1);
 require_once('bootstrap.php');
 
 // print view
-require_once('view/'.$config->routes[0].'.php');
+ReusingDublin\View::getView($config->routes[0]);
