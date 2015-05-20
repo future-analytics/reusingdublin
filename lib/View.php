@@ -7,18 +7,17 @@ class View{
 	/**
 	 * Prints a view file.
 	 */
-	public static function getView()
+	public static function getView(Controller $controller)
 	{
 
 		$config = Config::getInstance();
-
-		$data = (object) array(
-			'title' => ''
-		);
+		$data = $controller->getData();
+		$action = $controller->action;
+		$class = $controller->class;
 
 		require_once(REUSINGDUBLIN_DIR . '/view/head.php');
 		require_once(REUSINGDUBLIN_DIR . '/view/header.php');
-		require_once(REUSINGDUBLIN_DIR . '/view/' . $config->routes[0] . '.php');
+		require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
 		require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 	}
 }

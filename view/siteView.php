@@ -7,5 +7,5 @@ use ReusingDublin;
  * @author daithi coombes <david.coombes@futureanalytics.ie>
  */
 ?>
-		<h1>Add or update a site</h1>
+	<h1>View a site</h1>
 <?php
