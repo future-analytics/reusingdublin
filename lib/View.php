@@ -4,8 +4,21 @@ use ReusingDublin;
 
 class View{
 
-	public static function getView($view)
+	/**
+	 * Prints a view file.
+	 */
+	public static function getView()
 	{
-		require_once(REUSINGDUBLIN_DIR . '/view/' . $view . '.php');
+
+		$config = Config::getInstance();
+
+		$data = (object) array(
+			'title' => ''
+		);
+
+		require_once(REUSINGDUBLIN_DIR . '/view/head.php');
+		require_once(REUSINGDUBLIN_DIR . '/view/header.php');
+		require_once(REUSINGDUBLIN_DIR . '/view/' . $config->routes[0] . '.php');
+		require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 	}
 }

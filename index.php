@@ -14,11 +14,18 @@ define('REUSINGDUBLIN_DEBUG',	1);
 
 
 /**
+ * boostrap
+ */
+require_once('bootstrap.php');
+// end bootstrap
+
+
+/**
  * Configuration
  */
-new Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
+new \ReusingDublin\Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
 
-$config = Config::getInstance();
+$config = \ReusingDublin\Config::getInstance();
 $query = (isset($_GET['q'])) ?
 	$_GET['q'] :
 	null;
@@ -27,14 +34,7 @@ $config->set('query', $query);
 
 
 /**
- * boostrap
- */
-require_once('bootstrap.php');
-// end bootstrap
-
-
-/**
  * Print View
  */
-ReusingDublin\View::getView($config->routes[0]);
+\ReusingDublin\View::getView();
 // end Print View
