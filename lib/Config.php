@@ -1,4 +1,6 @@
 <?php
+namespace ReusingDublin;
+use ReusingDublin;
 /**
  * Singleton config class.
  *
