@@ -61,3 +61,53 @@ nav#mainNav .navbar-nav > .active > a:hover{
 	background: none;
 }
 /* end navbar */
+
+/* footer */
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 145px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 145px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 115px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+footer div.affiliates,
+footer div.license{
+    text-align: center;
+}
+footer div.affiliates img,
+footer div.license{
+    margin: 10px 35px;
+}
+/* end footer */
