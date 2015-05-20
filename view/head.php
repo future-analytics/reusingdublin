@@ -26,4 +26,4 @@
 
 		<link rel="stylesheet" href="/assets/css/reusingdublin.css" type="text/css"/>
 	</head>
-	<body>
+	<body class="<?php echo \ReusingDublin\Config::getInstance()->routes[0]; ?>">
