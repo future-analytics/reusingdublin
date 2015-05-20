@@ -22,7 +22,6 @@ if(defined(REUSINGDUBLIN_DEBUG) && REUSINGDUBLIN_DEBUG==1){
 spl_autoload_register(function($class){
 
 	$file = REUSINGDUBLIN_DIR . '/lib/' . str_replace("ReusingDublin\\", "", $class) . '.php';
-	var_dump($file);
 	if(is_readable($file))
 		require_once($file);
 });
