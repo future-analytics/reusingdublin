@@ -70,8 +70,10 @@ html {
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
+  background-image: url(/assets/images/background-home.png);
+  background-size: cover;
   margin-bottom: 145px;
+  margin-top: 122px;
 }
 .footer {
   position: absolute;
@@ -80,27 +82,6 @@ body {
   /* Set the fixed height of the footer here */
   height: 145px;
   background-color: #f5f5f5;
-}
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-body > .container {
-  padding: 115px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-code {
-  font-size: 80%;
 }
 footer div.affiliates,
 footer div.license{
