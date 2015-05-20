@@ -25,14 +25,3 @@ spl_autoload_register(function($class){
 	if(is_readable($file))
 		require_once($file);
 });
-
-
-//load configuration
-new Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
-
-$config = Config::getInstance();
-$query = (isset($_GET['q'])) ?
-	$_GET['q'] :
-	null;
-$config->set('query', $query);
-// end load configuration
