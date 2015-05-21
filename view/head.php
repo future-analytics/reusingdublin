@@ -16,6 +16,7 @@
 		<title>Reusing Dublin - <?php echo $data->title; ?></title>
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,5 +29,4 @@
 	</head>
 	<body class="<?php echo \ReusingDublin\Config::getInstance()->routes[0]; ?>"
 		data-spy="scroll"
-		data-target="#mainNav"
-		data-offset="122">
+		data-target="#mainNav">

@@ -4,18 +4,25 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 145px;
+  margin-bottom: 190px;
   padding-top: 122px;
   color: #333;
-  font-family: "Source Sans Pro",sans-serif;
-  font-size: 20px;
+  font-size: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 200;
+  line-height: 1;
 }
 .title{
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 4em;
 }
 /* end global */
 
+/* responsive small devices */
+@media only screen and (max-width: 400px){
+  body{
+    font-size: 90%;
+  }
+}
 /* navbar breakpoint #1 */
 @media (max-width: 1200px){
 	nav#mainNav #social-links{
@@ -67,10 +74,6 @@ nav#mainNav .navbar-nav{
   padding-top: 30px;
   margin-bottom: -30px;
 }
-nav#mainNav .navbar-nav > li > a{
-	font-size: 19px;
-
-}
 nav#mainNav .navbar-brand{
 	padding-top: 25px;
 }
@@ -97,8 +100,9 @@ nav#mainNav .navbar-nav > .active > a:hover{
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 145px;
+  height: 190px;
   background-color: #f5f5f5;
+  padding-top: 50px;
 }
 footer div.affiliates,
 footer div.license{
@@ -116,35 +120,37 @@ body.index {
   background-size: cover;
 }
 body.index section.container{
-  padding-top: 80px;
+  padding-top: 122px;
 }
 div#welcome-box{
   background-color: #022A3C;
   color: #fff;
 }
 div#welcome-box, div#how-it-works-box{
+  min-width: 320px;
   margin: 40px 0;
   padding: 50px 25px;
-  line-height: 1;
-}
-div#welcome-box .title{
-  font-weight: 200;
 }
 div#welcome-box .subtext{
   color: #F4E851;
   margin-top: 40px;
-  font-size: 28px;
+  font-size: 3em;
+  font-weight: 600;
 }
 div#how-it-works-box{
   background-color: #fff;
   color: #000;
-  font-size: 28px;
-  font-weight: 600;
+}
+div#how-it-works-box{
+  font-size: 2.5em;
+}
+div#how-it-works-box p.title{
+  font-size: 2em;
+  font-weight: bold;
 }
 div#how-it-works-box ul{
   padding-left: 0;
   list-style: none;
-  font-weight: 200;
 }
 div#how-it-works-box ul li{
   margin: 25px 0 0;
@@ -159,7 +165,7 @@ div#how-it-works-box ul li:nth-child(2){
 div#how-it-works-box ul li:nth-child(3){
   background-color: #9DD7E3;
 }
-section#try-it-out{
+section#try-it-out nav#mapNavBar{
   background-color: #fff;
 }
 div#map{
@@ -169,22 +175,39 @@ div#map{
 section#about{
   background-color: #F4E851;
 }
-section#about p{
-  font-weight: 400;
+#twitterFeed{
+  margin-top: 60px;
+}
+#twitter-widget-0{
+  height: 320px !important;
 }
 section#mailing-list{
   background-color: #fff;
+  padding-bottom: 30px;
+  font-size: 2em;
+}
+section#mailing-list{
 }
 form#maillist input[type=email]{
   background-color: #00AFC9;
   color: #fff;
   border: none;
   width: 100%;
+  height: 40px;
 }
 form#maillist input[type=submit]{
   background-color: #F00;
   color: #fff;
   border: none;
-  width: 100%
+  width: 100%;
+  height: 40px;
+}
+section#about{
+  padding-bottom: 40px;
+  font-size: 2em;
+  line-height: 1.25;
+}
+section#about p.title{
+  font-size: 2em;
 }
 /* end homepage */
