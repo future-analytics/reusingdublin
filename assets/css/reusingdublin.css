@@ -15,6 +15,19 @@ body {
 .title{
   font-size: 4em;
 }
+input.blue,
+select.blue{
+  background-color: #00AFC9;
+  color: #fff;
+  height: 40px;
+  font-size: 2em;
+}
+input.red{
+  background-color: #f00;
+  color: #fff;
+  height: 40px;
+  font-size: 2em;
+}
 /* end global */
 
 /* responsive small devices */
@@ -119,7 +132,7 @@ body.index {
   background-image: url(/assets/images/background-home.png);
   background-size: cover;
 }
-body.index section.container{
+body.index section{
   padding-top: 122px;
 }
 div#welcome-box{
@@ -127,8 +140,9 @@ div#welcome-box{
   color: #fff;
 }
 div#welcome-box, div#how-it-works-box{
+  max-width: 540px;
   min-width: 320px;
-  margin: 40px 0;
+  margin: 40px 5%;
   padding: 50px 25px;
 }
 div#welcome-box .subtext{
@@ -168,11 +182,18 @@ div#how-it-works-box ul li:nth-child(3){
 section#try-it-out nav#mapNavBar{
   background-color: #fff;
 }
+nav#mapNavBar button,
+nav#mapNavBar select,
+{
+  background-color: #00AFC9;
+  height: 40px;
+}
 div#map{
   background-color: #C5C5C5;
   height: 600px;
 }
 section#about{
+  padding-left: 5%;
   background-color: #F4E851;
 }
 #twitterFeed{
