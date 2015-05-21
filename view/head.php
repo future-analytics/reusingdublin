@@ -26,4 +26,7 @@
 
 		<link rel="stylesheet" href="/assets/css/reusingdublin.css" type="text/css"/>
 	</head>
-	<body class="<?php echo \ReusingDublin\Config::getInstance()->routes[0]; ?>">
+	<body class="<?php echo \ReusingDublin\Config::getInstance()->routes[0]; ?>"
+		data-spy="scroll"
+		data-target="#mainNav"
+		data-offset="122">

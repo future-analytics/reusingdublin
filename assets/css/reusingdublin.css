@@ -5,7 +5,7 @@ html {
 }
 body {
   margin-bottom: 145px;
-  margin-top: 122px;
+  padding-top: 122px;
   color: #333;
   font-family: "Source Sans Pro",sans-serif;
   font-size: 20px;
@@ -104,6 +104,9 @@ footer div.license{
 body.index {
   background-image: url(/assets/images/background-home.png);
   background-size: cover;
+}
+body.index section.container{
+  padding-top: 80px;
 }
 div#welcome-box{
   background-color: #022A3C;
