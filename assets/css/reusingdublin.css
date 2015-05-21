@@ -6,7 +6,9 @@ html {
 body {
   margin-bottom: 145px;
   margin-top: 122px;
+  color: #333;
   font-family: "Source Sans Pro",sans-serif;
+  font-size: 20px;
 }
 .title{
   font-size: 40px;
@@ -144,8 +146,32 @@ div#how-it-works-box ul li:nth-child(2){
 div#how-it-works-box ul li:nth-child(3){
   background-color: #9DD7E3;
 }
+section#try-it-out{
+  background-color: #fff;
+}
 div#map{
   background-color: #C5C5C5;
   height: 600px;
+}
+section#about{
+  background-color: #F4E851;
+}
+section#about p{
+  font-weight: 400;
+}
+section#mailing-list{
+  background-color: #fff;
+}
+form#maillist input[type=email]{
+  background-color: #00AFC9;
+  color: #fff;
+  border: none;
+  width: 100%;
+}
+form#maillist input[type=submit]{
+  background-color: #F00;
+  color: #fff;
+  border: none;
+  width: 100%
 }
 /* end homepage */
