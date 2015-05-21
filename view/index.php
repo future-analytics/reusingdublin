@@ -28,6 +28,7 @@
 	//-->
 
 		<section id="welcome" class="container">
+			<h2 class="hidden">Welcome</h2>
 
 			<div class="row">
 				<div id="welcome-box" class="col-xs-6">
@@ -46,6 +47,7 @@
 		</section>
 
 		<section id="how-it-works" class="container">
+			<h2 class="hidden">How it works</h2>
 
 			<div class="row">
 				<div id="how-it-works-box" class="col-xs-6">
@@ -73,6 +75,8 @@
 		</section>
 
 		<section id="try-it-out" class="container">
+			<h2 class="hidden">Try It Out</h2>
+
 			<div class="row">
 
 				<nav id="mapNavBar">
@@ -92,6 +96,8 @@
 		</section>
 
 		<section id="about" class="container">
+			<h2 class="hidden">About</h2>
+
 			<div class="row">
 
 				<div class="col-xs-6">
@@ -106,6 +112,7 @@
 		</section>
 
 		<section id="mailing-list" class="container">
+			<h2 class="hidden">Mailing List</h2>
 
 			<div class="row">
 				<div class="col-xs-offset-3 col-xs-6 text-center">
