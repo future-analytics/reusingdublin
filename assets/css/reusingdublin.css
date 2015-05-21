@@ -144,4 +144,8 @@ div#how-it-works-box ul li:nth-child(2){
 div#how-it-works-box ul li:nth-child(3){
   background-color: #9DD7E3;
 }
+div#map{
+  background-color: #C5C5C5;
+  height: 600px;
+}
 /* end homepage */
