@@ -17,7 +17,7 @@
                         <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img src="/assets/images/logo-200x70.png" alt="Reusing Dublin Brand" class="img-responsive"/>
+                            <img src="/assets/images/logo-200x70.png" alt="Reusing Dublin Brand"/>
                         </a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
