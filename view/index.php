@@ -71,3 +71,22 @@
 				</div>
 			</div>
 		</section>
+
+		<section id="try-it-out" class="container">
+			<div class="row">
+
+				<nav id="mapNavBar">
+					<button>ADD A SITE</button>
+					<select>
+						<option>MORE INFORMATION</option>
+					</select>
+					<button>FIND AN AREA</button>
+					<input placeholder="SEARCH BOX">
+					<button>GO</button>
+				</nav>
+
+				<div id="map">
+				</div>
+
+			</div>
+		</section>
