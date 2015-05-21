@@ -20,6 +20,7 @@ var ReusingDublin = function(){
      */
     this.init = function(){
 
+        // animate scrolling
         $("#mainNav ul li a[href^='#']")
             .on('click', this.scrollTo);
 
@@ -35,7 +36,9 @@ var ReusingDublin = function(){
 
         e.preventDefault();
 
-        var hash = this.hash;
+        var hash      = this.hash
+            ,offset   = 122
+            ,top;
 
         $('html, body').animate({
             scrollTop: $(hash).offset().top

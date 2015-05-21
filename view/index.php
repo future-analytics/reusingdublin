@@ -105,7 +105,12 @@
 					<p>Reusing Dublin responds to the observation that we don’t use space in our city efficiently - and sometimes we don’t use it at all.</p>
 					<p>Reusing Dublin attempts to map underused spaces in order to identify opportunities for using the city more efficiently for the benefit of everyone.</p>
 					<p>Underused spaces include sites and buildings that are not used at all (vacant) or that are only partly in use. It also includes spaces that may have a use, like a roof or a grassed area, but that could accommodate additional uses.</p>
-					<p>Re-using Dublin is an experimental research project that is part of a wider EU FP7 project called TURAS (Transitioning towards Urban Resilience and Sustainability).</p>
+					<p>Re-using Dublin is an experimental research project that is part of a wider EU FP7 project called <u>TURAS</u> (Transitioning towards Urban Resilience and Sustainability).</p>
+				</div>
+
+				<div id="twitterFeed" class="col-xs-6">
+					<a class="twitter-timeline" href="https://twitter.com/ReusingDublin" data-widget-id="599143046584868864">Tweets by @ReusingDublin</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 				</div>
 
 			</div>
