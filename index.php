@@ -40,6 +40,17 @@ $controller = \ReusingDublin\Controller::factory($config->routes);
 
 
 /**
+ * Ajax.
+ * If ajax request then controller should contain json string.
+ * @see Config::setQuery() Where ajax routes are defined.
+ */
+if(defined('REUSINGDUBLIN_AJAX')){
+	echo $controller->result;
+	die();
+}
+
+
+/**
  * Print View
  */
 \ReusingDublin\View::getView($controller);

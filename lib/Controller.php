@@ -12,6 +12,7 @@ class Controller{
 	public $action;
 	public $class;
 	public $data = array();
+	public $result;
 
 	/**
 	 * Factory method.

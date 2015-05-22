@@ -26,6 +26,15 @@ function gmaps_initialize(){
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
     // init loader on map
+    $.ajax(
+        '/ajax/gmaps/GetSites',
+        {
+            dataType: 'json',
+            complete: function(res){
+                console.log(arguments);
+            }
+        }
+    );
     
     // request marker locations from ajax
     
