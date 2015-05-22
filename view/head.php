@@ -28,9 +28,11 @@
 		<link rel="stylesheet" href="/assets/css/reusingdublin.css" type="text/css"/>
 		<?php if(\ReusingDublin\Config::getInstance()->routes[0]=='index'): ?>
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+			<script type="text/javascript" src="/assets/js/gmaps/js"></script><!-- https://hpneo.github.io/gmaps/ //-->
 			<script type="text/javascript" src="/assets/js/reusingdublinGmaps.js"></script>
+			
 			<script type="text/javascript">
-            google.maps.event.addDomListener(window, 'load', gmaps_initialize);
+            	google.maps.event.addDomListener(window, 'load', gmaps_initialize);
 			</script>
 		<?php endif; ?>
 	</head>
