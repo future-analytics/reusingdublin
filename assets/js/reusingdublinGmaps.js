@@ -20,6 +20,16 @@ var mapOptions = {
  * Initialize function.
  */
 function gmaps_initialize(){
+
+    //init map
     var mapCanvas = document.getElementById('map-canvas');
     var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    // init loader on map
+    
+    // request marker locations from ajax
+    
+    // build array of marker objects
+    
+    // pass array to gmaps
 }
