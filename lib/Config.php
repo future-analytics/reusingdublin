@@ -90,7 +90,7 @@ class Config
      * create routes from url query.
      *
      * Routes:
-     *  - /site
+     *  - /ajax
      *  - /site/
      *  - /site/edit/$urlencode_site_street
      *  - /form/let-us-know
@@ -102,10 +102,35 @@ class Config
      */
     private function setQuery($query)
     {
+
+        // default index page
         if(!$query)
             $query = 'index';
 
-        $this->routes = explode("/", $query);
+        $routes = explode("/", $query);
+
+        //rebuild ajax routes
+        if(strtolower($routes[0])=='ajax')
+            $routes = $this->ajaxRoutes($routes);
+
+        $this->routes = $routes;
+    }
+
+    /**
+     * Rewrite routes array for ajax requests.
+     * @todo Include nonce security.
+     * @param  array $routes An array of routes.
+     * @return array         The new array of routes.
+     */
+    private function ajaxRoutes(array $routes)
+    {
+
+        define('REUSINGDUBLIN_AJAX', 1);
+        array_shift($routes);
+
+        $routes[1] = 'ajax' . ucfirst($routes[1]);
+
+        return $routes;
     }
 
     /**
