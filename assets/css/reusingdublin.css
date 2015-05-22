@@ -2,31 +2,35 @@
 html {
   position: relative;
   min-height: 100%;
+  font-size: 100%;  /* base font set at 16px */
 }
 body {
   margin-bottom: 190px;
   padding-top: 122px;
   color: #333;
-  font-size: 100%;
+  font-size: 16px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 200;
   line-height: 1;
 }
 .title{
-  font-size: 4em;
+  font-size: 2.5rem;
+  font-size: 40px;
 }
 input.blue,
 select.blue{
   background-color: #00AFC9;
   color: #fff;
   height: 40px;
-  font-size: 2em;
+  font-size: 1.7rem;
+  font-size: 17px;
 }
 input.red{
   background-color: #f00;
   color: #fff;
   height: 40px;
-  font-size: 2em;
+  font-size: 1rem;
+  font-size: 17px;
 }
 /* end global */
 
@@ -95,7 +99,8 @@ nav#mainNav #social-links > li{
 }
 nav#mainNav .navbar-nav > li > a{
   color: #333;
-  font-size: 1.9em;
+  font-size: 1.2rem;
+  font-size: 19px;
 }
 nav#mainNav .navbar-nav > li > a:hover,
 nav#mainNav .navbar-nav > .active > a,
@@ -149,7 +154,8 @@ div#welcome-box, div#how-it-works-box{
 div#welcome-box .subtext{
   color: #F4E851;
   margin-top: 40px;
-  font-size: 3em;
+  font-size: 1.7rem;
+  font-size: 27px;
   font-weight: 600;
 }
 div#how-it-works-box{
@@ -157,10 +163,10 @@ div#how-it-works-box{
   color: #000;
 }
 div#how-it-works-box{
-  font-size: 2.5em;
+  font-size: 1.7rem;
+  font-size: 28px;
 }
 div#how-it-works-box p.title{
-  font-size: 2em;
   font-weight: bold;
 }
 div#how-it-works-box ul{
@@ -184,7 +190,7 @@ section#try-it-out nav#mapNavBar{
   background-color: #fff;
 }
 nav#mapNavBar button,
-nav#mapNavBar select,
+nav#mapNavBar select
 {
   background-color: #00AFC9;
   height: 40px;
@@ -197,6 +203,12 @@ section#about{
   padding-left: 5%;
   background-color: #F4E851;
 }
+section#about{
+  padding-bottom: 40px;
+  font-size: 1.3rem;
+  font-size: 20px;
+  line-height: 1.25;
+}
 #twitterFeed{
   margin-top: 60px;
 }
@@ -206,9 +218,8 @@ section#about{
 section#mailing-list{
   background-color: #fff;
   padding-bottom: 30px;
-  font-size: 2em;
-}
-section#mailing-list{
+  font-size: 1.3rem;
+  font-size: 20px;
 }
 form#maillist input[type=email]{
   background-color: #00AFC9;
@@ -223,13 +234,5 @@ form#maillist input[type=submit]{
   border: none;
   width: 100%;
   height: 40px;
-}
-section#about{
-  padding-bottom: 40px;
-  font-size: 2em;
-  line-height: 1.25;
-}
-section#about p.title{
-  font-size: 2em;
 }
 /* end homepage */
