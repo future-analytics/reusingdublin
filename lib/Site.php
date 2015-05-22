@@ -32,9 +32,19 @@ class Site extends Controller{
 		return $this;
 	}
 
-	public function actionAjaxGetAll()
+	public function actionAjaxGetSites()
 	{
-		$this->result = json_encode(array('foo' => 'bar'));
+
+		$db 		= Model::factory();
+		$sites 		= array();
+		$query 		= "SELECT * FROM Site";
+		$result 	= $db->query($query);
+		
+		while($row = $result->fetch()){
+			$sites[] = $row;
+		}
+
+		$this->result = json_encode($sites);
 
 		return $this;
 	}

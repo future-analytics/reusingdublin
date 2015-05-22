@@ -21,16 +21,14 @@ require_once('bootstrap.php');
 
 
 /**
- * Configuration
+ * Routing
  */
-new \ReusingDublin\Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
-
 $config = \ReusingDublin\Config::getInstance();
 $query = (isset($_GET['q'])) ?
 	$_GET['q'] :
 	null;
 $config->set('query', $query);
-// end Configuration
+// end Routing
 
 
 /**

@@ -56,7 +56,7 @@ class Config
     public static function getInstance()
     {
     	if(! (self::$instance instanceof self)){
-    		throw new Exception("ReusingDublin Config::getInstance singleton instance not constructed");
+    		throw new \Exception("ReusingDublin Config::getInstance singleton instance not constructed");
     	}
     	return self::$instance;
     }
