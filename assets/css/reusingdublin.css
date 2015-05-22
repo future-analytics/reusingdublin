@@ -40,7 +40,7 @@ input.red{
 @media (max-width: 1200px){
 	nav#mainNav #social-links{
 		position: absolute;
-		top: 55px;
+		top: 25px;
 		margin-left: -12px;
 	}
 	nav#mainNav div.in #social-links{
