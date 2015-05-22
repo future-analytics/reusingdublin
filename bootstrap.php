@@ -25,3 +25,16 @@ spl_autoload_register(function($class){
 	if(is_readable($file))
 		require_once($file);
 });
+
+
+/**
+ * Configuration
+ */
+new \ReusingDublin\Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
+
+
+/**
+ * Model object
+ */
+global $db;
+$db = Model::factory();
