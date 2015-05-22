@@ -1,4 +1,4 @@
-<?php
+e3035671-57c3-4ee5-b4a8-d171a2d2ed09<?php
 /**
 * The header and nav view file.
 * @package ReusingDublin
@@ -22,20 +22,6 @@
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="active">
-                                <?php
-                                (\ReusingDublin\Config::getInstance()->routes[0]=='index') ?
-                                    $home_link = '#welcome' :
-                                    $home_link = '/';
-                                ?>
-                                <a href="<?php echo $home_link; ?>">HOME</a>
-                            </li>
-                            <li><a href="#how-it-works">HOW IT WORKS</a></li>
-                            <li><a href="#try-it-out">TRY IT OUT</a></li>
-                            <li><a href="#about">ABOUT</a></li>
-                            <li><a href="#mailing-list">MAILING LIST</a></li>
-                        </ul>
                         <ul class="nav navbar-nav navbar-right" id="social-links">
                             <li><a href="https://instagram.com/reusingdublin">
                                 <img src="/assets/images/icon_instagram.png" alt="Instagram Profile">
@@ -49,6 +35,20 @@
                             <li><a href="https://twitter.com/reusingdublin">
                                 <img src="/assets/images/icon_twitter.png" alt="Twitter Profile">
                             </a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active">
+                                <?php
+                                (\ReusingDublin\Config::getInstance()->routes[0]=='index') ?
+                                    $home_link = '#welcome' :
+                                    $home_link = '/';
+                                ?>
+                                <a href="<?php echo $home_link; ?>">HOME</a>
+                            </li>
+                            <li><a href="#how-it-works">HOW IT WORKS</a></li>
+                            <li><a href="#try-it-out">TRY IT OUT</a></li>
+                            <li><a href="#about">ABOUT</a></li>
+                            <li><a href="#mailing-list">MAILING LIST</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->

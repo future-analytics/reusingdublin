@@ -95,6 +95,7 @@ nav#mainNav #social-links > li{
 }
 nav#mainNav .navbar-nav > li > a{
   color: #333;
+  font-size: 1.9em;
 }
 nav#mainNav .navbar-nav > li > a:hover,
 nav#mainNav .navbar-nav > .active > a,
