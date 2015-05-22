@@ -1,4 +1,4 @@
-e3035671-57c3-4ee5-b4a8-d171a2d2ed09<?php
+<?php
 /**
 * The header and nav view file.
 * @package ReusingDublin
