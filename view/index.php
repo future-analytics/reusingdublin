@@ -93,7 +93,7 @@
                 </div>
             </nav>
 
-            <div id="map">
+            <div id="map-canvas">
             </div>
 
         </section>

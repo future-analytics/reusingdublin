@@ -195,7 +195,7 @@ nav#mapNavBar select
   background-color: #00AFC9;
   height: 40px;
 }
-div#map{
+div#map-canvas{
   background-color: #C5C5C5;
   height: 600px;
 }
