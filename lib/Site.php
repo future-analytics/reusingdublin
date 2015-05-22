@@ -32,6 +32,13 @@ class Site extends Controller{
 		return $this;
 	}
 
+	public function actionAjaxGetAll()
+	{
+		$this->result = json_encode(array('foo' => 'bar'));
+
+		return $this;
+	}
+
 	public function actionLetUsKnow()
 	{
 		return $this;
