@@ -50,6 +50,27 @@ class Model{
 		return $this;
 	}
 
+	/**
+	 * Check if db table exists.
+	 * @param string $table The table name.
+	 * @return boolean Default false.
+	 */
+	public function tableExists($table)
+	{
+		
+		$test = $this->query("SELECT 1 FROM {$table}");
+
+		if(!Error::isError($test))
+			return true;
+		else
+			return false;
+	}
+
+	/**
+	 * Query the database WITHOUT preparing statements.
+	 * @param string $qry The raw mysql query.
+	 * @return array Returns an array of row objects or Error.
+	 */
 	public function query($qry)
 	{
 
@@ -59,7 +80,8 @@ class Model{
 			return new Error($e->getMessage());
 		}
 
-		while($row = $result->fetch()){
+		$results = array();
+		while($row = $res->fetch()){
 			$results[] = $row;
 		}
 
