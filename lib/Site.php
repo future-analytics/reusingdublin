@@ -32,7 +32,7 @@ class Site extends Controller{
 		return $this;
 	}
 
-	public function actionAjaxGetSites()
+	public function actionApiGetSites()
 	{
 
 		$db 		= Model::factory();
@@ -43,6 +43,8 @@ class Site extends Controller{
 		while($row = $result->fetch()){
 			$sites[] = $row;
 		}
+
+		array_push($sites, Api::factory()->hal);
 
 		$this->result = json_encode($sites);
 

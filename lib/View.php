@@ -16,9 +16,11 @@ class View{
 		$action = $controller->action;
 		$class 	= $controller->class;
 
-		require_once(REUSINGDUBLIN_DIR . '/view/head.php');
-		require_once(REUSINGDUBLIN_DIR . '/view/header.php');
-		require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
-		require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
+		if(!defined('REUSINGDUBLIN_API')){
+			require_once(REUSINGDUBLIN_DIR . '/view/head.php');
+			require_once(REUSINGDUBLIN_DIR . '/view/header.php');
+			require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
+			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
+		}
 	}
 }

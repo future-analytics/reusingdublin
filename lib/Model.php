@@ -11,12 +11,12 @@ use ReusingDublin;
  * Databse class.
  * @todo have as singleton (means not extending PDO, but instead referencing it internally?).
  */
-class Model extends \PDO{
+class Model{
 
 	/**
 	 * Factory method.
 	 * Tries to return instance of db in global space, if exists
-	 * @return Model
+	 * @return \PDO Returns a singleton PDO instance ($db).
 	 */
 	public static function factory()
 	{
@@ -27,8 +27,7 @@ class Model extends \PDO{
 			return $db;
 
 		$config = Config::getInstance()->get('db');
-
-		return new Model("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
+		return new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
 	}
 
 	public function query($qry)
@@ -36,8 +35,9 @@ class Model extends \PDO{
 
 		try{
 			$res = parent::query($qry);
+			var_dump($res);
 		}catch(\PDOException $e){
-			throw $e;
+			return new Error($e->message);
 		}
 
 		return $res;

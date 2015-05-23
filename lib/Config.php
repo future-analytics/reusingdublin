@@ -110,25 +110,24 @@ class Config
         $routes = explode("/", $query);
 
         //rebuild ajax routes
-        if(strtolower($routes[0])=='ajax')
-            $routes = $this->ajaxRoutes($routes);
+        if(strtolower($routes[0])=='api')
+            $routes = $this->apiRoutes($routes);
 
         $this->routes = $routes;
     }
 
     /**
-     * Rewrite routes array for ajax requests.
-     * @todo Include nonce security.
+     * Rewrite routes array for api requests.
      * @param  array $routes An array of routes.
      * @return array         The new array of routes.
      */
-    private function ajaxRoutes(array $routes)
+    private function apiRoutes(array $routes)
     {
 
-        define('REUSINGDUBLIN_AJAX', 1);
+        define('REUSINGDUBLIN_API', 1);
         array_shift($routes);
 
-        $routes[1] = 'ajax' . ucfirst($routes[1]);
+        $routes[1] = 'api' . ucfirst($routes[1]);
 
         return $routes;
     }
