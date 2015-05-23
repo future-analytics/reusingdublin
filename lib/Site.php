@@ -35,18 +35,30 @@ class Site extends Controller{
 	public function actionApiGetSites()
 	{
 
+		//vars
+		$routes		= Config::getInstance()->routes;
 		$db 		= Model::factory();
+		$fields		= array_splice($routes, 2);
 		$sites 		= array();
-		$query 		= "SELECT * FROM Site";
+
+		//query db
+		(count($fields)) ?
+			$fields = "`".implode("`,`", $fields)."`":
+			$fields = "*";
+		$query 		= "SELECT {$fields} FROM Site";
 		$result 	= $db->query($query);
-		
-		while($row = $result->fetch()){
-			$sites[] = $row;
+
+		//error report
+		if(Error::isError($result)){
+			$result = array(
+				'error' => $result->getMessage(),
+			);
 		}
 
-		array_push($sites, Api::factory()->hal);
+		//build & return results
+		array_push($result, Api::factory()->hal);
 
-		$this->result = json_encode($sites);
+		$this->result = json_encode($result);
 
 		return $this;
 	}

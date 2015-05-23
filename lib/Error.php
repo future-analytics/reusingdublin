@@ -37,4 +37,14 @@ class Error{
 		return false;
 	}
 
+	/**
+	 * Get error message if any.
+	 * @return string Returns message or null if none.
+	 */
+	public function getMessage()
+	{
+
+		return $this->msg;
+	}
+
 }

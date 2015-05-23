@@ -13,6 +13,9 @@ use ReusingDublin;
  */
 class Model{
 
+	/** @var PDO The PDO object */
+	protected $db;
+
 	/**
 	 * Factory method.
 	 * Tries to return instance of db in global space, if exists
@@ -27,19 +30,39 @@ class Model{
 			return $db;
 
 		$config = Config::getInstance()->get('db');
-		return new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
+
+		$pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
+		$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+		$obj = new Model();
+		return $obj->setDb($pdo);
+	}
+
+	/**
+	 * Set the database object.
+	 * @param PDO $db The database object.
+	 * @return Model Returns this for chaining.
+	 */
+	public function setDb(\PDO $db)
+	{
+
+		$this->db = $db;
+		return $this;
 	}
 
 	public function query($qry)
 	{
 
 		try{
-			$res = parent::query($qry);
-			var_dump($res);
+			$res = $this->db->query($qry);
 		}catch(\PDOException $e){
-			return new Error($e->message);
+			return new Error($e->getMessage());
 		}
 
-		return $res;
+		while($row = $result->fetch()){
+			$results[] = $row;
+		}
+
+		return $results;
 	}
 }
