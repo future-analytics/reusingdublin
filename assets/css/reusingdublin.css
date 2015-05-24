@@ -199,6 +199,22 @@ div#map-canvas{
   background-color: #C5C5C5;
   height: 600px;
 }
+.infowindow a{
+    display: block;
+    background-color: #F4E851;
+    color: #000;
+    width: 280px;
+    height: 40px;
+    font-size: 1.1rem;
+    font-size: 17px;
+    border: none;
+    margin: 5px 0;
+    font-weight: 600;
+}
+.infowindow a:hover{
+    background: #F4E851;
+    color: #000;
+}
 section#about{
   padding-left: 5%;
   background-color: #F4E851;
