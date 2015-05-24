@@ -93,6 +93,12 @@
                 </div>
             </nav>
 
+            <div class="site-info">
+                <h1 class="title"></h1>
+                <a class="btn btn-primary btn-large"></a>
+                <a class="btn btn-primary btn-large"></a>
+                <a class="btn btn-primary btn-large"></a>
+            </div>
             <div id="map-canvas">
             </div>
 
