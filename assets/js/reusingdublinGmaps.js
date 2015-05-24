@@ -10,6 +10,13 @@
 function ReusingDublinMap(){
 
     /**
+     * An array of Site objects.
+     * @see ReusingDublinMap::getSites()
+     * @type {Array}
+     */
+    this.sites = [{}];
+
+    /**
      * An array of style objects for gmaps.
      * @{@link http://stackoverflow.com/a/4003664/288644}
      * @type {Array}
@@ -97,7 +104,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var contentString = '<div class="infowindow">' +
         '   <h3>'+marker.title+'</h3>' +
-        '   <a class="btn btn-primary btn-large">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large">UPDATE THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large">VIEW THE DESCRIPTION</a>'+
         '</div>';
@@ -111,6 +118,33 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
     });
 
     return self;
+}
+
+ReusingDublinMap.prototype.dialog = function(siteId){
+
+    var self = this;
+
+    var html = $('#siteDescription .modal-body').html(),
+        site = self.getSite(siteId);
+
+    BootstrapDialog.show({
+        message: html,
+        title: site.address1
+    });
+}
+
+/**
+ * Get a site from persistence
+ * @uses RuesingDublin.sites Sites persistence.
+ * @param  {integer} id The site id
+ * @return {object}    Returns the Site object.
+ */
+ReusingDublinMap.prototype.getSite = function(id){
+
+    var self = this;
+
+    return self.sites[id];
+
 }
 
 /**
@@ -129,11 +163,26 @@ ReusingDublinMap.prototype.getSites = function(fn){
         dataType: 'json',
         complete: function(xhr, status){
 
+            var _self = self;
+
             if(xhr.responseJSON.error)
                 return alert(xhr.responseJSON.error);
 
-            if(callback)
+            //ReusingDublin.sites[] persistence. Index by sites.id
+            _self.sites = (function(){
+
+                var ret = [];
+
+                $(xhr.responseJSON).each(function(i,site){
+                    ret[site.id] = site;
+                });
+
+                return ret;
+            })();
+
+            if(callback){
                 return callback(xhr.responseJSON);
+            }
 
             return xhr.responseJSON;
         }
