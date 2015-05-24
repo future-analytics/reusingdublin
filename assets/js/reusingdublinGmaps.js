@@ -34,9 +34,17 @@ var mapOptions = {
 }
 
 /**
- * Initialize function.
+ * @class ReusingDublinMap
  */
-function gmaps_initialize(){
+function ReusingDublinMap(){
+
+}
+
+/**
+ * @constructor
+ * @memberOf {ReusingDublinMap}
+ */
+ReusingDublinMap.prototype.init = function(){
 
     //init map
     var mapCanvas   = document.getElementById('map-canvas'),
@@ -56,7 +64,7 @@ function gmaps_initialize(){
         complete: function(xhr, status){
             
             if(xhr.responseJSON.error)
-                alert(xhr.responseJSON.error);
+                return alert(xhr.responseJSON.error);
 
             //loop through sites and create markers.
             $(xhr.responseJSON).each(function(i, site){
@@ -71,9 +79,7 @@ function gmaps_initialize(){
                 var html = $('.site-info');
                 $('.title', html).text(site.address1);
 
-                var infowindow = new google.maps.InfoWindow({
-                    content: $(html).html()
-                });
+                var infowindow = this.infowindow();
 
                 google.maps.event.addListener(marker, 'click', function() {
                     console.log(marker);
@@ -88,5 +94,18 @@ function gmaps_initialize(){
         position: new google.maps.LatLng(53.347884693,-6.2731253419999575),
         map: map,
         title: 'Hello World!'
+    });
+}
+
+/**
+ * Get Infowindow object from google maps.
+ * @memberOf ReusingDublinMap
+ * @return {google.maps.infowindow} Returns gmap Infowindow
+ */
+ReusingDublinMap.prototype.infowindow = function(){
+
+    new google.maps.InfoWindow({
+        content: '<div class="infowindow">' +
+            '   <h3>'+title+'</h3>'
     });
 }
