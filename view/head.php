@@ -31,7 +31,9 @@
 			<script type="text/javascript" src="/assets/js/reusingdublinGmaps.js"></script>
 			
 			<script type="text/javascript">
-            	google.maps.event.addDomListener(window, 'load', gmaps_initialize);
+            	google.maps.event.addDomListener(window, 'load', function(){
+            		reusingDublinMap.init();
+            	});
 			</script>
 		<?php endif; ?>
 	</head>
