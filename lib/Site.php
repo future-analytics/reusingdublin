@@ -74,6 +74,7 @@ class Site extends Controller{
 			unset($fields[$key]);
 			$fields[] = 'address1';
 		}
+		$fields[] = 'id';			//always return id with rows.
 
 		//query db
 		(count($fields)) ?

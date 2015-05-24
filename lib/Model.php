@@ -38,6 +38,33 @@ class Model{
 		return $obj->setDb($pdo);
 	}
 
+	public function insert($table, array $row)
+	{
+
+		$fields = array_keys($row);
+
+		//set query fields
+		$qry = "INSERT INTO {$table} (`"
+			. implode("`,`", array_keys($row))
+			. "`) VALUES ";
+
+		//set query bind placeholders
+		foreach($row as $field=>$value)
+			$qry_values[] = ":{$field}";
+		$stmt = $this->db->prepare($qry . "(".implode(", ", $qry_values).")");
+
+		//bind values
+		foreach($row as $field=>$value)
+			$stmt->bindParam(":{$field}", $$field);
+
+		var_dump($row);
+		foreach($row as $field=>$value){
+			${$field} = $value;
+		}
+		$stmt->execute();
+		var_dump($stmt);
+	}
+
 	/**
 	 * Set the database object.
 	 * @param PDO $db The database object.
@@ -71,7 +98,7 @@ class Model{
 	 * @param string $qry The raw mysql query.
 	 * @return array Returns an array of row objects or Error.
 	 */
-	public function query($qry)
+	public function query($qry, $return=\PDO::FETCH_ASSOC)
 	{
 
 		try{
@@ -81,7 +108,7 @@ class Model{
 		}
 
 		$results = array();
-		while($row = $res->fetch()){
+		while($row = $res->fetch(\PDO::FETCH_ASSOC)){
 			$results[] = $row;
 		}
 
