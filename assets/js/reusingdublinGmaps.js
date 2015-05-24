@@ -58,9 +58,16 @@ function gmaps_initialize(){
             if(xhr.responseJSON.error)
                 alert(xhr.responseJSON.error);
 
-            console.log(xhr.responseJSON);
+            $(xhr.responseJSON).each(function(i, site){
+                var myLatlng = new google.maps.LatLng(site.lat,site.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'Hello World!'
+                });
+            });
         }
-    })
+    });
 
     //create markers
     var marker = new google.maps.Marker({
