@@ -50,11 +50,15 @@ function gmaps_initialize(){
     map.setMapTypeId('tehgrayz');
 
     //grab sites
-    $.ajax('/api/Site/getSites/title/lat/lan',
+    $.ajax('/api/Site/getSites/title/lat/lng',
     {
         dataType: 'json',
-        complete: function(){
-            console.log(arguments);
+        complete: function(xhr, status){
+            
+            if(xhr.responseJSON.error)
+                alert(xhr.responseJSON.error);
+
+            console.log(xhr.responseJSON);
         }
     })
 
