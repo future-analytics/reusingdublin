@@ -120,6 +120,10 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
     return self;
 }
 
+/**
+ * Site modal dialog popup.
+ * @param  {integer} siteId The site id
+ */
 ReusingDublinMap.prototype.dialog = function(siteId){
 
     var self = this;
@@ -127,10 +131,9 @@ ReusingDublinMap.prototype.dialog = function(siteId){
     var html = $('#siteDescription .modal-body').html(),
         site = self.getSite(siteId),
         y = screen.height*.7;   // 70%
-    console.log(y);
 
     BootstrapDialog.show({
-        message: '<iframe class="siteModal" src="/site" width="100%" height="'+y+'"></iframe>',
+        message: '<iframe class="siteModal" src="/site/edit?modal=1&amp;id='+siteId+'" width="100%" height="'+y+'"></iframe>',
         title: site.address1,
         height: y
     });
