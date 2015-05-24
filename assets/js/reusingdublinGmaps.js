@@ -104,7 +104,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var contentString = '<div class="infowindow">' +
         '   <h3>'+marker.title+'</h3>' +
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+')">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" src="http://reusingdublin.loc/" onclick="reusingDublinMap.dialog('+site.id+')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large">UPDATE THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large">VIEW THE DESCRIPTION</a>'+
         '</div>';
@@ -125,11 +125,14 @@ ReusingDublinMap.prototype.dialog = function(siteId){
     var self = this;
 
     var html = $('#siteDescription .modal-body').html(),
-        site = self.getSite(siteId);
+        site = self.getSite(siteId),
+        y = screen.height*.7;   // 70%
+    console.log(y);
 
     BootstrapDialog.show({
-        message: html,
-        title: site.address1
+        message: '<iframe class="siteModal" src="/site" width="100%" height="'+y+'"></iframe>',
+        title: site.address1,
+        height: y
     });
 }
 
