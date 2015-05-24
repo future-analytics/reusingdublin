@@ -18,7 +18,7 @@ function ReusingDublinMap(){
         featureType: "all",
         elementType: "all",
         stylers: [{
-            saturation: -100 
+            saturation: -100
         }]
     }];
 
@@ -49,11 +49,9 @@ function ReusingDublinMap(){
 ReusingDublinMap.prototype.init = function(){
 
     var self = this;
-    
-    //init map
+
     var mapCanvas   = document.getElementById('map-canvas'),
         map         = new google.maps.Map(mapCanvas, self.mapOptions),
-        //map         = new GMaps(mapOptions),
         mapType     = new google.maps.StyledMapType(self.stylez, { name:"Grayscale" }),
         sites;
 
@@ -61,13 +59,13 @@ ReusingDublinMap.prototype.init = function(){
     map.mapTypes.set('tehgrayz', mapType);
     map.setMapTypeId('tehgrayz');
 
-    //create markers
     //get sites, append to markers
     self.getSites(function(sites){
 
         var _self   = self,
             _map    = map;
 
+            //create markers
         $(sites).each(function(i, site){
             _self.doMarker(_map, site);
         });
@@ -89,14 +87,24 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var self = this;
 
-    var infowindow = self.infowindow(),
-        myLatlng = new google.maps.LatLng(site.lat,site.lng),
+    var myLatlng = new google.maps.LatLng(site.lat,site.lng),
         marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
             title: site.address1,
             siteId: site.id
         });
+
+    var contentString = '<div class="infowindow">' +
+        '   <h3>'+marker.title+'</h3>' +
+        '   <a class="btn btn-primary btn-large">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large">UPDATE THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large">VIEW THE DESCRIPTION</a>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
 
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
@@ -136,19 +144,25 @@ ReusingDublinMap.prototype.getSites = function(fn){
 
 /**
  * Get Infowindow object from google maps.
+ * @param {Site} site A site object.
  * @memberOf ReusingDublinMap
  * @return {google.maps.infowindow} Returns gmap Infowindow
  */
-ReusingDublinMap.prototype.infowindow = function(){
+ReusingDublinMap.prototype.infowindow = function(site){
 
-    return new google.maps.InfoWindow(function(){
+    var self   = this,
+        _site   = site;
 
-        
+    var infowindow = new google.maps.InfoWindow(function(){
+
         return {
             content: '<div class="infowindow">' +
-                '   <h3>'+title+'</h3>'
+                '   <h3>'+this.title+'</h3>' +
+                '</div>'
         };
     });
+
+    return infowindow;
 }
 
 
