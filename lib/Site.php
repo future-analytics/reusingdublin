@@ -141,6 +141,11 @@ class Site extends Controller{
 
 	public function actionLetUsKnow()
 	{
+
+		if(isset($_POST['data'])){
+
+		}
+
 		return $this;
 	}
 

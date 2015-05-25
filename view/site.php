@@ -48,15 +48,15 @@ $site = Site::getSite($_GET['id']);
 				<p class="title">Connect</p>
 				<div class="row">
 					<p>Have we made a mistake</p>
-					<a class="btn btn-primary">LET US KNOW</a>
+					<a href="/site/letUsKnow/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">LET US KNOW</a>
 				</div>
 				<div class="row">
 					<p>Further info</p>
-					<a class="btn btn-primary">TELL US MORE</a>
+					<a href="/site/letUsKnow/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">TELL US MORE</a>
 				</div>
 				<div class="row">
 					<p>Connect</p>
-					<a class="btn btn-primary">CONNECT</a>
+					<a href="/site/connect/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">CONNECT</a>
 				</div>
 			</span>
 
