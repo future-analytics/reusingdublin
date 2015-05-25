@@ -54,7 +54,8 @@ class Site extends Controller{
 		));
 		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
-		return $res[0];
+		if(isset($res[0]))
+			return $res[0];
 	}
 
 	/**
@@ -64,11 +65,13 @@ class Site extends Controller{
 	 */
 	public function action()
 	{
+
 		return $this->actionView();
 	}
 
 	public function actionConnect()
 	{
+
 		return $this;
 	}
 
@@ -179,7 +182,9 @@ class Site extends Controller{
 		}
 
 		//upload photos & files
-		
+		Controller::upload($photos, $data['id'], 'photos');
+		Controller::upload($files, $data['id'], 'files');
+
 		return $data;
 	}
 }

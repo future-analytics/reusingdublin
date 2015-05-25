@@ -10,6 +10,7 @@
  */
 define('REUSINGDUBLIN_DIR',		realpath(dirname(__FILE__)));
 define('REUSINGDUBLIN_DEBUG',	1);
+define('REUSINGDUBLIN_UPLOADS', REUSINGDUBLIN_DIR.'/uploads');
 // end constants
 
 

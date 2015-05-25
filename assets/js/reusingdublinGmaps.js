@@ -207,7 +207,7 @@ ReusingDublinMap.prototype.doLayer = function(){
 ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var self = this;
-
+    console.log(site);
     var myLatlng = new google.maps.LatLng(site.lat,site.lng),
         marker = new google.maps.Marker({
             position: myLatlng,

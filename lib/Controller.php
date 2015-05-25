@@ -40,6 +40,22 @@ class Controller{
 	}
 
 	/**
+	 * Install scripts for reference only.
+	 */
+	public static function install()
+	{
+		$sql = "
+			CREATE TABLE IF NOT EXISTS `_files` (
+				`id` int(11) NOT NULL AUTO_INCREMENT,
+				`file` varchar(254) NOT NULL,
+				`type` enum('photos','files') NOT NULL DEFAULT 'photos',
+				`site_id` int(11) NOT NULL,
+				PRIMARY KEY (`id`)
+			)
+		";
+	}
+
+	/**
 	 * Get the data property
 	 * @param  string $dataType Default OBJECT. The dataType to return
 	 * @return mixed
@@ -89,5 +105,56 @@ class Controller{
 		}
 
 		return $ret;
+	}
+
+	public static function uniqueName($test)
+	{
+		$path = pathinfo($test);
+		$count = 0;
+
+		while(file_exists($test)){
+			$test = "{$path['dirname']}/{$path['filename']}-{$count}.{$path['extension']}";
+			$count++;
+		}
+
+		return $test;
+	}
+
+	/**
+	 * Upload a files and write records to db.
+	 * @param  array $data    An array of file data.
+	 * @param  integer $site_id The site to link up with the uploaded file.
+	 * @param  string $type    Default photos. (photos|files).
+	 * @return array          Returns an array of results.
+	 */
+	public static function upload($data, $site_id, $type='photos')
+	{
+
+		$res = array();
+		$db = Model::factory();
+
+		foreach($data as $file){
+
+			if($file['error']!=0)
+				continue;
+
+			$orig = $file['tmp_name'];
+			$dest = self::uniqueName(REUSINGDUBLIN_UPLOADS . '/' . $type . '/' . $file['name']);
+			if(!move_uploaded_file($orig, $dest)){
+				$res[] = new Error('Unable to move uploaded file: '.$file['name']);
+				continue;
+			}
+
+			//insert record into db
+			$db->insert('file', array(
+				'file' => $dest,
+				'type' => $type,
+				'site_id' => $site_id,
+			));
+
+			$res[] = pathinfo($dest);
+		}
+
+		return $res;
 	}
 }
