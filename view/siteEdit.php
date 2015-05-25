@@ -38,31 +38,49 @@ else
                     Tell us something about this site/location. For example:
                 </label>
                 <select id="tell-us" name="data[tellUs]" class="form-control">
-                    <option value="Why do you think the site is in its current condition?">
+                    <option value="Why do you think the site is in its current condition?"<?php 
+                        if(!isset($site) || $site['tellUs']=='Why do you think the site is in its current condition?') echo ' selected';
+                    ?>>
                         Why do you think the site is in its current condition?
                     </option>
-                    <option value="What has the site been previously used for?">
+                    <option value="What has the site been previously used for?"<?php 
+                        if(isset($site) && $site['tellUs']=='What has the site been previously used for?') echo ' selected';
+                    ?>>
                         What has the site been previously used for?
                     </option>
-                    <option value="How long has the site been in this condition?">
+                    <option value="How long has the site been in this condition?"<?php 
+                        if(isset($site) && $site['tellUs']=='How long has the site been in this condition?') echo ' selected';
+                    ?>>
                         How long has the site been in this condition?
                     </option>
-                    <option value="Is there any activity on the site?">
+                    <option value="Is there any activity on the site?"<?php 
+                        if(isset($site) && $site['tellUs']=='Is there any activity on the site?') echo ' selected';
+                    ?>>
                         Is there any activity on the site?
                     </option>
-                    <option value="What is the physical condition of the site?">
+                    <option value="What is the physical condition of the site?"<?php 
+                        if(isset($site) && $site['tellUs']=='What is the physical condition of the site?') echo ' selected';
+                    ?>>
                         What is the physical condition of the site?
                     </option>
-                    <option value="What is happending on this site?">
+                    <option value="What is happending on this site?"<?php 
+                        if(isset($site) && $site['tellUs']=='What is happending on this site?') echo ' selected';
+                    ?>>
                         What is happending on this site?
                     </option>
-                    <option value="What is happening around the site?">
+                    <option value="What is happening around the site?"<?php 
+                        if(isset($site) && $site['tellUs']=='What is happening around the site?') echo ' selected';
+                    ?>>
                         What is happening around the site?
                     </option>
-                    <option value="What are the surrounding buildinds used for?">
+                    <option value="What are the surrounding buildinds used for?"<?php 
+                        if(isset($site) && $site['tellUs']=='What are the surrounding buildinds used for?') echo ' selected';
+                    ?>>
                         What are the surrounding buildinds used for?
                     </option>
-                    <option value="Is there access to this site?">
+                    <option value="Is there access to this site?"<?php 
+                        if(isset($site) && $site['tellUs']=='Is there access to this site?') echo ' selected';
+                    ?>>
                         Is there access to this site?
                     </option>
                 </select>
@@ -79,9 +97,11 @@ else
             <div class="form-group">
                 <label for="address1">Address</label>
                 <input type="text" class="form-control" name="data[address1]" id="address1" value="<?php if(isset($site['address1'])) echo $site['address1']; ?>">
+            </div>
             <div class="form-group">
                 <label for="ownership">Ownership Details</label>
                 <input type="text" class="form-control" name="data[ownership]" id="ownership" value="<?php if(isset($site['ownership'])) echo $site['ownership']; ?>">
+            </div>
             <div class="form-group">
                 <label for="zoning">Zoning</label>
                 <input type="text" class="form-control" name="data[zoning]" id="zoning" value="<?php if(isset($site['zoning'])) echo $site['zoning']; ?>">

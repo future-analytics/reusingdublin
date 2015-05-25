@@ -160,19 +160,23 @@ class Site extends Controller{
 	{
 
 		$db = Model::factory();
+		$photos = $data['photos'];
+		$files = $data['files'];
+		unset($data['files']);
+		unset($data['photos']);
+
+
+		//update a site
+		if(isset($data['id'])){
+
+			$db->update('Site', $data, 'id');
+		}
 
 		//create a site
-		if(!isset($data['id'])){
-
-			$photos = $data['photos'];
-			$files = $data['files'];
-			unset($data['files']);
-			unset($data['photos']);
+		else{
 
 			$data['id'] = $db->insert('Site', $data);
 		}
-
-		//update a site
 
 		//upload photos & files
 		

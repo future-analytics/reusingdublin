@@ -104,6 +104,37 @@ class Model{
 	}
 
 	/**
+	 * Update a row.
+	 * @param  string $table The table name
+	 * @param  array $data  An array of column=>value pairs
+	 * @param  string $where The column to check against
+	 */
+	public function update($table, $data, $where)
+	{
+
+		$where_value = $data[$where];
+		unset($data[$where]);
+
+		$db = Model::factory();
+		$sql = "UPDATE {$table} SET ";
+		$sets = array();
+
+		//build statement
+		foreach($data as $key => $value){
+			$sets[] = "{$key}=:{$key}";
+		}
+		$stmt = $this->db->prepare($sql . implode(", ", $sets));
+
+		//bind values
+		foreach($data as $field=>$value){
+			$stmt->bindParam(":{$field}", $$field);
+			${$field} = $value;
+		}
+
+		$stmt->execute();
+	}
+
+	/**
 	 * Query the database WITHOUT preparing statements.
 	 * @param string $qry The raw mysql query.
 	 * @return array Returns an array of row objects or Error.
