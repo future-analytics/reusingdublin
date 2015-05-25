@@ -104,9 +104,9 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var contentString = '<div class="infowindow">' +
         '   <h3>'+marker.title+'</h3>' +
-        '   <a class="btn btn-primary btn-large" src="http://reusingdublin.loc/" onclick="reusingDublinMap.dialog('+site.id+')">ENTER THE DESCRIPTION</a>'+
-        '   <a class="btn btn-primary btn-large">UPDATE THE DESCRIPTION</a>'+
-        '   <a class="btn btn-primary btn-large">VIEW THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+',\'edit\')">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+',\'edit\')">UPDATE THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+',\'\')">VIEW THE DESCRIPTION</a>'+
         '</div>';
 
     var infowindow = new google.maps.InfoWindow({
@@ -124,7 +124,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
  * Site modal dialog popup.
  * @param  {integer} siteId The site id
  */
-ReusingDublinMap.prototype.dialog = function(siteId){
+ReusingDublinMap.prototype.dialog = function(siteId, action){
 
     var self = this;
 
@@ -133,7 +133,7 @@ ReusingDublinMap.prototype.dialog = function(siteId){
         y = screen.height*.7;   // 70%
 
     BootstrapDialog.show({
-        message: '<iframe class="siteModal" src="/site/edit?modal=1&amp;id='+siteId+'" width="100%" height="'+y+'"></iframe>',
+        message: '<iframe class="siteModal" src="/site/'+action+'?modal=1&amp;id='+siteId+'" width="100%" height="'+y+'"></iframe>',
         title: site.address1,
         height: y
     });
