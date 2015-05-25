@@ -26,6 +26,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+		<link rel="stylesheet" href="/assets/js/bootstrap-fileinput/css/fileinput.min.css" type="text/css"/>
 		<link rel="stylesheet" href="/assets/css/reusingdublin.css" type="text/css"/>
 		<?php if(\ReusingDublin\Config::getInstance()->routes[0]=='index'): ?>
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
