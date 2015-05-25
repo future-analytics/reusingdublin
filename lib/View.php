@@ -16,11 +16,17 @@ class View{
 		$action = $controller->action;
 		$class 	= $controller->class;
 
-		if(!defined('REUSINGDUBLIN_API')){
+		if(!defined('REUSINGDUBLIN_API'))
 			require_once(REUSINGDUBLIN_DIR . '/view/head.php');
+
+		if(
+			!defined('REUSINGDUBLIN_API')
+			&& !isset($_GET['modal'])
+		){
 			require_once(REUSINGDUBLIN_DIR . '/view/header.php');
-			require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
-			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 		}
+		require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
+		if(!isset($_GET['modal']))
+			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 	}
 }

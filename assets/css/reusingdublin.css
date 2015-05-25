@@ -13,6 +13,9 @@ body {
   font-weight: 200;
   line-height: 1;
 }
+body.view-modal{
+  padding-top: 30px;  /* override missing navbar on modal dialogs */
+}
 .title{
   font-size: 2.5rem;
   font-size: 40px;
@@ -214,6 +217,9 @@ div#map-canvas{
 .infowindow a:hover{
     background: #F4E851;
     color: #000;
+}
+.siteModal{
+    border: none;
 }
 section#about{
   padding-left: 5%;
