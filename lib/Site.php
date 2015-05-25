@@ -36,6 +36,26 @@ class Site extends Controller{
 	}
 
 	/**
+	 * Get a site's data
+	 * @param integer $id The site id.
+	 * @return array Returns an array of site data.
+	 */
+	public static function getSite($id)
+	{
+
+		$db = Model::factory()->getDb();
+		$qry = "SELECT * FROM Site
+			WHERE id = :id";
+		$sth = $db->prepare($qry);
+		$sth->execute(array(
+			':id' => $id,
+		));
+		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $res[0];
+	}
+
+	/**
 	 * Default action.
 	 * Reroute default action to ::actionView()
 	 * @return Site Returns this for chaining.

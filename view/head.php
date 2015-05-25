@@ -13,7 +13,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Reusing Dublin - <?php echo $data->title; ?></title>
+		<title>Reusing Dublin <?php if(isset($data) && isset($data->title)): ?>
+		- <?php echo $data->title; endif;?></title>
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
@@ -29,14 +30,17 @@
 		<?php if(\ReusingDublin\Config::getInstance()->routes[0]=='index'): ?>
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 			<script type="text/javascript" src="/assets/js/reusingdublinGmaps.js"></script>
-			
+
 			<script type="text/javascript">
-            	google.maps.event.addDomListener(window, 'load', function(){
+				google.maps.event.addDomListener(window, 'load', function(){
             		reusingDublinMap.init();
             	});
 			</script>
 		<?php endif; ?>
 	</head>
-	<body class="<?php echo \ReusingDublin\Config::getInstance()->routes[0]; ?>"
+	<body class="<?php 
+		echo \ReusingDublin\Config::getInstance()->routes[0]; 
+		if(isset($_GET['modal'])) echo ' view-modal';
+		?>"
 		data-spy="scroll"
 		data-target="#mainNav">

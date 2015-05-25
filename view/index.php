@@ -9,7 +9,7 @@
  * @todo  remove this debug code.
  */
 ?>
-    <!-- debug code 
+    <!-- debug code
     <section class="container-fluid">
         <h1>Index.php</h1>
 
@@ -66,7 +66,7 @@
                             <b>Share your information</b> about a site.
                         </li>
                         <li>
-                            <b>Connect with others</b> who might be 
+                            <b>Connect with others</b> who might be
                             interested in the site
                         </li>
                     </ul>

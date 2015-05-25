@@ -6,7 +6,7 @@
 
         <footer class="footer">
             <div class="row affiliates">
-                <img src="/assets/images/logo-185x65.png" alt="reusing dublin logo"/> 
+                <img src="/assets/images/logo-185x65.png" alt="reusing dublin logo"/>
                 <img src="/assets/images/logo-eu.png" alt="EU Logo">
                 <img src="/assets/images/logo-turas.png" alt="Turas Logo">
             </div>
@@ -19,6 +19,8 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="/assets/js/bootstrap3-dialog/dist/js/bootstrap-dialog.js"></script>
+            <script type="text/javascript" src="/assets/js/nano/nano.js"></script>
             <script src="/assets/js/reusingdublin.js" type="text/javascript"></script>
         </footer>
     </body>

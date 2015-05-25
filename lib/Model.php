@@ -57,12 +57,20 @@ class Model{
 		foreach($row as $field=>$value)
 			$stmt->bindParam(":{$field}", $$field);
 
-		var_dump($row);
 		foreach($row as $field=>$value){
 			${$field} = $value;
 		}
 		$stmt->execute();
-		var_dump($stmt);
+	}
+
+	/**
+	 * Get the db instance.
+	 * @return PDO
+	 */
+	public function getDb()
+	{
+
+		return $this->db;
 	}
 
 	/**
