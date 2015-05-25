@@ -217,7 +217,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
         });
 
     var contentString = '<div class="infowindow">' +
-        '   <h3>'+marker.title+'</h3>' + '<h4>' + marker.position.A + ' : ' + marker.position.F + '</h4>' +
+        '   <h3>'+marker.title+'</h3>' +
         '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.A+'\',\''+marker.position.F+'\')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">UPDATE THE DESCRIPTION</a>';
 

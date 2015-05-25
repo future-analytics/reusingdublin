@@ -61,6 +61,8 @@ class Model{
 			${$field} = $value;
 		}
 		$stmt->execute();
+
+		return $this->getDb()->lastInsertId();
 	}
 
 	/**

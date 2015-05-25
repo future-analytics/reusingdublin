@@ -44,7 +44,7 @@ class Controller{
 	 * @param  string $dataType Default OBJECT. The dataType to return
 	 * @return mixed
 	 */
-	public function getData($dataType = 'OBJECT')
+	public function getData($dataType = 'ARRAY')
 	{
 
 		if($dataType=='OBJECT')
@@ -73,8 +73,21 @@ class Controller{
 		return $action;
 	}
 
-	public static function parseUplaod(array $files)
+	public static function parseUpload(array $files)
 	{
-		
+
+		$ret = array();
+
+		foreach($files['name'] as $index=>$name){
+			$ret[$index] = array(
+				'name' 		=> $name,
+				'type' 		=> $files['type'][$index],
+				'tmp_name' 	=> $files['tmp_name'][$index],
+				'error' 	=> $files['error'][$index],
+				'size' 		=> $files['size'][$index],
+			);
+		}
+
+		return $ret;
 	}
 }

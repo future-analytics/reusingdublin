@@ -9,6 +9,8 @@ use ReusingDublin;
  */
 class Site extends Controller{
 
+	public $data;
+
 	/**
 	 * Install database tables.
 	 * @uses \ReusingDublin\Model::query()
@@ -77,15 +79,20 @@ class Site extends Controller{
 	public function actionEdit()
 	{
 
-		$data = array();
+		(isset($_POST['data'])) ?
+			$data = $_POST['data'] :
+			$data = false;
 
-		//upload photos & files
+		//files
 		if(isset($_FILES['photos']))
 			$data['photos'] = parent::parseUpload($_FILES['photos']);
 		if(isset($_FILES['files']))
 			$data['files'] = parent::parseUpload($_FILES['files']);
 
-		$this->update($data);
+		// update/create site
+		if($data){
+			$this->data = $this->update($data);						
+		}
 
 		return $this;
 	}
@@ -152,5 +159,23 @@ class Site extends Controller{
 	private function update(array $data)
 	{
 
+		$db = Model::factory();
+
+		//create a site
+		if(!isset($data['id'])){
+
+			$photos = $data['photos'];
+			$files = $data['files'];
+			unset($data['files']);
+			unset($data['photos']);
+
+			$data['id'] = $db->insert('Site', $data);
+		}
+
+		//update a site
+
+		//upload photos & files
+		
+		return $data;
 	}
 }
