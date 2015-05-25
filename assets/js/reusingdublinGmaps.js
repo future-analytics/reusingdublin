@@ -17,6 +17,13 @@ function ReusingDublinMap(){
     this.sites = [{}];
 
     /**
+     * The state of the maps.
+     *  edit|view Default view.
+     * @type {String}
+     */
+    this.state = 'view';
+
+    /**
      * An array of style objects for gmaps.
      * @{@link http://stackoverflow.com/a/4003664/288644}
      * @type {Array}
@@ -80,7 +87,18 @@ ReusingDublinMap.prototype.init = function(){
         return _self;
     });
 
+    $('#mapAddSite').click(function(e){
+        e.preventDefault();
+
+        alert('Left Click on the Map with your mouse to Add a New Site!');
+        reusingDublinMap.state = 'edit';
+    })
+
+    //add new site click listener
     google.maps.event.addListener(map, 'click', function(event) {
+
+        if(self.state=='view')
+            return;
 
         var _self   = self,
             _map    = map,
