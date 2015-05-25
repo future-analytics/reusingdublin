@@ -76,6 +76,17 @@ class Site extends Controller{
 	 */
 	public function actionEdit()
 	{
+
+		$data = array();
+
+		//upload photos & files
+		if(isset($_FILES['photos']))
+			$data['photos'] = parent::parseUpload($_FILES['photos']);
+		if(isset($_FILES['files']))
+			$data['files'] = parent::parseUpload($_FILES['files']);
+
+		$this->update($data);
+
 		return $this;
 	}
 
@@ -136,5 +147,10 @@ class Site extends Controller{
 	public function actionView()
 	{
 		return $this;
+	}
+
+	private function update(array $data)
+	{
+
 	}
 }

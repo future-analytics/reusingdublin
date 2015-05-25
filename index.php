@@ -51,5 +51,6 @@ if(defined('REUSINGDUBLIN_API')){
 /**
  * Print View
  */
-\ReusingDublin\View::getView($controller);
+if(!\ReusingDublin\Error::isError($controller))
+	\ReusingDublin\View::getView($controller);
 // end Print View

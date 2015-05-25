@@ -16,7 +16,7 @@
 		<title>Reusing Dublin <?php if(isset($data) && isset($data->title)): ?>
 		- <?php echo $data->title; endif;?></title>
 
-		<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -39,8 +39,8 @@
 			</script>
 		<?php endif; ?>
 	</head>
-	<body class="<?php 
-		echo \ReusingDublin\Config::getInstance()->routes[0]; 
+	<body class="<?php
+		echo \ReusingDublin\Config::getInstance()->routes[0];
 		if(isset($_GET['modal'])) echo ' view-modal';
 		?>"
 		data-spy="scroll"

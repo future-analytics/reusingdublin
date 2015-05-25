@@ -26,7 +26,6 @@ class View{
 			require_once(REUSINGDUBLIN_DIR . '/view/header.php');
 		}
 		require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
-		if(!isset($_GET['modal']))
-			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
+		require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 	}
 }

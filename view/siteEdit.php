@@ -13,7 +13,13 @@ use ReusingDublin;
 ?>
 
     <div class="container-fluid">
-        <form role="form">
+        <form role="form" enctype="multipart/form-data" method="post">
+            <?php if($site): ?>
+                <input type="hidden" name="data[id]" value="<?php echo $site['id']; ?>">
+            <?php else: ?>
+                <input type="hidden" name="data[lat]" value="<?php echo $_GET['lat']; ?>">
+                <input type="hidden" name="data[lng]" value="<?php echo $_GET['lng']; ?>">
+            <?php endif; ?>
             <div class="form-group">
                 <label for="idea">
                     Enter any information you have regading the site/location here?
@@ -56,10 +62,10 @@ use ReusingDublin;
                 <textarea name="data[tellUsInfo]" class="form-control" placeholder"Enter more information here"></textarea>
             </div>
             <div class="form-group">
-                <a class="btn btn-primary">ADD A PHOTO</a>
+                <input type="file" id="uploadPhoto" name="photos[]" multiple="true">
             </div>
             <div class="form-group">
-                <a class="btn btn-primary">ADD A FILE</a>
+                <input type="file" id="uploadFile" name="files[]" multiple="true">
             </div>
             <div class="form-group">
                 <label for="address1">Address</label>

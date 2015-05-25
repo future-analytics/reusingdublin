@@ -27,11 +27,16 @@ class Controller{
 		$action 	= self::parseAction($routes);
 		$method		= 'action'.$action;
 
-		$obj 			= new $class();
-		$obj->action 	= $action;
-		$obj->class 	= ucfirst($routes[0]);
+		if(class_exists($class)){
 
-		return $obj->$method();
+			$obj 			= new $class();
+			$obj->action 	= $action;
+			$obj->class 	= ucfirst($routes[0]);
+
+			return $obj->$method();
+		}
+		else
+			return new Error('Controller::factory(): '.$class.' not found');
 	}
 
 	/**
@@ -66,5 +71,10 @@ class Controller{
 				$action .= ucfirst($route);
 		}
 		return $action;
+	}
+
+	public static function parseUplaod(array $files)
+	{
+		
 	}
 }
