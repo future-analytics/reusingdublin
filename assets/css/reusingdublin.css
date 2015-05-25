@@ -47,7 +47,7 @@ input.red{
 @media (max-width: 1200px){
 	nav#mainNav #social-links{
 		position: absolute;
-		top: 25px;
+		top: 65px;
 		margin-left: -12px;
 	}
 	nav#mainNav div.in #social-links{
@@ -89,9 +89,10 @@ input.red{
 /* navbar global */
 nav#mainNav{
 	background-color: #00AFC9;
+  height: 122px;
 }
 nav#mainNav .navbar-nav{
-  padding-top: 30px;
+  padding-top: 60px;
   margin-bottom: -30px;
 }
 nav#mainNav .navbar-brand{
