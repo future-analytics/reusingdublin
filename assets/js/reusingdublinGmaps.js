@@ -80,6 +80,21 @@ ReusingDublinMap.prototype.init = function(){
         return _self;
     });
 
+    google.maps.event.addListener(map, 'click', function(event) {
+
+        var _self   = self,
+            _map    = map,
+            site    = {
+                lat: event.latLng.A,
+                lng: event.latLng.F,
+                address1: 'Register New Site',
+                id: 'custom'
+            }
+
+        var marker = _self.doMarker(_map, site);
+        new google.maps.event.trigger( marker, 'click' );
+    });
+
     return self;
 }
 
@@ -117,7 +132,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
         infowindow.open(map,marker);
     });
 
-    return self;
+    return marker;
 }
 
 /**
