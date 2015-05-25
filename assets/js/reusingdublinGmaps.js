@@ -10,6 +10,12 @@
 function ReusingDublinMap(){
 
     /**
+     * Google map instance
+     * @type google.maps.Map
+     */
+    this.map = {};
+
+    /**
      * An array of Site objects.
      * @see ReusingDublinMap::getSites()
      * @type {Array}
@@ -65,13 +71,14 @@ ReusingDublinMap.prototype.init = function(){
     var self = this;
 
     var mapCanvas   = document.getElementById('map-canvas'),
-        map         = new google.maps.Map(mapCanvas, self.mapOptions),
+        map    = new google.maps.Map(mapCanvas, self.mapOptions),
         mapType     = new google.maps.StyledMapType(self.stylez, { name:"Grayscale" }),
         sites;
+    self.map = map;
 
     //set map style
-    map.mapTypes.set('tehgrayz', mapType);
-    map.setMapTypeId('tehgrayz');
+    self.map.mapTypes.set('tehgrayz', mapType);
+    self.map.setMapTypeId('tehgrayz');
 
     //get sites, append to markers
     self.getSites(function(sites){
@@ -88,16 +95,16 @@ ReusingDublinMap.prototype.init = function(){
     });
 
     // custom controls (map navbar)
-    self.doControls(map);
+    self.doControls(self.map);
 
     //add new site click listener
-    google.maps.event.addListener(map, 'click', function(event) {
+    google.maps.event.addListener(self.map, 'click', function(event) {
 
         if(self.state=='view')
             return;
 
         var _self   = self,
-            _map    = map,
+            _map    = self.map,
             site    = {
                 lat: event.latLng.A,
                 lng: event.latLng.F,
@@ -108,6 +115,11 @@ ReusingDublinMap.prototype.init = function(){
         var marker = _self.doMarker(_map, site);
         new google.maps.event.trigger( marker, 'click' );
     });
+
+    /**
+     * Add layers
+     */
+    // end Add layers
 
     return self;
 }
@@ -122,9 +134,10 @@ ReusingDublinMap.prototype.doControls = function(map){
         var controlDiv  = document.createElement('div'),
             mapNav      = document.getElementById('mapNavBar'),
             self        = this;
-        
+
         controlDiv.appendChild(mapNav);
 
+        //add site btn
         $('#mapAddSite', controlDiv).click(function(e){
             e.preventDefault();
 
@@ -132,10 +145,56 @@ ReusingDublinMap.prototype.doControls = function(map){
             reusingDublinMap.state = 'edit';
         })
 
+        //more info layers dropdown
+        $('#mapLayer', controlDiv).change(self.doLayer);
+
         controlDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(controlDiv);
 
         return self;
+}
+
+/**
+ * @todo finish method.
+ */
+ReusingDublinMap.prototype.doLayer = function(){
+
+    var index   = $(this).val(),
+        map     = reusingDublinMap.getMap();
+    console.log(index);
+
+    //Setting the source for the luas kmz file.
+    var src2 = 'http://factest.ie/kmls/Luas.kmz';
+    var UCLAParking = new google.maps.KmlLayer(src2,
+        {
+            suppressInfoWindows: true,
+            preserveViewport:true,
+            map: map
+        });
+    UCLAParking.setMap(map);
+    var position1 = new google.maps.LatLng(53.34603294651386,-6.27388134598732);
+    var position2 = new google.maps.LatLng(53.34666473099645,-6.292639374732971);
+    var position3 = new google.maps.LatLng(53.348592861233996,-6.265929937362671);
+    var position4 = new google.maps.LatLng(53.34756144128457,-6.271681934595108);
+    var position5 = new google.maps.LatLng(53.33786192960029,-6.276708394289017);
+    var position6 = new google.maps.LatLng(53.311590204282844,-6.274232715368271);
+    var position7 = new google.maps.LatLng(53.30210463305052,-6.1782002449035645);
+    //Adding predefined markers on the map
+    var marker1 =  new google.maps.Marker({
+    		position : position1,
+    		map : map,
+    		title: 'Four Courts.'
+    	});
+    google.maps.event.addListener(marker1, 'mouseover', function(event) {
+        var infoWindow = new google.maps.InfoWindow({
+            content : 'Four Courts.'
+        });
+        infoWindow.open(map, marker1);
+        if(activeWindow != null)
+            activeWindow.close();
+        //Store new window in global variable
+        activeWindow = infoWindow;
+    });
 }
 
 /**

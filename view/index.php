@@ -82,12 +82,12 @@
                     <input type="button" class="blue" value="ADD A SITE" id="mapAddSite">
                 </div>
                 <div class="col-md-4">
-                    <select>
+                    <select id="mapLayer">
                         <option>MORE INFORMATION</option>
-                        <option value="3">DCC DEVELOPMENT PLAN ZONINGS</option>
-                        <option value="6">PROTECTED STRUCTURES</option>
+                        <option value="0">DCC DEVELOPMENT PLAN ZONINGS</option>
+                        <option value="1">PROTECTED STRUCTURES</option>
                         <option value="2">BUILDINGS USAGE</option>
-                        <option value="4">DCC PLANNING APPLICATIONS</option>
+                        <option value="3">DCC PLANNING APPLICATIONS</option>
                     </select>
                 </div>
                 <div class="col-md-4">
