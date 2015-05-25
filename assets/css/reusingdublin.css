@@ -102,6 +102,7 @@ nav#mainNav #social-links > li{
 }
 nav#mainNav .navbar-nav > li > a{
   color: #333;
+  padding-bottom: 0;
   font-size: 1.2rem;
   font-size: 19px;
 }
@@ -191,7 +192,6 @@ div#how-it-works-box ul li:nth-child(3){
   background-color: #9DD7E3;
 }
 section#try-it-out nav#mapNavBar{
-  background-color: #fff;
 }
 nav#mapNavBar button,
 nav#mapNavBar select

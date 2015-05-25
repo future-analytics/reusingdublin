@@ -87,12 +87,8 @@ ReusingDublinMap.prototype.init = function(){
         return _self;
     });
 
-    $('#mapAddSite').click(function(e){
-        e.preventDefault();
-
-        alert('Left Click on the Map with your mouse to Add a New Site!');
-        reusingDublinMap.state = 'edit';
-    })
+    // custom controls (map navbar)
+    self.doControls(map);
 
     //add new site click listener
     google.maps.event.addListener(map, 'click', function(event) {
@@ -117,6 +113,32 @@ ReusingDublinMap.prototype.init = function(){
 }
 
 /**
+ * Add custom controls (navbar) to map.
+ * @param  {google.maps.Map} map The google map instance.
+ * @return {ReusingDublinMap}     returns self for chaining.
+ */
+ReusingDublinMap.prototype.doControls = function(map){
+
+        var controlDiv  = document.createElement('div'),
+            mapNav      = document.getElementById('mapNavBar'),
+            self        = this;
+        
+        controlDiv.appendChild(mapNav);
+
+        $('#mapAddSite', controlDiv).click(function(e){
+            e.preventDefault();
+
+            alert('Left Click on the Map with your mouse to Add a New Site!');
+            reusingDublinMap.state = 'edit';
+        })
+
+        controlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(controlDiv);
+
+        return self;
+}
+
+/**
  * Write Site markers to map.
  * @param {google.maps.Map} map Google maps instance.
  * @param  {array} sites An array of Site objects.
@@ -137,10 +159,13 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var contentString = '<div class="infowindow">' +
         '   <h3>'+marker.title+'</h3>' +
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+',\'edit\')">ENTER THE DESCRIPTION</a>'+
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+',\'edit\')">UPDATE THE DESCRIPTION</a>'+
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog('+site.id+',\'\')">VIEW THE DESCRIPTION</a>'+
-        '</div>';
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">UPDATE THE DESCRIPTION</a>';
+
+    if(site.id!='custom')
+        contentString += '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'\')">VIEW THE DESCRIPTION</a>';
+
+    contentString += '</div>';
 
     var infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -164,6 +189,12 @@ ReusingDublinMap.prototype.dialog = function(siteId, action){
     var html = $('#siteDescription .modal-body').html(),
         site = self.getSite(siteId),
         y = screen.height*.7;   // 70%
+
+    //new site?
+    if(siteId=='custom')
+        site = {
+            address1: 'Add a site'
+        };
 
     BootstrapDialog.show({
         message: '<iframe class="siteModal" src="/site/'+action+'?modal=1&amp;id='+siteId+'" width="100%" height="'+y+'"></iframe>',

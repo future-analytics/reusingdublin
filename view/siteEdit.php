@@ -7,7 +7,9 @@ use ReusingDublin;
  * @author daithi coombes <david.coombes@futureanalytics.ie>
  */
 
-$site = Site::getSite($_GET['id']);
+($_GET['id']!='custom') ?
+    $site = Site::getSite($_GET['id']) :
+    $site = false;
 ?>
 
     <div class="container-fluid">
