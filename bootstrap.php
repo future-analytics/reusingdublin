@@ -26,6 +26,8 @@ spl_autoload_register(function($class){
 		require_once($file);
 });
 
+require_once(REUSINGDUBLIN_DIR.'/vendor/autoload.php');
+
 
 /**
  * Configuration

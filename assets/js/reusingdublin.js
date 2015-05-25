@@ -52,6 +52,20 @@ var ReusingDublin = function(){
             uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
         })
 
+        $('#uploadVideo').fileinput({
+            showCaption: false,
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: " Add A Video",
+            browseIcon: '<i class="glyphicon glyphicon-open-file"></i>',
+            removeClass: "btn btn-danger",
+            removeLabel: "Delete",
+            removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+            uploadClass: "btn btn-info",
+            uploadLabel: "Upload",
+            uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+        })
+
         return this;
     }
 

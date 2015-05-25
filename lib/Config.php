@@ -10,7 +10,8 @@ use ReusingDublin;
  */
 class Config
 {
-
+    /** @var array An array of admin parameters */
+    protected $admin;
 	/** @var array An array of database parameters */
 	protected $db;
     /** @var string The url query string */

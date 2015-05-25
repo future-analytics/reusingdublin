@@ -2,11 +2,11 @@
 /**
 * @author  daithi coombes <david.coombes@futureanalytics.ie>
 */
+global $data;
 ?>
-
         <footer class="footer">
 
-            <?php if(isset($_GET['modal'])): ?>
+            <?php if(!isset($_GET['modal'])): ?>
                 <div class="row affiliates">
                     <img src="/assets/images/logo-185x65.png" alt="reusing dublin logo"/>
                     <img src="/assets/images/logo-eu.png" alt="EU Logo">

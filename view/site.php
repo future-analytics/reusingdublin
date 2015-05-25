@@ -17,7 +17,7 @@ $site = Site::getSite($_GET['id']);
 	<div class="container-fluid">
 		<p class="title">DISCOVER INFORMATION ABOUT THE LOT</p>
 
-		<dl>
+		<dl class="dl-horizontal">
 			<dt>Address</dt>
 			<dd><?php if(isset($site['address1'])) echo $site['address1']; ?></dd>
 			<dt>Ownership Details</dt>
@@ -48,15 +48,15 @@ $site = Site::getSite($_GET['id']);
 				<p class="title">Connect</p>
 				<div class="row">
 					<p>Have we made a mistake</p>
-					<a href="/site/letUsKnow/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">LET US KNOW</a>
+					<a target="_self" href="/site/letUsKnow/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">LET US KNOW</a>
 				</div>
 				<div class="row">
 					<p>Further info</p>
-					<a href="/site/letUsKnow/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">TELL US MORE</a>
+					<a target="_self" href="/site/letUsKnow/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">TELL US MORE</a>
 				</div>
 				<div class="row">
 					<p>Connect</p>
-					<a href="/site/connect/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">CONNECT</a>
+					<a target="_self" href="/site/connect/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">CONNECT</a>
 				</div>
 			</span>
 
@@ -64,19 +64,19 @@ $site = Site::getSite($_GET['id']);
 				<p class="title">Share</p>
 				<div class="row">
 					<p>Share</p>
-					<a class="btn btn-primary">SHARE</a>
+					<a target="_self" href="/site/share/?modal=1&id=<?php echo $site['id']; ?>" class="btn btn-primary">SHARE</a>
 				</div>
 				<div class="row">
 					<p>Upload your files</p>
-					<a class="btn btn-primary">ADD A FILE</a>
+					<input type="file" id="uploadFile" name="files[]">
 				</div>
 				<div class="row">
 					<p>Upload your videos</p>
-					<a class="btn btn-primary">ADD A VIDEO</a>
+					<input type="file" id="uploadVideo" name="videos[]">
 				</div>
 				<div class="row">
 					<p>Upload your photos</p>
-					<a class="btn btn-primary">ADD A PHOTO</a>
+					<input type="file" id="uploadPhoto" name="photos[]">
 				</div>
 			</span>
 

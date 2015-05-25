@@ -69,8 +69,44 @@ class Site extends Controller{
 		return $this->actionView();
 	}
 
+	/**
+	 * Parse form data for email.
+	 */
 	public function actionConnect()
 	{
+
+		if(isset($_POST['data'])){
+
+			$mail = new \PHPMailer;
+			$data = $_POST['data'];
+			$config = Config::getInstance()->get('admin');
+
+			$mail->From = $data['email'];
+			$mail->FromName = $data['name'];
+			$mail->subject = 'Connect request from: ' . $data['name'];
+			$mail->Body = "
+				phone number: {$data['phone']}
+				facebook page: {$data['facebook']}
+			";
+			$mail->addAddress($config['email'],$config['name']);
+
+			if(!$mail->send()) {
+
+
+				echo '
+					<div class="alert alert-error">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>Error!</strong> A problem has been occurred while submitting your data.
+						' . $mail->ErrorInfo . '
+					</div>';
+			} else {
+				echo '
+					<div class="alert alert-success">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>Success!</strong> Your message has been sent successfully.
+					</div>';
+			}
+		}
 
 		return $this;
 	}
@@ -139,11 +175,41 @@ class Site extends Controller{
 		return $this;
 	}
 
-	public function actionLetUsKnow()
+	/**
+	 * Parse form data for email.
+	 * @param string $source The source action method for email subject.
+	 */
+	public function actionLetUsKnow($source='let us know')
 	{
 
 		if(isset($_POST['data'])){
 
+			$mail = new \PHPMailer;
+			$data = $_POST['data'];
+			$config = Config::getInstance()->get('admin');
+
+			$mail->From = $data['email'];
+			$mail->FromName = $data['name'];
+			$mail->subject = $source.': '.$data['subject'];
+			$mail->Body = $data['message'];
+			$mail->addAddress($config['email'],$config['name']);
+
+			if(!$mail->send()) {
+
+
+				echo '
+					<div class="alert alert-error">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>Error!</strong> A problem has been occurred while submitting your data.
+						' . $mail->ErrorInfo . '
+					</div>';
+			} else {
+				echo '
+					<div class="alert alert-success">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>Success!</strong> Your message has been sent successfully.
+					</div>';
+			}
 		}
 
 		return $this;
@@ -151,12 +217,17 @@ class Site extends Controller{
 
 	public function actionShare()
 	{
+
 		return $this;
 	}
 
+	/**
+	 * route to actionLetUsKnow
+	 * @see \ReusingDublin\Site::actonLetUsKnow()
+	 */
 	public function actionTellUsMore()
 	{
-		return $this;
+		return $this->actionLetUsKnow('tell us more');
 	}
 
 	public function actionView()

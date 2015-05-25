@@ -161,7 +161,6 @@ ReusingDublinMap.prototype.doLayer = function(){
 
     var index   = $(this).val(),
         map     = reusingDublinMap.getMap();
-    console.log(index);
 
     //Setting the source for the luas kmz file.
     var src2 = 'http://factest.ie/kmls/Luas.kmz';
@@ -207,7 +206,6 @@ ReusingDublinMap.prototype.doLayer = function(){
 ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var self = this;
-    console.log(site);
     var myLatlng = new google.maps.LatLng(site.lat,site.lng),
         marker = new google.maps.Marker({
             position: myLatlng,
