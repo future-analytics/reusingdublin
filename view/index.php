@@ -79,7 +79,7 @@
 
             <nav id="mapNavBar" class="row">
                 <div class="col-md-4">
-                    <input type="button" class="blue" value="ADD A SITE">
+                    <input type="button" class="blue" value="ADD A SITE" id="mapAddSite">
                 </div>
                 <div class="col-md-4">
                     <select>
