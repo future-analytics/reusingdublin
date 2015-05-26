@@ -39,7 +39,9 @@ class View{
 		if($header){
 			require_once(REUSINGDUBLIN_DIR . '/view/header.php');
 		}
+
 		require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
+
 		if($footer){
 			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 		}
