@@ -9,23 +9,6 @@
  * @todo  remove this debug code.
  */
 ?>
-    <!-- debug code
-    <section class="container-fluid">
-        <h1>Index.php</h1>
-
-        <p>
-            Pages:
-            <ul>
-                <li><a href="/site/view/$address_urlencode">Site view page `/site/view/$address_urlencode`</a></li>
-                <li><a href="/site/edit">Add / Update a new site `/site/edit</a></li>
-                <li><a href="/site/let-us-know">Let Us Know `/site/let-us-know/$address_urlencode`</a></li>
-                <li><a href="/site/tell-us-more">Tell Us More `/site/tell-us-more/$address_urlencode`</a></li>
-                <li><a href="/site/connect">Connect `/site/connect/$address_urlencode`</a></li>
-                <li><a href="/site/share">Share `/site/share/$address_urlencode`</a></li>
-            </ul>
-        </p>
-    </section>
-    //-->
 
         <section id="welcome" class="container-fluid">
             <h2 class="hidden">Welcome</h2>
@@ -79,10 +62,10 @@
 
             <nav id="mapNavBar" class="row">
                 <div class="col-md-4">
-                    <input type="button" class="blue" value="ADD A SITE" id="mapAddSite">
+                    <input type="button" class="btn btn-default" value="ADD A SITE" id="mapAddSite">
                 </div>
                 <div class="col-md-4">
-                    <select id="mapLayer">
+                    <select id="foo" class="form-control">
                         <option>MORE INFORMATION</option>
                         <option value="0">DCC DEVELOPMENT PLAN ZONINGS</option>
                         <option value="1">PROTECTED STRUCTURES</option>
@@ -91,9 +74,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="button" class="blue" value="FIND AN AREA">
-                    <input placeholder="SEARCH BOX">
-                    <input type="button" class="red" value="GO">
+                    <input type="text" placeholder="Type to search markers" class="form-control"/>
                 </div>
             </nav>
 

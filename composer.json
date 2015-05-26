@@ -1,0 +1,9 @@
+{
+    "name": "reusingdublin/reusingdublin",
+    "description": "main package for running the resuingdublin site",
+    "version": "0.1",
+    "type": "website",
+    "require": {
+        "phpmailer/phpmailer": "~5.2"        
+    }
+}

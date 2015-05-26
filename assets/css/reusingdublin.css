@@ -13,9 +13,6 @@ body {
   font-weight: 200;
   line-height: 1;
 }
-body.view-modal{
-  padding-top: 30px;  /* override missing navbar on modal dialogs */
-}
 .title{
   font-size: 2.5rem;
   font-size: 40px;
@@ -35,6 +32,16 @@ input.red{
   font-size: 1rem;
   font-size: 17px;
 }
+/* autocomplete @link https://github.com/devbridge/jQuery-Autocomplete/blob/fb920860c551fa7c90ed2b7067ff3fdc13c8b649/content/styles.css*/
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-no-suggestion { padding: 2px 5px;}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #000; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+
+/* end autocomplete */
 /* end global */
 
 /* responsive small devices */
@@ -47,7 +54,7 @@ input.red{
 @media (max-width: 1200px){
 	nav#mainNav #social-links{
 		position: absolute;
-		top: 25px;
+		top: 65px;
 		margin-left: -12px;
 	}
 	nav#mainNav div.in #social-links{
@@ -89,9 +96,10 @@ input.red{
 /* navbar global */
 nav#mainNav{
 	background-color: #00AFC9;
+  height: 122px;
 }
 nav#mainNav .navbar-nav{
-  padding-top: 30px;
+  padding-top: 60px;
   margin-bottom: -30px;
 }
 nav#mainNav .navbar-brand{
@@ -193,12 +201,6 @@ div#how-it-works-box ul li:nth-child(3){
 }
 section#try-it-out nav#mapNavBar{
 }
-nav#mapNavBar button,
-nav#mapNavBar select
-{
-  background-color: #00AFC9;
-  height: 40px;
-}
 div#map-canvas{
   background-color: #C5C5C5;
   height: 600px;
@@ -259,3 +261,18 @@ form#maillist input[type=submit]{
   height: 40px;
 }
 /* end homepage */
+
+/* modal dialog */
+.modal-content, body.view-modal{
+  background-color: #F4E851;
+}
+body.view-modal{
+  padding-top: 30px;  /* override missing navbar on modal dialogs */
+}
+#streetViewMap,
+#pano{
+  height: 200px;
+}
+body.view-modal footer{
+  display: none;
+}

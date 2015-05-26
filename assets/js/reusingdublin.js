@@ -24,6 +24,48 @@ var ReusingDublin = function(){
         $("#mainNav ul li a[href^='#']")
             .on('click', this.scrollTo);
 
+        $('#uploadPhoto').fileinput({
+            showCaption: false,
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: " Add A Photo",
+            browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+            removeClass: "btn btn-danger",
+            removeLabel: "Delete",
+            removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+            uploadClass: "btn btn-info",
+            uploadLabel: "Upload",
+            uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+        });
+
+        $('#uploadFile').fileinput({
+            showCaption: false,
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: " Add A File",
+            browseIcon: '<i class="glyphicon glyphicon-open-file"></i>',
+            removeClass: "btn btn-danger",
+            removeLabel: "Delete",
+            removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+            uploadClass: "btn btn-info",
+            uploadLabel: "Upload",
+            uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+        })
+
+        $('#uploadVideo').fileinput({
+            showCaption: false,
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: " Add A Video",
+            browseIcon: '<i class="glyphicon glyphicon-open-file"></i>',
+            removeClass: "btn btn-danger",
+            removeLabel: "Delete",
+            removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+            uploadClass: "btn btn-info",
+            uploadLabel: "Upload",
+            uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+        })
+
         return this;
     }
 
