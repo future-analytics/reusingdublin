@@ -26,6 +26,25 @@ global $data;
             <script type="text/javascript" src="/assets/js/bootstrap-fileinput/js/fileinput.min.js"></script>
             <script type="text/javascript" src="/assets/js/nano/nano.js"></script>
             <script src="/assets/js/reusingdublin.js" type="text/javascript"></script>
+            <?php if(\ReusingDublin\Config::getInstance()->routes[0]=='index'): ?>
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+                <script type="text/javascript" src="/assets/js/reusingdublinGmaps.js"></script>
+
+                <script type="text/javascript">
+                    google.maps.event.addDomListener(window, 'load', function(){
+                        reusingDublinMap.init();
+                    });
+                </script>
+            <?php elseif(isset($_GET['modal'])): ?>
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+                <script type="text/javascript">
+                    google.maps.event.addDomListener(window, 'load', function(){
+                        reusingdublinModal.init('<?php echo $site['lat']; ?>','<?php echo $site['lng']; ?>');
+                    });
+                </script>
+                <script type="text/javascript" src="/assets/js/reusingdublinModal.js"></script>
+            <?php endif; ?>
         </footer>
     </body>
 </html>

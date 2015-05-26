@@ -16,6 +16,15 @@ else
 ?>
 
     <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="streetViewMap"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="pano"></div>
+            </div>
+        </div>
         <form role="form" enctype="multipart/form-data" method="post">
             <?php if($site): ?>
                 <input type="hidden" name="data[id]" value="<?php echo $site['id']; ?>">

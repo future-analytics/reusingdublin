@@ -265,6 +265,10 @@ form#maillist input[type=submit]{
 body.view-modal{
   padding-top: 30px;  /* override missing navbar on modal dialogs */
 }
+#streetViewMap,
+#pano{
+  height: 200px;
+}
 body.view-modal footer{
   display: none;
 }

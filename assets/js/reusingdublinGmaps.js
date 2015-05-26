@@ -1,5 +1,5 @@
 /**
- * Google Maps javascript file
+ * Google Maps javascript file for the homepage.
  * @author daithi coombes <david.coombes@futureanalytics.ie>
  */
 

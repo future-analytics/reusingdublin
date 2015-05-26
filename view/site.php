@@ -15,6 +15,14 @@ if(!isset($_GET['id'])){
 $site = Site::getSite($_GET['id']);
 ?>
 	<div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="streetViewMap"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="pano"></div>
+            </div>
+        </div>
 		<p class="title">DISCOVER INFORMATION ABOUT THE LOT</p>
 
 		<dl class="dl-horizontal">
