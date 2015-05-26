@@ -137,11 +137,34 @@ ReusingDublinMap.prototype.doControls = function(map){
 
         controlDiv.appendChild(mapNav);
 
+        //add autocomplete
+        /*
+        $('#typeahead-input', mapNav).autocomplete({
+            lookup: function(query, done){
+                $.get('/api/Site/search/'+query, function(data){
+                    var result = {
+                        suggestions: data
+                    }
+                    done(result);
+                });
+            }
+        })
+        */
+        /*
+        $('#typeahead-input', mapNav).typeahead({
+            source: function(query, process){
+                return $.get('/api/Site/search/'+query, function(data){
+                    return process(data);
+                });
+            }
+        });
+        */
+
         //add site btn
         $('#mapAddSite', controlDiv).click(function(e){
             e.preventDefault();
 
-            alert('Left Click on the Map with your mouse to Add a New Site!');
+            alert('Left click on the map with your mouse or tap to Add a New Site');
             reusingDublinMap.state = 'edit';
         })
 

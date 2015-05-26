@@ -9,23 +9,6 @@
  * @todo  remove this debug code.
  */
 ?>
-    <!-- debug code
-    <section class="container-fluid">
-        <h1>Index.php</h1>
-
-        <p>
-            Pages:
-            <ul>
-                <li><a href="/site/view/$address_urlencode">Site view page `/site/view/$address_urlencode`</a></li>
-                <li><a href="/site/edit">Add / Update a new site `/site/edit</a></li>
-                <li><a href="/site/let-us-know">Let Us Know `/site/let-us-know/$address_urlencode`</a></li>
-                <li><a href="/site/tell-us-more">Tell Us More `/site/tell-us-more/$address_urlencode`</a></li>
-                <li><a href="/site/connect">Connect `/site/connect/$address_urlencode`</a></li>
-                <li><a href="/site/share">Share `/site/share/$address_urlencode`</a></li>
-            </ul>
-        </p>
-    </section>
-    //-->
 
         <section id="welcome" class="container-fluid">
             <h2 class="hidden">Welcome</h2>
@@ -91,9 +74,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="button" class="blue" value="FIND AN AREA">
-                    <input placeholder="SEARCH BOX">
-                    <input type="button" class="red" value="GO">
+                    <input id="typeahead-input" type="text" data-provide="typeahead" placeholder="Type to search markers" />
                 </div>
             </nav>
 

@@ -16,7 +16,7 @@
 		<title>Reusing Dublin <?php if(isset($data) && isset($data->title)): ?>
 		- <?php echo $data->title; endif;?></title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css"/>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -26,7 +26,6 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-		<link rel="stylesheet" href="/assets/js/bootstrap-fileinput/css/fileinput.min.css" type="text/css"/>
 		<link rel="stylesheet" href="/assets/css/reusingdublin.css" type="text/css"/>
 	</head>
 	<body class="<?php

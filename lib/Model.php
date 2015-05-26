@@ -77,12 +77,16 @@ class Model{
 
 	/**
 	 * Get the db instance.
-	 * @return PDO
+	 * @return \PDO
 	 */
 	public function getDb()
 	{
 
 		return $this->db;
+	}
+
+	public function search()
+	{		
 	}
 
 	/**
@@ -104,7 +108,7 @@ class Model{
 	 */
 	public function tableExists($table)
 	{
-		
+
 		$test = $this->query("SELECT 1 FROM {$table}");
 
 		if(!Error::isError($test))

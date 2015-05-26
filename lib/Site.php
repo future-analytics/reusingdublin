@@ -136,6 +136,10 @@ class Site extends Controller{
         return $this;
     }
 
+    /**
+     * API action method for returning sites.
+     * @return Site Returns this for chaining.
+     */
     public function actionApiGetSites()
     {
 
@@ -175,11 +179,26 @@ class Site extends Controller{
         return $this;
     }
 
+    /**
+     * API action method for searching sites.
+     * @return Site Returns this for chaining.
+     */
     public function actionApiSearch()
     {
-        $this->result = json_encode(array(
-            'foo' => 'bar',
-        ));
+
+        $query  = '%'.Config::getInstance()->routes[2].'%';
+        $db     = Model::factory();
+
+        $sth = Model::factory()
+                ->getDb()
+                ->prepare("SELECT address1,id FROM Site
+                    WHERE address1 LIKE :query");
+
+        $sth->execute(array(
+                ':query' => $query
+            ));
+
+        $this->result = json_encode($sth->fetchAll(\PDO::FETCH_ASSOC));
 
         return $this;
     }

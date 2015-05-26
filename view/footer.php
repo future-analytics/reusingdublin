@@ -24,6 +24,8 @@ global $data;
             <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
             <script type="text/javascript" src="/assets/js/bootstrap3-dialog/dist/js/bootstrap-dialog.js"></script>
             <script type="text/javascript" src="/assets/js/bootstrap-fileinput/js/fileinput.min.js"></script>
+            <!--<script type="text/javascript" src="/assets/js/Bootstrap-3-Typeahead/bootstrap3-typeahead.min.js"></script>//-->
+            <script type="text/javascript" src="/assets/js/jQuery-Autocomplete/dist/jquery.autocomplete.min.js"></script>
             <script type="text/javascript" src="/assets/js/nano/nano.js"></script>
             <script src="/assets/js/reusingdublin.js" type="text/javascript"></script>
             <?php if(\ReusingDublin\Config::getInstance()->routes[0]=='index'): ?>
