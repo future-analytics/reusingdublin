@@ -86,7 +86,7 @@ ReusingDublinMap.prototype.init = function(){
         var _self   = self,
             _map    = map;
 
-            //create markers
+        //create markers
         $(sites).each(function(i, site){
             _self.doMarker(_map, site);
         });

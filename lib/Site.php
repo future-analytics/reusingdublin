@@ -175,6 +175,15 @@ class Site extends Controller{
         return $this;
     }
 
+    public function actionApiSearch()
+    {
+        $this->result = json_encode(array(
+            'foo' => 'bar',
+        ));
+
+        return $this;
+    }
+
     /**
      * Parse form data for email.
      * @param string $source The source action method for email subject.
@@ -233,7 +242,7 @@ class Site extends Controller{
 
     public function actionView()
     {
-        
+
         return $this;
     }
 
