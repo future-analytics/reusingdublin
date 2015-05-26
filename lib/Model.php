@@ -31,13 +31,23 @@ class Model{
 
 		$config = Config::getInstance()->get('db');
 
-		$pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
-		$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+		try{
+			$pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
+			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+		} catch (PDOException $e) {
+			var_dump($e);
+		}
 
 		$obj = new Model();
 		return $obj->setDb($pdo);
 	}
 
+	/**
+	 * Insert row into the database
+	 * @param  string $table The table name.
+	 * @param  array  $row   An array of column=>value pairs.
+	 * @return integer        Returns the last insert id.
+	 */
 	public function insert($table, array $row)
 	{
 

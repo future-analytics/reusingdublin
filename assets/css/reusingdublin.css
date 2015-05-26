@@ -13,9 +13,6 @@ body {
   font-weight: 200;
   line-height: 1;
 }
-body.view-modal{
-  padding-top: 30px;  /* override missing navbar on modal dialogs */
-}
 .title{
   font-size: 2.5rem;
   font-size: 40px;
@@ -260,3 +257,14 @@ form#maillist input[type=submit]{
   height: 40px;
 }
 /* end homepage */
+
+/* modal dialog */
+.modal-content, body.view-modal{
+  background-color: #F4E851;
+}
+body.view-modal{
+  padding-top: 30px;  /* override missing navbar on modal dialogs */
+}
+body.view-modal footer{
+  display: none;
+}

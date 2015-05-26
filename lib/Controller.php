@@ -44,15 +44,41 @@ class Controller{
 	 */
 	public static function install()
 	{
-		$sql = "
-			CREATE TABLE IF NOT EXISTS `_files` (
-				`id` int(11) NOT NULL AUTO_INCREMENT,
-				`file` varchar(254) NOT NULL,
-				`type` enum('photos','files') NOT NULL DEFAULT 'photos',
-				`site_id` int(11) NOT NULL,
-				PRIMARY KEY (`id`)
-			)
-		";
+
+		$database = 'reusingdublin';
+
+		$sql = "CREATE TABLE IF NOT EXISTS `reusingdublin`.`File` (
+			`id` INT NOT NULL AUTO_INCREMENT,
+			`file` VARCHAR(254) NULL,
+			`type` ENUM('photo', 'file', 'video') NULL,
+			`site_id` INT NULL,
+			`ip` VARCHAR(15) NULL,
+			`created` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (`id`))
+		ENGINE = InnoDB;
+
+		CREATE TABLE IF NOT EXISTS `{$database}`.`Site` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`address1` VARCHAR(254) NOT NULL,
+			`address2` VARCHAR(254) NULL DEFAULT NULL,
+			`address3` VARCHAR(254) NULL DEFAULT NULL,
+			`lat` DECIMAL(10,8) NOT NULL,
+			`lng` DECIMAL(11,8) NOT NULL,
+			`info` BLOB NULL DEFAULT NULL,
+			`tellUs` BLOB NULL DEFAULT NULL,
+			`tellUsInfo` BLOB NULL DEFAULT NULL,
+			`ownership` VARCHAR(254) NULL DEFAULT NULL,
+			`zoning` VARCHAR(254) NULL DEFAULT NULL,
+			`planning` VARCHAR(254) NULL DEFAULT NULL,
+			`size` VARCHAR(254) NULL DEFAULT NULL,
+			`heritage` VARCHAR(254) NULL DEFAULT NULL,
+			`derelict` VARCHAR(254) NULL DEFAULT NULL,
+			`ip` VARCHAR(15) NULL DEFAULT NULL,
+			`created` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+			`updated` DATETIME NULL DEFAULT NULL,
+		PRIMARY KEY (`id`))
+		ENGINE = InnoDB;";
+
 	}
 
 	/**
@@ -146,7 +172,7 @@ class Controller{
 			}
 
 			//insert record into db
-			$db->insert('file', array(
+			$db->insert('File', array(
 				'file' => $dest,
 				'type' => $type,
 				'site_id' => $site_id,

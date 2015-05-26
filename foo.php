@@ -8,17 +8,6 @@ require_once 'lib/Error.php';
 $config = new \ReusingDublin\Config($config);
 $db = \ReusingDublin\Model::factory();
 
-$sql = "CREATE TABLE IF NOT EXISTS `_files` (
-	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`file` varchar(254) NOT NULL,
-	`type` enum('photos','files') NOT NULL DEFAULT 'photos',
-	`site_id` int(11) NOT NULL,
-	PRIMARY KEY (`id`))
-";
-
-$db->query($sql);
-
-/**
 $config 	= new \ReusingDublin\Config($config);
 $db 		= \ReusingDublin\Model::factory();
 $results 	= $db->query("SELECT * FROM SiteOld");
@@ -42,4 +31,3 @@ foreach($results as $field=>$result){
 	var_dump($row);
 	$db->insert('Site', $row);
 }
-*/

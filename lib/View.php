@@ -26,19 +26,22 @@ class View{
 			$header = false;
 			$footer = false;
 		}
-		elseif(isset($_GET['modal'])){
+		if(isset($_GET['modal'])){
 			$head = true;
 			$header = false;
 			$footer = true;
 		}
 
 
-		if($head)
+		if($head){
 			require_once(REUSINGDUBLIN_DIR . '/view/head.php');
-		if($header)
+		}
+		if($header){
 			require_once(REUSINGDUBLIN_DIR . '/view/header.php');
+		}
 		require_once(REUSINGDUBLIN_DIR . '/view/' . lcfirst($class) . $action . '.php');
-		if($footer)
+		if($footer){
 			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
+		}
 	}
 }
