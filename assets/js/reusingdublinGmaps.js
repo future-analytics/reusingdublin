@@ -54,7 +54,7 @@ function ReusingDublinMap(){
         zoom:            16,
         mapTypeId:       google.maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
-            mapTypeIds:  [google.maps.MapTypeId.ROADMAP, 'tehgrayz']
+            mapTypeIds:  [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.ROADMAP, 'tehgrayz']
         },
         style:           google.maps.ZoomControlStyle.LARGE
     };

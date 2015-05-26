@@ -201,12 +201,6 @@ div#how-it-works-box ul li:nth-child(3){
 }
 section#try-it-out nav#mapNavBar{
 }
-nav#mapNavBar button,
-nav#mapNavBar select
-{
-  background-color: #00AFC9;
-  height: 40px;
-}
 div#map-canvas{
   background-color: #C5C5C5;
   height: 600px;

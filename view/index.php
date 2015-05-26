@@ -62,10 +62,10 @@
 
             <nav id="mapNavBar" class="row">
                 <div class="col-md-4">
-                    <input type="button" class="blue" value="ADD A SITE" id="mapAddSite">
+                    <input type="button" class="btn btn-default" value="ADD A SITE" id="mapAddSite">
                 </div>
                 <div class="col-md-4">
-                    <select id="mapLayer">
+                    <select id="foo" class="form-control">
                         <option>MORE INFORMATION</option>
                         <option value="0">DCC DEVELOPMENT PLAN ZONINGS</option>
                         <option value="1">PROTECTED STRUCTURES</option>
@@ -74,7 +74,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input id="typeahead-input" type="text" data-provide="typeahead" placeholder="Type to search markers" />
+                    <input type="text" placeholder="Type to search markers" class="form-control"/>
                 </div>
             </nav>
 
