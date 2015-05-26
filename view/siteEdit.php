@@ -17,6 +17,19 @@ else
 
     <div class="container-fluid">
 
+    <?php if(isset($data) && ($data['photos'] || $data['files'])): ?>
+        <div class="alert alert-success">
+            <?php if(isset($data['photos'])) foreach($data['photos'] as $photo): ?>
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Success!</strong> <?php echo $photo['basename']; ?> uploaded.
+            <?php endforeach; endif; ?>
+            <?php if(isset($data['photos'])) foreach($data['photos'] as $photo): ?>
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Success!</strong> <?php echo $photo['basename']; ?> uploaded.
+            <?php endforeach; endif; ?>
+        </div>
+    <?php endif; ?>
+
         <div class="row">
             <div class="col-xs-6">
                 <div id="streetViewMap"></div>
