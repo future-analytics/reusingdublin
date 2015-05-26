@@ -260,8 +260,8 @@ class Site extends Controller{
         }
 
         //upload photos & files
-        Controller::upload($photos, $data['id'], 'photos');
-        Controller::upload($files, $data['id'], 'files');
+        $data['photos'] = Controller::upload($photos, $data['id'], 'photo');
+        $data['files']  = Controller::upload($files, $data['id'], 'file');
 
         return $data;
     }
