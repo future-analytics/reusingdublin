@@ -9,132 +9,260 @@ use ReusingDublin;
  */
 class Site extends Controller{
 
-	/**
-	 * Install database tables.
-	 * @uses \ReusingDublin\Model::query()
-	 * @return mixed Returns true on success or Error on fail.
-	 */
-	public static function install()
-	{
+    public $data;
 
-		$db = Model::factory();
-		$sql = "CREATE TABLE Site (
-			id int(11) NOT NULL AUTO_INCREMENT,
-			address1 varchar(254) NOT NULL,
-			address2 varchar(254) DEFAULT NULL,
-			address3 varchar(254) DEFAULT NULL,
-			lat decimal(10,8) NOT NULL,
-			lng decimal(11,8) NOT NULL,
-			PRIMARY KEY (id)
-		) ENGINE=InnoDB
-		";
+    /**
+     * Install database tables.
+     * @uses \ReusingDublin\Model::query()
+     * @return mixed Returns true on success or Error on fail.
+     */
+    public static function install()
+    {
 
-		if(!$db->tableExists('Site'))
-			$res = $db->query($sql);
+        $db = Model::factory();
+        $sql = "CREATE TABLE Site (
+            id int(11) NOT NULL AUTO_INCREMENT,
+            address1 varchar(254) NOT NULL,
+            address2 varchar(254) DEFAULT NULL,
+            address3 varchar(254) DEFAULT NULL,
+            lat decimal(10,8) NOT NULL,
+            lng decimal(11,8) NOT NULL,
+            PRIMARY KEY (id)
+        ) ENGINE=InnoDB
+        ";
 
-		return $res;
-	}
+        if(!$db->tableExists('Site'))
+            $res = $db->query($sql);
 
-	/**
-	 * Get a site's data
-	 * @param integer $id The site id.
-	 * @return array Returns an array of site data.
-	 */
-	public static function getSite($id)
-	{
+        return $res;
+    }
 
-		$db = Model::factory()->getDb();
-		$qry = "SELECT * FROM Site
-			WHERE id = :id";
-		$sth = $db->prepare($qry);
-		$sth->execute(array(
-			':id' => $id,
-		));
-		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+    /**
+     * Get a site's data
+     * @param integer $id The site id.
+     * @return array Returns an array of site data.
+     */
+    public static function getSite($id)
+    {
 
-		return $res[0];
-	}
+        $db = Model::factory()->getDb();
+        $qry = "SELECT * FROM Site
+            WHERE id = :id";
+        $sth = $db->prepare($qry);
+        $sth->execute(array(
+            ':id' => $id,
+        ));
+        $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
-	/**
-	 * Default action.
-	 * Reroute default action to ::actionView()
-	 * @return Site Returns this for chaining.
-	 */
-	public function action()
-	{
-		return $this->actionView();
-	}
+        if(isset($res[0]))
+            return $res[0];
+    }
 
-	public function actionConnect()
-	{
-		return $this;
-	}
+    /**
+     * Default action.
+     * Reroute default action to ::actionView()
+     * @return Site Returns this for chaining.
+     */
+    public function action()
+    {
 
-	/**
-	 * To edit or update a site.
-	 * @return Site Returns this for chaining.
-	 */
-	public function actionEdit()
-	{
-		return $this;
-	}
+        return $this->actionView();
+    }
 
-	public function actionApiGetSites()
-	{
+    /**
+     * Parse form data for email.
+     */
+    public function actionConnect()
+    {
 
-		//vars
-		$routes		= Config::getInstance()->routes;
-		$db 		= Model::factory();
-		$fields		= array_splice($routes, 2);
-		$sites 		= array();
+        if(isset($_POST['data'])){
 
-		//map title field to address1
-		if(in_array('title', $fields)){
-			$key = array_search('title', $fields);
-			unset($fields[$key]);
-			$fields[] = 'address1';
-		}
-		$fields[] = 'id';			//always return id with rows.
+            $mail = new \PHPMailer;
+            $data = $_POST['data'];
+            $config = Config::getInstance()->get('admin');
 
-		//query db
-		(count($fields)) ?
-			$fields = "`".implode("`,`", $fields)."`":
-			$fields = "*";
-		$query 		= "SELECT {$fields} FROM Site";
-		$result 	= $db->query($query);
+            $mail->From = $data['email'];
+            $mail->FromName = $data['name'];
+            $mail->subject = 'Connect request from: ' . $data['name'];
+            $mail->Body = "
+                phone number: {$data['phone']}
+                facebook page: {$data['facebook']}
+            ";
+            $mail->addAddress($config['email'],$config['name']);
 
-		//error report
-		if(Error::isError($result)){
-			$result = array(
-				'error' => $result->getMessage(),
-			);
-		}
+            if(!$mail->send()) {
 
-		//build & return results
-		array_push($result, Api::factory()->hal);
 
-		$this->result = json_encode($result);
+                echo '
+                    <div class="alert alert-error">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Error!</strong> A problem has been occurred while submitting your data.
+                        ' . $mail->ErrorInfo . '
+                    </div>';
+            } else {
+                echo '
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Success!</strong> Your message has been sent successfully.
+                    </div>';
+            }
+        }
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function actionLetUsKnow()
-	{
-		return $this;
-	}
+    /**
+     * To edit or update a site.
+     * @return Site Returns this for chaining.
+     */
+    public function actionEdit()
+    {
 
-	public function actionShare()
-	{
-		return $this;
-	}
+        (isset($_POST['data'])) ?
+            $data = $_POST['data'] :
+            $data = false;
 
-	public function actionTellUsMore()
-	{
-		return $this;
-	}
+        //files
+        if(isset($_FILES['photos']))
+            $data['photos'] = parent::parseUpload($_FILES['photos']);
+        if(isset($_FILES['files']))
+            $data['files'] = parent::parseUpload($_FILES['files']);
 
-	public function actionView()
-	{
-		return $this;
-	}
+        // update/create site
+        if($data){
+            $this->data = $this->update($data);
+        }
+
+        return $this;
+    }
+
+    public function actionApiGetSites()
+    {
+
+        //vars
+        $routes     = Config::getInstance()->routes;
+        $db         = Model::factory();
+        $fields     = array_splice($routes, 2);
+        $sites      = array();
+
+        //map title field to address1
+        if(in_array('title', $fields)){
+            $key = array_search('title', $fields);
+            unset($fields[$key]);
+            $fields[] = 'address1';
+        }
+        $fields[] = 'id';           //always return id with rows.
+
+        //query db
+        (count($fields)) ?
+            $fields = "`".implode("`,`", $fields)."`":
+            $fields = "*";
+        $query      = "SELECT {$fields} FROM Site";
+        $result     = $db->query($query);
+
+        //error report
+        if(Error::isError($result)){
+            $result = array(
+                'error' => $result->getMessage(),
+            );
+        }
+
+        //build & return results
+        array_push($result, Api::factory()->hal);
+
+        $this->result = json_encode($result);
+
+        return $this;
+    }
+
+    /**
+     * Parse form data for email.
+     * @param string $source The source action method for email subject.
+     */
+    public function actionLetUsKnow($source='let us know')
+    {
+
+        if(isset($_POST['data'])){
+
+            $mail = new \PHPMailer;
+            $data = $_POST['data'];
+            $config = Config::getInstance()->get('admin');
+
+            $mail->From = $data['email'];
+            $mail->FromName = $data['name'];
+            $mail->subject = $source.': '.$data['subject'];
+            $mail->Body = $data['message'];
+            $mail->addAddress($config['email'],$config['name']);
+
+            if(!$mail->send()) {
+
+
+                echo '
+                    <div class="alert alert-error">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Error!</strong> A problem has been occurred while submitting your data.
+                        ' . $mail->ErrorInfo . '
+                    </div>';
+            } else {
+                echo '
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Success!</strong> Your message has been sent successfully.
+                    </div>';
+            }
+        }
+
+        return $this;
+    }
+
+    public function actionShare()
+    {
+
+        return $this;
+    }
+
+    /**
+     * route to actionLetUsKnow
+     * @see \ReusingDublin\Site::actonLetUsKnow()
+     */
+    public function actionTellUsMore()
+    {
+
+        return $this->actionLetUsKnow('tell us more');
+    }
+
+    public function actionView()
+    {
+        
+        return $this;
+    }
+
+    private function update(array $data)
+    {
+
+        $db = Model::factory();
+        $photos = $data['photos'];
+        $files = $data['files'];
+        unset($data['files']);
+        unset($data['photos']);
+
+
+        //update a site
+        if(isset($data['id'])){
+
+            $db->update('Site', $data, 'id');
+        }
+
+        //create a site
+        else{
+
+            $data['id'] = $db->insert('Site', $data);
+        }
+
+        //upload photos & files
+        $data['photos'] = Controller::upload($photos, $data['id'], 'photo');
+        $data['files']  = Controller::upload($files, $data['id'], 'file');
+
+        return $data;
+    }
 }

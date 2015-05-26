@@ -1,5 +1,5 @@
 /**
- * Google Maps javascript file
+ * Google Maps javascript file for the homepage.
  * @author daithi coombes <david.coombes@futureanalytics.ie>
  */
 
@@ -161,7 +161,6 @@ ReusingDublinMap.prototype.doLayer = function(){
 
     var index   = $(this).val(),
         map     = reusingDublinMap.getMap();
-    console.log(index);
 
     //Setting the source for the luas kmz file.
     var src2 = 'http://factest.ie/kmls/Luas.kmz';
@@ -207,7 +206,6 @@ ReusingDublinMap.prototype.doLayer = function(){
 ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var self = this;
-
     var myLatlng = new google.maps.LatLng(site.lat,site.lng),
         marker = new google.maps.Marker({
             position: myLatlng,
@@ -218,7 +216,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var contentString = '<div class="infowindow">' +
         '   <h3>'+marker.title+'</h3>' +
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.A+'\',\''+marker.position.F+'\')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">UPDATE THE DESCRIPTION</a>';
 
     if(site.id!='custom')
@@ -241,7 +239,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
  * Site modal dialog popup.
  * @param  {integer} siteId The site id
  */
-ReusingDublinMap.prototype.dialog = function(siteId, action){
+ReusingDublinMap.prototype.dialog = function(siteId, action, lat, lng){
 
     var self = this;
 
@@ -256,7 +254,7 @@ ReusingDublinMap.prototype.dialog = function(siteId, action){
         };
 
     BootstrapDialog.show({
-        message: '<iframe class="siteModal" src="/site/'+action+'?modal=1&amp;id='+siteId+'" width="100%" height="'+y+'"></iframe>',
+        message: '<iframe class="siteModal" src="/site/'+action+'?modal=1&amp;id='+siteId+'&amp;lat='+lat+'&amp;lng='+lng+'" width="100%" height="'+y+'"></iframe>',
         title: site.address1,
         height: y
     });

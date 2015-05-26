@@ -31,13 +31,23 @@ class Model{
 
 		$config = Config::getInstance()->get('db');
 
-		$pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
-		$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+		try{
+			$pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
+			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+		} catch (PDOException $e) {
+			var_dump($e);
+		}
 
 		$obj = new Model();
 		return $obj->setDb($pdo);
 	}
 
+	/**
+	 * Insert row into the database
+	 * @param  string $table The table name.
+	 * @param  array  $row   An array of column=>value pairs.
+	 * @return integer        Returns the last insert id.
+	 */
 	public function insert($table, array $row)
 	{
 
@@ -61,6 +71,8 @@ class Model{
 			${$field} = $value;
 		}
 		$stmt->execute();
+
+		return $this->getDb()->lastInsertId();
 	}
 
 	/**
@@ -99,6 +111,37 @@ class Model{
 			return true;
 		else
 			return false;
+	}
+
+	/**
+	 * Update a row.
+	 * @param  string $table The table name
+	 * @param  array $data  An array of column=>value pairs
+	 * @param  string $where The column to check against
+	 */
+	public function update($table, $data, $where)
+	{
+
+		$where_value = $data[$where];
+		unset($data[$where]);
+
+		$db = Model::factory();
+		$sql = "UPDATE {$table} SET ";
+		$sets = array();
+
+		//build statement
+		foreach($data as $key => $value){
+			$sets[] = "{$key}=:{$key}";
+		}
+		$stmt = $this->db->prepare($sql . implode(", ", $sets));
+
+		//bind values
+		foreach($data as $field=>$value){
+			$stmt->bindParam(":{$field}", $$field);
+			${$field} = $value;
+		}
+
+		$stmt->execute();
 	}
 
 	/**
