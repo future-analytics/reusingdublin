@@ -1,0 +1,11 @@
+[submodule "assets/js/bootstrap-fileinput"]
+path = assets/js/bootstrap-fileinput
+url = git@github.com:kartik-v/bootstrap-fileinput
+
+[submodule "assets/js/bootstrap3-dialog"]
+path = assets/js/bootstrap3-dialog
+url = git@github.com:nakupanda/bootstrap3-dialog
+
+[submodule "assets/js/nano"]
+path = assets/js/nano
+url = git@github.com:trix/nano
