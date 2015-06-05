@@ -11,6 +11,10 @@ $config = array(
         'pass' => '',
         'name' => '',
     ),
+    'admin' => array(
+    	'name' => 'daithi coombes',
+    	'email' => 'david.coombes@futureanalytics.ie',
+    ),
 );
 
 return $config;

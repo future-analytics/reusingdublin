@@ -9,8 +9,8 @@ use ReusingDublin;
 
 // debug?
 if(defined(REUSINGDUBLIN_DEBUG) && REUSINGDUBLIN_DEBUG==1){
-	ini_set('display_errors', 'on');
 	error_reporting(E_ALL);
+	ini_set('display_errors', 'on');
 }// end debug
 
 
@@ -25,6 +25,8 @@ spl_autoload_register(function($class){
 	if(is_readable($file))
 		require_once($file);
 });
+
+require_once(REUSINGDUBLIN_DIR.'/vendor/autoload.php');
 
 
 /**

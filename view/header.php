@@ -23,20 +23,20 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" id="social-links">
-                            <li><a href="https://instagram.com/reusingdublin">
+                            <li><a href="http://instagram.com/reusingdublin">
                                 <img src="/assets/images/icon_instagram.png" alt="Instagram Profile">
                             </a></li>
                             <li><a href="mailto:reusingdublin@gmail.com">
                                 <img src="/assets/images/icon_email.png" alt="Email Link">
                             </a></li>
-                            <li><a href="https://facebook.com/reusingdublin">
+                            <li><a href="http://facebook.com/reusingdublin">
                                 <img src="/assets/images/icon_facebook.png" alt="Facebook Profile">
                             </a></li>
-                            <li><a href="https://twitter.com/reusingdublin">
+                            <li><a href="http://twitter.com/reusingdublin">
                                 <img src="/assets/images/icon_twitter.png" alt="Twitter Profile">
                             </a></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right" id="inline-links">
                             <li class="active">
                                 <?php
                                 (\ReusingDublin\Config::getInstance()->routes[0]=='index') ?

@@ -1,8 +1,9 @@
 /**
- * Google Maps javascript file
+ * Google Maps javascript file for the homepage.
  * @author daithi coombes <david.coombes@futureanalytics.ie>
  */
 
+var infoWindow = null;
 
 /**
  * @class ReusingDublinMap
@@ -10,10 +11,31 @@
 function ReusingDublinMap(){
 
     /**
+     * Holds current open gmaps marker infowindow()
+     * @see ReusingDublinMap::doMarker()
+     * @type {[type]}
+     */
+    this.infowindow = null;
+
+    /**
+     * FusionTable layers
+     * @type {array}
+     */
+    this.layers = [];
+
+    /**
      * Google map instance
      * @type google.maps.Map
      */
     this.map = {};
+
+    this.markers = [];
+
+    /**
+     * Array of map markers, with site_id as key.
+     * @type {Array}
+     */
+    this.markersMap = [];
 
     /**
      * An array of Site objects.
@@ -54,7 +76,7 @@ function ReusingDublinMap(){
         zoom:            16,
         mapTypeId:       google.maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
-            mapTypeIds:  [google.maps.MapTypeId.ROADMAP, 'tehgrayz']
+            mapTypeIds:  [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.ROADMAP, 'tehgrayz']
         },
         style:           google.maps.ZoomControlStyle.LARGE
     };
@@ -71,7 +93,7 @@ ReusingDublinMap.prototype.init = function(){
     var self = this;
 
     var mapCanvas   = document.getElementById('map-canvas'),
-        map    = new google.maps.Map(mapCanvas, self.mapOptions),
+        map         = new google.maps.Map(mapCanvas, self.mapOptions),
         mapType     = new google.maps.StyledMapType(self.stylez, { name:"Grayscale" }),
         sites;
     self.map = map;
@@ -84,13 +106,22 @@ ReusingDublinMap.prototype.init = function(){
     self.getSites(function(sites){
 
         var _self   = self,
-            _map    = map;
+            _map    = map,
+            mc      = {},
+            markers = [],
+            clusterGroup = [];
 
-            //create markers
+        //create markers
         $(sites).each(function(i, site){
-            _self.doMarker(_map, site);
+
+            //hack to fix googles stupidity...
+            //map markers[key] => site.id
+            var index = _self.markers.length;
+            _self.markers[index] = _self.doMarker(_map, site);
+            _self.markersMap[site.id] = index;
         });
 
+        mc = new MarkerClusterer(_map, _self.markers);
         return _self;
     });
 
@@ -110,18 +141,130 @@ ReusingDublinMap.prototype.init = function(){
                 lng: event.latLng.F,
                 address1: 'Register New Site',
                 id: 'custom'
-            }
+            };
 
         var marker = _self.doMarker(_map, site);
         new google.maps.event.trigger( marker, 'click' );
     });
 
-    /**
-     * Add layers
-     */
-    // end Add layers
+    //init kml's
+    self.initKML();
+
+    //init fusion tables
+    self.initLayers();
 
     return self;
+}
+
+/**
+ * Initial KML drawings/layers
+ * @member ReusingDublinMap
+ * @return ReusingDublinMap
+ */
+ReusingDublinMap.prototype.initKML = function(){
+
+    var self = this;
+
+    //Setting the source for the luas kmz file.
+    var src2 = 'http://factest.ie/kmls/Luas.kmz',
+        luasLine = new google.maps.KmlLayer(src2,
+            {
+                suppressInfoWindows: true,
+                preserveViewport:true,
+                map: self.map
+            });
+
+    luasLine.setMap(self.map);
+
+    return self;
+}
+
+/**
+ * Initiate fustion table layers
+ * @member ReusingDubilnMap
+ */
+ReusingDublinMap.prototype.initLayers = function(){
+
+    var self = this,
+        keys = [];
+
+    //dcc development planning zonings
+    keys.push('13FSnVnu4FdWRF7Ei1rsLyDdKSdGUxH41ocyKt7kE');
+    //protected structures
+    keys.push('1Niv7EjH45UQCAHqWfsgYIi3zc1jI3tIEqUr1Wa7g');
+    //building usage
+    keys.push('1EEsLj60M9vX7PblFnk3DZ9jNDZTYGLEDrVU92-sA');
+    //dcc planning applications
+    keys.push('1yqEULmUVjBJp8MO83rNMs3W9mUh_vnx5xEslAFsr');
+
+    $.getJSON("/assets/js/reusingdublinGmapsStyles.json", function(styles){
+
+        var map = reusingDublinMap.getMap();
+
+        //build and add layers to layer[]
+        for(var x=0; x<keys.length; x++){
+
+            //building usage
+            reusingDublinMap.layers[x] = new google.maps.FusionTablesLayer({
+                query: {
+                    select: 'col10',
+                    from: keys[x]
+                },
+                styles: styles[x]
+            });
+
+            //onClick edit infowindow
+            reusingDublinMap.layers[x].addListener('click', function(e){
+
+                //get array of html'd data from infowindow popup
+                var data = [],
+                    infowindow = $('<div/>').html(e.infoWindowHtml)
+                                    .contents()
+                                    .html(),
+                    html = '<div class="fusiontable-infowindow"><dl>',
+                    parts = infowindow.split('<br>');
+
+                //create key=>value pairs of html'd data
+                for(var x=0; x<parts.length; x++){
+
+                    //regex /<b>(.+)<\/b>(.+)/igm => key=value
+                    var _parts = parts[x].match(/<b>(\w*\s*):<\/b>(.*)/im);
+
+                    //skip keys
+                    if(
+                        _parts[1]=='geometry' ||
+                        _parts[1]=='geometry_vertex_count' ||
+                        _parts[1]=='OBJECTID_1' ||
+                        _parts[1]=='ZONE_ORIG_ft_style' ||
+                        _parts[1]=='ZONE_DESC_ft_style' ||
+                        _parts[1]=='ZONE_LINK_ft_style'
+                    )
+                        continue;
+
+                    //rename keys
+                    if(_parts[1]=='ZONE_ORIG') _parts[1]='Zoning Classification';
+                    if(_parts[1]=='ZONE_DESC') _parts[1]='Zoning Description';
+                    if(_parts[1]=='ZONE_LINK') _parts[1]='Link to Plan';
+                    if(_parts[1]=='Shape_Area') _parts[1]='Zone Area (sqm)';
+
+                    html += ''
+                        + ' <dt class="layer-key"><b>'+_parts[1]+'</b></dt>'
+                        + ' <dd class="layer-val">'+_parts[2]+'</dd>'
+                        + '';
+                }
+
+                //rebuild infowindow
+                e.infoWindowHtml = html+'</dl></div>';
+            });
+        };
+    });
+}
+
+/**
+ * @return google.maps.Map
+ */
+ReusingDublinMap.prototype.getMap = function(){
+    return this.map;
 }
 
 /**
@@ -137,16 +280,47 @@ ReusingDublinMap.prototype.doControls = function(map){
 
         controlDiv.appendChild(mapNav);
 
+        //add autocomplete
+        $('#mapSearch', controlDiv).autocomplete({
+            lookup: function(query, done){
+                $.getJSON('/api/Site/autocomplete/'+query, function(data){
+                    var result = {
+                        suggestions: data
+                    }
+                    done(result);
+                });
+            },
+            onSelect: function(suggestion){
+
+                    var map = reusingDublinMap.getMap(),
+                        index = reusingDublinMap.markersMap[suggestion.data],
+                        marker = reusingDublinMap.markers[index];
+
+                    google.maps.event.trigger(marker, 'click');
+                    //reusingDublinMap.infowindow.open(map, marker);
+                    //reusingDublinMap.markers[suggestion.data].showInfoWindow();
+                }
+        });
+        /*
+        $('#typeahead-input', mapNav).typeahead({
+            source: function(query, process){
+                return $.get('/api/Site/search/'+query, function(data){
+                    return process(data);
+                });
+            }
+        });
+        */
+
         //add site btn
         $('#mapAddSite', controlDiv).click(function(e){
             e.preventDefault();
 
-            alert('Left Click on the Map with your mouse to Add a New Site!');
+            alert('Left click on the map with your mouse or tap to Add a New Site');
             reusingDublinMap.state = 'edit';
         })
 
         //more info layers dropdown
-        $('#mapLayer', controlDiv).change(self.doLayer);
+        $('#mapLayers', controlDiv).change(self.doLayer);
 
         controlDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(controlDiv);
@@ -155,46 +329,28 @@ ReusingDublinMap.prototype.doControls = function(map){
 }
 
 /**
- * @todo finish method.
+ * Dropdown handler to place layer on map.
+ * @member ReusingDublin
+ * @return ReusingDublin
  */
 ReusingDublinMap.prototype.doLayer = function(){
 
-    var index   = $(this).val(),
-        map     = reusingDublinMap.getMap();
-    console.log(index);
+    var self = reusingDublinMap;
 
-    //Setting the source for the luas kmz file.
-    var src2 = 'http://factest.ie/kmls/Luas.kmz';
-    var UCLAParking = new google.maps.KmlLayer(src2,
-        {
-            suppressInfoWindows: true,
-            preserveViewport:true,
-            map: map
-        });
-    UCLAParking.setMap(map);
-    var position1 = new google.maps.LatLng(53.34603294651386,-6.27388134598732);
-    var position2 = new google.maps.LatLng(53.34666473099645,-6.292639374732971);
-    var position3 = new google.maps.LatLng(53.348592861233996,-6.265929937362671);
-    var position4 = new google.maps.LatLng(53.34756144128457,-6.271681934595108);
-    var position5 = new google.maps.LatLng(53.33786192960029,-6.276708394289017);
-    var position6 = new google.maps.LatLng(53.311590204282844,-6.274232715368271);
-    var position7 = new google.maps.LatLng(53.30210463305052,-6.1782002449035645);
-    //Adding predefined markers on the map
-    var marker1 =  new google.maps.Marker({
-    		position : position1,
-    		map : map,
-    		title: 'Four Courts.'
-    	});
-    google.maps.event.addListener(marker1, 'mouseover', function(event) {
-        var infoWindow = new google.maps.InfoWindow({
-            content : 'Four Courts.'
-        });
-        infoWindow.open(map, marker1);
-        if(activeWindow != null)
-            activeWindow.close();
-        //Store new window in global variable
-        activeWindow = infoWindow;
-    });
+    var index   = $(this).val(),
+        key    = '',
+        layer   = {},
+        map     = self.getMap();
+
+    //clear old map
+    for(var x=0; x<self.layers.length; x++){
+        self.layers[x].setMap(null);
+    }
+
+
+    self.layers[index].setMap(map);
+
+    return self;
 }
 
 /**
@@ -207,9 +363,8 @@ ReusingDublinMap.prototype.doLayer = function(){
 ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var self = this;
-
-    var myLatlng = new google.maps.LatLng(site.lat,site.lng),
-        marker = new google.maps.Marker({
+    var myLatlng    = new google.maps.LatLng(site.lat,site.lng),
+        marker      = new google.maps.Marker({
             position: myLatlng,
             map: map,
             title: site.address1,
@@ -217,8 +372,8 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
         });
 
     var contentString = '<div class="infowindow">' +
-        '   <h3>'+marker.title+'</h3>' +
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">ENTER THE DESCRIPTION</a>'+
+        '   <h3>'+site.address1+'</h3>' +
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.A+'\',\''+marker.position.F+'\')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">UPDATE THE DESCRIPTION</a>';
 
     if(site.id!='custom')
@@ -231,7 +386,11 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
     });
 
     google.maps.event.addListener(marker, 'click', function() {
+        if(reusingDublinMap.infowindow)
+            reusingDublinMap.infowindow.close();
+
         infowindow.open(map,marker);
+        reusingDublinMap.infowindow = infowindow;
     });
 
     return marker;
@@ -241,7 +400,7 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
  * Site modal dialog popup.
  * @param  {integer} siteId The site id
  */
-ReusingDublinMap.prototype.dialog = function(siteId, action){
+ReusingDublinMap.prototype.dialog = function(siteId, action, lat, lng){
 
     var self = this;
 
@@ -256,7 +415,7 @@ ReusingDublinMap.prototype.dialog = function(siteId, action){
         };
 
     BootstrapDialog.show({
-        message: '<iframe class="siteModal" src="/site/'+action+'?modal=1&amp;id='+siteId+'" width="100%" height="'+y+'"></iframe>',
+        message: '<iframe class="siteModal" src="/site/'+action+'?modal=1&amp;id='+siteId+'&amp;lat='+lat+'&amp;lng='+lng+'" width="100%" height="'+y+'"></iframe>',
         title: site.address1,
         height: y
     });
