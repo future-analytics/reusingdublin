@@ -24,6 +24,10 @@ var ReusingDublin = function(){
         $("#mainNav ul li a[href^='#']")
             .on('click', this.scrollTo);
 
+        $('#uploadFile').fileinput({
+            showCaption: false
+        })
+
         return this;
     }
 

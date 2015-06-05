@@ -13,113 +13,164 @@ use ReusingDublin;
  */
 class Model{
 
-	/** @var PDO The PDO object */
-	protected $db;
+    /** @var PDO The PDO object */
+    protected $db;
 
-	/**
-	 * Factory method.
-	 * Tries to return instance of db in global space, if exists
-	 * @return \PDO Returns a singleton PDO instance ($db).
-	 */
-	public static function factory()
-	{
+    /**
+     * Factory method.
+     * Tries to return instance of db in global space, if exists
+     * @return \PDO Returns a singleton PDO instance ($db).
+     */
+    public static function factory()
+    {
 
-		global $db;
+        global $db;
 
-		if(isset($db) && is_object($db) && get_class($db)==__CLASS__)
-			return $db;
+        if(isset($db) && is_object($db) && get_class($db)==__CLASS__)
+            return $db;
 
-		$config = Config::getInstance()->get('db');
+        $config = Config::getInstance()->get('db');
 
-		$pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
-		$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        try{
+            $pdo = new \PDO("mysql:host={$config['host']};dbname={$config['name']}", $config['user'], $config['pass']);
+            $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            var_dump($e);
+        }
 
-		$obj = new Model();
-		return $obj->setDb($pdo);
-	}
+        $obj = new Model();
+        return $obj->setDb($pdo);
+    }
 
-	public function insert($table, array $row)
-	{
+    /**
+     * Insert row into the database
+     * @param  string $table The table name.
+     * @param  array  $row   An array of column=>value pairs.
+     * @return integer        Returns the last insert id.
+     */
+    public function insert($table, array $row)
+    {
 
-		$fields = array_keys($row);
+        $fields = array_keys($row);
 
-		//set query fields
-		$qry = "INSERT INTO {$table} (`"
-			. implode("`,`", array_keys($row))
-			. "`) VALUES ";
+        //set query fields
+        $qry = "INSERT INTO {$table} (`"
+            . implode("`,`", array_keys($row))
+            . "`) VALUES ";
 
-		//set query bind placeholders
-		foreach($row as $field=>$value)
-			$qry_values[] = ":{$field}";
-		$stmt = $this->db->prepare($qry . "(".implode(", ", $qry_values).")");
+        //set query bind placeholders
+        foreach($row as $field=>$value)
+            $qry_values[] = ":{$field}";
+        $stmt = $this->db->prepare($qry . "(".implode(", ", $qry_values).")");
 
-		//bind values
-		foreach($row as $field=>$value)
-			$stmt->bindParam(":{$field}", $$field);
+        //bind values
+        foreach($row as $field=>$value)
+            $stmt->bindParam(":{$field}", $$field);
 
-		foreach($row as $field=>$value){
-			${$field} = $value;
-		}
-		$stmt->execute();
-	}
+        foreach($row as $field=>$value){
+            ${$field} = $value;
+        }
+        $stmt->execute();
 
-	/**
-	 * Get the db instance.
-	 * @return PDO
-	 */
-	public function getDb()
-	{
+        return $this->getDb()->lastInsertId();
+    }
 
-		return $this->db;
-	}
+    /**
+     * Get the db instance.
+     * @return \PDO
+     */
+    public function getDb()
+    {
 
-	/**
-	 * Set the database object.
-	 * @param PDO $db The database object.
-	 * @return Model Returns this for chaining.
-	 */
-	public function setDb(\PDO $db)
-	{
+        return $this->db;
+    }
 
-		$this->db = $db;
-		return $this;
-	}
+    public function search()
+    {       
+    }
 
-	/**
-	 * Check if db table exists.
-	 * @param string $table The table name.
-	 * @return boolean Default false.
-	 */
-	public function tableExists($table)
-	{
-		
-		$test = $this->query("SELECT 1 FROM {$table}");
+    /**
+     * Set the database object.
+     * @param PDO $db The database object.
+     * @return Model Returns this for chaining.
+     */
+    public function setDb(\PDO $db)
+    {
 
-		if(!Error::isError($test))
-			return true;
-		else
-			return false;
-	}
+        $this->db = $db;
+        return $this;
+    }
 
-	/**
-	 * Query the database WITHOUT preparing statements.
-	 * @param string $qry The raw mysql query.
-	 * @return array Returns an array of row objects or Error.
-	 */
-	public function query($qry, $return=\PDO::FETCH_ASSOC)
-	{
+    /**
+     * Check if db table exists.
+     * @param string $table The table name.
+     * @return boolean Default false.
+     */
+    public function tableExists($table)
+    {
 
-		try{
-			$res = $this->db->query($qry);
-		}catch(\PDOException $e){
-			return new Error($e->getMessage());
-		}
+        $test = $this->query("SELECT 1 FROM {$table}");
 
-		$results = array();
-		while($row = $res->fetch(\PDO::FETCH_ASSOC)){
-			$results[] = $row;
-		}
+        if(!Error::isError($test))
+            return true;
+        else
+            return false;
+    }
 
-		return $results;
-	}
+    /**
+     * Update a row.
+     * @param  string $table The table name
+     * @param  array $data  An array of column=>value pairs
+     * @param  string $where The column to check against
+     */
+    public function update($table, $data, $where)
+    {
+
+        $where_value = $data[$where];
+        unset($data[$where]);
+
+        $db = Model::factory();
+        $sql = "UPDATE {$table} SET ";
+        $sets = array();
+
+        //build statement
+        foreach($data as $key => $value){
+            $sets[] = "{$key}=:{$key}";
+        }
+        $sql .= implode(", ", $sets)
+            . " WHERE {$where}=:{$where}";
+        $stmt = $this->db->prepare($sql);
+
+        //bind values
+        foreach($data as $field=>$value){
+            $stmt->bindParam(":{$field}", ${$field});
+            ${$field} = $value;
+        }
+        $stmt->bindParam(":{$where}", ${$where});
+        ${$where} = $where_value;
+
+        $stmt->execute();
+    }
+
+    /**
+     * Query the database WITHOUT preparing statements.
+     * @param string $qry The raw mysql query.
+     * @return array Returns an array of row objects or Error.
+     */
+    public function query($qry, $return=\PDO::FETCH_ASSOC)
+    {
+
+        try{
+            $res = $this->db->query($qry);
+        }catch(\PDOException $e){
+            return new Error($e->getMessage());
+        }
+
+        $results = array();
+        while($row = $res->fetch(\PDO::FETCH_ASSOC)){
+            $results[] = $row;
+        }
+
+        return $results;
+    }
 }
