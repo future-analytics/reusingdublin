@@ -81,9 +81,7 @@ $site = Site::getSite($_GET['id']);
                     <div class="col-xs-12">
                         <p>Upload your files</p>
                         <form method="post" enctype="multipart/form-data">
-                            <input type="file" id="uploadFile" name="file" disabled>
-                            <em>Site is under maintainance for next hour (eta 1800), any files listed below may not work.</em><br/>
-                            <em>Please check back later</em>
+                            <input type="file" id="uploadFile" name="file">
                         </form>
                     </div>
                 </div>
