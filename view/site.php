@@ -88,9 +88,12 @@ $site = Site::getSite($_GET['id']);
                 <div class="row">
                     <div class="col-xs-12">
                         <ul>
-                        <?php foreach(Site::getFiles($site['id']) as $file): ?>
-                            <li><a href="/uploads/<?php echo $file['basename']; ?>" target="_new"><?php echo $file['basename']; ?></a></li>
-                        <?php endforeach; ?>
+                        <?php foreach(Site::getFiles($site['id']) as $file):
+                            $filename = "/uploads{$file['basename']}";
+                            if(file_exists($filename)):?>
+                                <li><a href="/uploads/<?php echo $file['basename']; ?>" target="_new"><?php echo $file['basename']; ?></a></li>
+                        <?php endif;
+                            endforeach; ?>
                         </ul>
                     </div>
                 </div>
