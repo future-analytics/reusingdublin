@@ -45,7 +45,7 @@ $site = Site::getSite($_GET['id']);
             <div class="form-group">
                 <div class="row">
                     <span class="col-xs-6">
-                        <input type="button" value="Back" onclick="window.location.assign('http://reusingdublin.loc/site/?modal=1&id=<?php echo $site['id']; ?>')" class="form-control">
+                        <input type="button" value="Back" onclick="window.location.assign('/site/?modal=1&id=<?php echo $site['id']; ?>')" class="form-control">
                     </span>
                     <span class="col-xs-6">
                         <input type="submit" value="Send" class="form-control">

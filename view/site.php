@@ -14,6 +14,15 @@ if(!isset($_GET['id'])){
 
 $site = Site::getSite($_GET['id']);
 ?>
+    <?php if(isset($data) && $data['files']): ?>
+        <div class="alert alert-success">
+            <?php if(isset($data['files'])): foreach($data['files'] as $file): ?>
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Success!</strong> <?php echo $file['basename']; ?> uploaded.
+            <?php endforeach; endif; ?>
+        </div>
+    <?php endif; ?>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-6">
@@ -23,28 +32,28 @@ $site = Site::getSite($_GET['id']);
                 <div id="pano"></div>
             </div>
         </div>
-        <p class="title">DISCOVER INFORMATION ABOUT THE LOT</p>
+        <p class="title">DISCOVER INFORMATION ABOUT THE SPACE</p>
 
         <dl class="dl-horizontal">
             <dt>Address</dt>
             <dd><?php if(isset($site['address1'])) echo $site['address1']; ?></dd>
-            <dt>Ownership Details</dt>
+            <dt>Ownership details</dt>
             <dd><?php if(isset($site['owner'])) echo $site['owner']; ?></dd>
             <dt>Zoning</dt>
             <dd><?php if(isset($site['zoning'])) echo $site['zoning']; ?></dd>
-            <dt>Planning History</dt>
+            <dt>Planning history</dt>
             <dd><?php if(isset($site['planning'])) echo $site['planning']; ?></dd>
             <dt>Size / Area (Sqm)</dt>
             <dd><?php if(isset($site['size'])) echo $site['size']; ?></dd>
-            <dt>Heritage Designation</dt>
+            <dt>Heritage designation</dt>
             <dd><?php if(isset($site['heritage'])) echo $site['heritage'];?></dd>
-            <dt>Is The SIte Officially Derelict?</dt>
+            <dt>Is the site officially derelict?</dt>
             <dd><?php if(isset($site['derelict'])) echo $site['derelict']; ?></dd>
             <dt>Description</dt>
             <dd><?php if(isset($site['info'])) echo Controller::autoLinkText($site['info']); ?></dd>
-            <dt>Suggested Uses</dt>
+            <dt>Suggested uses</dt>
             <dd><?php if(isset($site['tellUsInfo'])) echo Controller::autoLinkText($site['tellUsInfo']); ?></dd>
-            <dt>Why Has This Area Been Highlighted?</dt>
+            <dt>Why has this area been highlighted?</dt>
             <dd><?php if(isset($site['highlighted'])) echo $site['highlighted']; ?></dd>
         </dl>
 
@@ -89,8 +98,8 @@ $site = Site::getSite($_GET['id']);
                     <div class="col-xs-12">
                         <ul>
                         <?php foreach(Site::getFiles($site['id']) as $file):
-                            $filename = "/uploads{$file['basename']}";
-                            if(file_exists($filename)):?>
+                            $filename = "/uploads/{$file['basename']}";
+                            if(file_exists(REUSINGDUBLIN_DIR . $filename)):?>
                                 <li><a href="/uploads/<?php echo $file['basename']; ?>" target="_new"><?php echo $file['basename']; ?></a></li>
                         <?php endif;
                             endforeach; ?>

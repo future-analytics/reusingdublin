@@ -16,15 +16,11 @@ else
 ?>
     <div class="container-fluid">
 
-    <?php if(isset($data) && ($data['photos'] || $data['files'])): ?>
+    <?php if(isset($data) && $data['files']): ?>
         <div class="alert alert-success">
-            <?php if(isset($data['photos'])): foreach($data['photos'] as $photo): ?>
+            <?php if(isset($data['files'])): foreach($data['files'] as $file): ?>
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <strong>Success!</strong> <?php echo $photo['basename']; ?> uploaded.
-            <?php endforeach; endif; ?>
-            <?php if(isset($data['photos'])): foreach($data['photos'] as $photo): ?>
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <strong>Success!</strong> <?php echo $photo['basename']; ?> uploaded.
+                <strong>Success!</strong> <?php echo $file['basename']; ?> uploaded.
             <?php endforeach; endif; ?>
         </div>
     <?php endif; ?>
@@ -37,7 +33,7 @@ else
                 <div id="pano"></div>
             </div>
         </div>
-        
+
         <div class="row edit-form">
             <div class="col-xs-12">
                 <form role="form" enctype="multipart/form-data" method="post">
@@ -53,8 +49,8 @@ else
                         <label for="idea">
                             Enter your idea for this site
                         </label>
-                        <textarea id="idea" name="data[info]" class="form-control" placeholder="Enter your idea for this site here"><?php 
-                            if(isset($site['info'])) echo $site['info']; 
+                        <textarea id="idea" name="data[info]" class="form-control" placeholder="Enter your idea for this site here"><?php
+                            if(isset($site['info'])) echo $site['info'];
                         ?></textarea>
                     </div>
                     <div class="form-group">
@@ -62,47 +58,47 @@ else
                             Tell us something about this site/location. For example:
                         </label>
                         <select id="tell-us" name="data[tellUs]" class="form-control">
-                            <option value="Why do you think the site is in its current condition?"<?php 
+                            <option value="Why do you think the site is in its current condition?"<?php
                                 if(!isset($site) || (isset($site['tellUs']) && $site['tellUs']=='Why do you think the site is in its current condition?')) echo ' selected';
                             ?>>
                                 Why do you think the site is in its current condition?
                             </option>
-                            <option value="What has the site been previously used for?"<?php 
+                            <option value="What has the site been previously used for?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='What has the site been previously used for?')) echo ' selected';
                             ?>>
                                 What has the site been previously used for?
                             </option>
-                            <option value="How long has the site been in this condition?"<?php 
+                            <option value="How long has the site been in this condition?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='How long has the site been in this condition?')) echo ' selected';
                             ?>>
                                 How long has the site been in this condition?
                             </option>
-                            <option value="Is there any activity on the site?"<?php 
+                            <option value="Is there any activity on the site?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='Is there any activity on the site?')) echo ' selected';
                             ?>>
                                 Is there any activity on the site?
                             </option>
-                            <option value="What is the physical condition of the site?"<?php 
+                            <option value="What is the physical condition of the site?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='What is the physical condition of the site?')) echo ' selected';
                             ?>>
                                 What is the physical condition of the site?
                             </option>
-                            <option value="What is happending on this site?"<?php 
+                            <option value="What is happending on this site?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='What is happending on this site?')) echo ' selected';
                             ?>>
                                 What is happending on this site?
                             </option>
-                            <option value="What is happening around the site?"<?php 
+                            <option value="What is happening around the site?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='What is happening around the site?')) echo ' selected';
                             ?>>
                                 What is happening around the site?
                             </option>
-                            <option value="What are the surrounding buildinds used for?"<?php 
+                            <option value="What are the surrounding buildinds used for?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='What are the surrounding buildinds used for?')) echo ' selected';
                             ?>>
                                 What are the surrounding buildinds used for?
                             </option>
-                            <option value="Is there access to this site?"<?php 
+                            <option value="Is there access to this site?"<?php
                                 if(isset($site) && (isset($site['tellUs']) && $site['tellUs']=='Is there access to this site?')) echo ' selected';
                             ?>>
                                 Is there access to this site?
@@ -111,9 +107,6 @@ else
                         <textarea name="data[tellUsInfo]" class="form-control" placeholder"Enter more information here"><?php
                             if(isset($site['tellUsInfo'])) echo $site['tellUsInfo'];
                         ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="file" id="uploadPhoto" name="photos[]" multiple="true">
                     </div>
                     <div class="form-group">
                         <input type="file" id="uploadFile" name="files[]" multiple="true">
