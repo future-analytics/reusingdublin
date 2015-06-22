@@ -139,7 +139,7 @@ ReusingDublinMap.prototype.init = function(){
             site    = {
                 lat: event.latLng.A,
                 lng: event.latLng.F,
-                address1: 'Register New Site',
+                address1: 'Add a site',
                 id: 'custom'
             };
 

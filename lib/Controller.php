@@ -247,7 +247,6 @@ class Controller{
      * Upload a files and write records to db.
      * @param  array $data    An array of file data.
      * @param  integer $site_id The site to link up with the uploaded file.
-     * @param  string $type    Default photos. (photo|file|video).
      * @return array          Returns an array of results.
      */
     public static function upload(array $data, $site_id)
@@ -271,7 +270,7 @@ class Controller{
 
             //insert record into db
             $db->insert('File', array(
-                'file'     => $dest,
+                'file'     => $fileInfo['basename'],
                 'ext'      => $fileInfo['extension'],
                 'site_id'  => $site_id,
                 'ip'       => self::getIp(),

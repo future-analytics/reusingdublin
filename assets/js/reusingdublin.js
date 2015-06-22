@@ -25,7 +25,8 @@ var ReusingDublin = function(){
             .on('click', this.scrollTo);
 
         $('#uploadFile').fileinput({
-            showCaption: false
+            showCaption: false,
+            browseLabel: 'Add a file'
         })
 
         return this;

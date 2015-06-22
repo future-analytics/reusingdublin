@@ -198,8 +198,6 @@ class Site extends Controller{
             $data = false;
 
         //files
-        if(isset($_FILES['photos']))
-            $data['photos'] = parent::parseUpload($_FILES['photos']);
         if(isset($_FILES['files']))
             $data['files'] = parent::parseUpload($_FILES['files']);
 
@@ -383,10 +381,8 @@ class Site extends Controller{
     {
 
         $db = Model::factory();
-        $photos = $data['photos'];
         $files = $data['files'];
         unset($data['files']);
-        unset($data['photos']);
 
 
         //update a site
@@ -401,9 +397,8 @@ class Site extends Controller{
             $data['id'] = $db->insert('Site', $data);
         }
 
-        //upload photos & files
-        $data['photos'] = Controller::upload($photos, $data['id'], 'photo');
-        $data['files']  = Controller::upload($files, $data['id'], 'file');
+        //files
+        $data['files']  = Controller::upload($files, $data['id']);
 
         return $data;
     }

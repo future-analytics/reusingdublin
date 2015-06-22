@@ -47,4 +47,8 @@ $site = Site::getSite($_GET['id']);
 				</div>
 			</div>
 		</form>
+
+		<p>
+		Or you can start a conversation with us on our facebook page: <a href="https://facebook.com/reusingdublin" target="_new" alt="Reusing Dublin - Facebook">https://facebook.com/reusingdublin</a>
+		</p>
 	</div>
