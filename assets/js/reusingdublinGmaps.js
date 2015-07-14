@@ -76,7 +76,7 @@ function ReusingDublinMap(){
         zoom:            16,
         mapTypeId:       google.maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
-            mapTypeIds:  [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.ROADMAP, 'tehgrayz']
+            mapTypeIds:  [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.ROADMAP, 'tehgrayz', 'OSM']
         },
         style:           google.maps.ZoomControlStyle.LARGE
     };
@@ -100,6 +100,20 @@ ReusingDublinMap.prototype.init = function(){
 
     //set map style
     self.map.mapTypes.set('tehgrayz', mapType);
+    self.map.mapTypes.set('OSM', new google.maps.ImageMapType({
+        getTileUrl: function(coord, zoom){
+            var tilesPerGlobe = 1 << zoom;
+            var x = coord.x % tilesPerGlobe;
+            if(x<0){
+                x = tilesPerGlobe+x;
+            }
+
+            return "http://tile.openstreetmap.org/"+zoom+"/"+x+"/"+coord.y+".png";
+        },
+        tileSize: new google.maps.Size(256,256),
+        name: "OpenStreetMap",
+        maxZoom: 18
+    }))
     self.map.setMapTypeId('tehgrayz');
 
     //get sites, append to markers
