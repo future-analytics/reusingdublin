@@ -13,7 +13,7 @@ $config = array(
     ),
     'admin' => array(
     	'name' => 'daithi coombes',
-    	'email' => 'david.coombes@futureanalytics.ie',
+    	'email' => 'daithi.coombes@futureanalytics.ie',
     ),
 );
 
