@@ -2,6 +2,7 @@
 uploads/*
 foo/
 vendor/
+docs/phpdoc-cache*
 
 # files
 config.php
