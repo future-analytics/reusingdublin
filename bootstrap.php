@@ -7,6 +7,15 @@ use ReusingDublin;
  */
 
 
+ /**
+  * @constant
+  */
+ define('REUSINGDUBLIN_DIR',		realpath(dirname(__FILE__)));
+ define('REUSINGDUBLIN_DEBUG',	1);
+ define('REUSINGDUBLIN_UPLOADS', REUSINGDUBLIN_DIR.'/uploads');
+ // end constants
+
+
 // debug?
 if(defined(REUSINGDUBLIN_DEBUG) && REUSINGDUBLIN_DEBUG==1){
 	error_reporting(E_ALL);
@@ -32,7 +41,13 @@ require_once(REUSINGDUBLIN_DIR.'/vendor/autoload.php');
 /**
  * Configuration
  */
-new \ReusingDublin\Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
+try{
+	new \ReusingDublin\Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
+} catch (Exception $e) {
+	if(!is_readable(REUSINGDUBLIN_DIR . '/config.php'))
+		die("Can't read config.php file. Please see README.md for installation instructions");
+	die($e->message);
+}
 
 
 /**
