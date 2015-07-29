@@ -1,6 +1,7 @@
 # directories
 uploads/*
 foo/
+vendor/
 
 # files
 config.php
