@@ -2,28 +2,33 @@
 namespace ReusingDublinTest;
 use \ReusingDublin\Error;
 
-class ErrorTest extends PHPUnit_Framework_TestCase{
+class ErrorTest extends \PHPUnit_Framework_TestCase{
 
     function setUp(){
+        $this->fooMessage = 'Everybody hands in the air - this is a foo';
+        $this->fooError = new \ReusingDublin\Error($this->fooMessage);
+    }
 
-        $fooMessage = 'Everybody hands in the air - this is a foo';
-        $fooError = new \ReusingDublin\Error($fooMessage);
+    function tearDown(){
+        unset($this->fooMessage);
+        unset($this->fooError);
     }
 
     public function testGetMessage(){
 
-        $expected = $fooMessage;
-        $actual = $fooError->getMessage();
+        $expected = $this->fooMessage;
+        $actual = $this->fooError->getMessage();
         $this->assertEquals($expected, $actual);
     }
 
     public function testIsError(){
 
         //test true
-        $actual = \ReusingDublin\Error::isError($fooError);
+        $actual = \ReusingDublin\Error::isError($this->fooError);
         $this->assertTrue($actual);
 
         //test false
-        $this->assertFalse(object);
+        $actual = \ReusingDublin\Error::isError(new \stdClass());
+        $this->assertFalse($actual);
     }
 }
