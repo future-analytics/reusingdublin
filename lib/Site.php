@@ -79,7 +79,7 @@ class Site extends Controller{
         ));
         $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
-        if(isset($res[0])){            
+        if(isset($res[0])){
             return $res[0];
         }
     }
@@ -112,23 +112,23 @@ class Site extends Controller{
 
     public static function getFiles($siteId)
     {
-        
+
         $db = Model::factory()
             ->getDb();
         $ret = array();
-        
+
         $qry = "SELECT * FROM File WHERE site_id=:siteId ORDER BY created ASC";
         $stmt = $db->prepare($qry);
         $stmt->bindValue(":siteId", $siteId);
         $stmt->execute();
-        
+
         while($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
             $ret[] = array_merge(pathinfo($row['file']), $row);
         }
-        
+
         return $ret;
     }
-    
+
     /**
      * Default action.
      * Reroute default action to ::actionView()
@@ -158,12 +158,14 @@ class Site extends Controller{
 
             $mail->From = $data['email'];
             $mail->FromName = $data['name'];
-            $mail->subject = 'Connect request from: ' . $data['name'];
+            $mail->Subject = 'Connect request from: ' . $data['name'];
             $mail->Body = "
                 phone number: {$data['phone']}
                 facebook page: {$data['facebook']}
             ";
             $mail->addAddress($config['email'],$config['name']);
+            $mail->addReplyTo($data['email'], $data['name']);
+            $mail->setFrom($data['email'], $data['name']);
 
             if(!$mail->send()) {
 

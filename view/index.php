@@ -117,7 +117,7 @@
             </div>
 
             <div class="row">
-                <form id="maillist">
+                <form action="/index/subscribe" id="maillist">
                     <div class="col-xs-8">
                         <input type="email" name="data[email]" placeholder="Your email address">
                     </div>
