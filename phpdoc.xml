@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <parser>
+        <target>docs</target>
+        <encoding>UTF8</encoding>
+        <extensions>
+            <extension>php</extension>
+            <extension>php3</extension>
+            <extension>phtml</extension>
+        </extensions>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <files>
+        <directory>./lib</directory>
+        <file>bootstrap.php</file>
+        <ignore>test/*</ignore>
+        <ignore>docs</ignore>
+    </files>
+</phpdoc>
