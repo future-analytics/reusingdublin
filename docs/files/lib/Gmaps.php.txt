@@ -3,7 +3,7 @@ namespace ReusingDublin;
 use ReusingDublin;
 /**
  * Class file for google maps logic.
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  * @package ReusingDublin
  */
 

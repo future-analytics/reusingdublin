@@ -4,7 +4,7 @@ use ReusingDublin;
 /**
  * Class file for handling API requests
  * @package ReusingDublin
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 
 class Api{

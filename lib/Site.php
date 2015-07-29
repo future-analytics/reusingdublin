@@ -5,7 +5,7 @@ use ReusingDublin;
  * The Site controller
  * @todo Implement ORM
  * @package  ReusingDublin
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 class Site extends Controller{
 

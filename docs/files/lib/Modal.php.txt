@@ -4,7 +4,7 @@ use ReusingDublin;
 /**
  * class file for modal dialog windows
  * @package ReusingDublin
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 
 class Modal extends Controller

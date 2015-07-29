@@ -1,6 +1,6 @@
 /**
  * Onload function
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 $(document).ready(function(){
 

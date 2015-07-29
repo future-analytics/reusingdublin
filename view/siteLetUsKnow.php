@@ -4,7 +4,7 @@ use ReusingDublin;
 /**
  * Site `Let Us Know` view file
  * @package  ReusingDublin
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 
 $site = Site::getSite($_GET['id']);

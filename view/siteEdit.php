@@ -4,7 +4,7 @@ use ReusingDublin;
 /**
  * Site edit view file
  * @package  ReusingDublin
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 
 if($_GET['id']!='custom')

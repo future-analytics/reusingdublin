@@ -4,7 +4,7 @@ use ReusingDublin;
 /**
  * MySql database class file.
  * @package ReusingDublin
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 
 /**

@@ -1,6 +1,6 @@
 /**
  * Google Maps javascript file for the homepage.
- * @author daithi coombes <david.coombes@futureanalytics.ie>
+ * @author daithi coombes <daithi.coombes@futureanalytics.ie>
  */
 
 var infoWindow = null;
