@@ -390,10 +390,10 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
         '   <h3>'+site.address1+'</h3>' +
         //'   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.A+'\',\''+marker.position.F+'\')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.lat()+'\',\''+marker.position.lng()+'\')">ENTER THE DESCRIPTION</a>'+
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">UPDATE THE DESCRIPTION</a>';
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.lat()+'\',\''+marker.position.lng()+'\')">UPDATE THE DESCRIPTION</a>';
 
     if(site.id!='custom')
-        contentString += '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'\')">VIEW THE DESCRIPTION</a>';
+        contentString += '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'\',\''+marker.position.lat()+'\',\''+marker.position.lng()+'\')">VIEW THE DESCRIPTION</a>';
 
     contentString += '</div>';
 
