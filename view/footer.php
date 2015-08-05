@@ -39,10 +39,11 @@ global $data;
                 </script>
             <?php elseif(isset($_GET['modal'])): ?>
                 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
+                <?php var_dump($site); ?>
                 <script type="text/javascript">
                     google.maps.event.addDomListener(window, 'load', function(){
-                        reusingdublinModal.init('<?php echo $site['lat']; ?>','<?php echo $site['lng']; ?>');
+                        //reusingdublinModal.init('<?php echo $site['lat']; ?>','<?php echo $site['lng']; ?>');
+                        reusingdublinModal.init('<?php echo $_GET['lat']; ?>','<?php echo $_GET['lng']; ?>');
                     });
                 </script>
                 <script type="text/javascript" src="/assets/js/reusingdublinModal.js"></script>

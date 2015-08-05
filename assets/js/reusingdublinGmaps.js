@@ -151,14 +151,15 @@ ReusingDublinMap.prototype.init = function(){
         var _self   = self,
             _map    = self.map,
             site    = {
-                lat: event.latLng.A,
-                lng: event.latLng.F,
+                lat: event.latLng.lat(),
+                lng: event.latLng.lng(),
                 address1: 'Add a site',
                 id: 'custom'
             };
 
         var marker = _self.doMarker(_map, site);
         new google.maps.event.trigger( marker, 'click' );
+        self.state = 'view';
     });
 
     //init kml's
@@ -387,7 +388,8 @@ ReusingDublinMap.prototype.doMarker = function(map, site){
 
     var contentString = '<div class="infowindow">' +
         '   <h3>'+site.address1+'</h3>' +
-        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.A+'\',\''+marker.position.F+'\')">ENTER THE DESCRIPTION</a>'+
+        //'   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.A+'\',\''+marker.position.F+'\')">ENTER THE DESCRIPTION</a>'+
+        '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\',\''+marker.position.lat()+'\',\''+marker.position.lng()+'\')">ENTER THE DESCRIPTION</a>'+
         '   <a class="btn btn-primary btn-large" onclick="reusingDublinMap.dialog(\''+site.id+'\',\'edit\')">UPDATE THE DESCRIPTION</a>';
 
     if(site.id!='custom')
