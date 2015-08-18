@@ -1,0 +1,321 @@
+/* global */
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 100%;  /* base font set at 16px */
+}
+body {
+  margin-bottom: 190px;
+  padding-top: 122px;
+  color: #333;
+  font-size: 16px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 200;
+  line-height: 1;
+}
+.title{
+  font-size: 2.5rem;
+  font-size: 40px;
+}
+input.blue,
+select.blue{
+  background-color: #00AFC9;
+  color: #fff;
+  height: 40px;
+  font-size: 1.7rem;
+  font-size: 17px;
+}
+input.red{
+  background-color: #f00;
+  color: #fff;
+  height: 40px;
+  font-size: 1rem;
+  font-size: 17px;
+}
+/* autocomplete @link https://github.com/devbridge/jQuery-Autocomplete/blob/fb920860c551fa7c90ed2b7067ff3fdc13c8b649/content/styles.css*/
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-no-suggestion { padding: 2px 5px;}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #000; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+
+/* end autocomplete */
+/* end global */
+
+/* responsive small devices */
+@media only screen and (max-width: 400px){
+  body{
+    font-size: 90%;
+  }
+}
+/* navbar breakpoint #1 */
+@media (max-width: 1200px){
+	nav#mainNav #social-links{
+		position: absolute;
+		top: 35px;
+		margin-left: -12px;
+	}
+    #inline-links.navbar-nav{
+        padding-top: 15px !important;
+        padding-bottom: 50px !important;
+    }
+}
+/* navbar breakpoint #2 */
+@media (max-width: 991px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        top: 150px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+/* end navbar breakpoint #2 */
+/* navbar global */
+nav#mainNav, #mainNav .navbar-header{
+	background-color: #00AFC9;
+    height: 122px;
+}
+nav#mainNav .navbar-nav{
+  padding-top: 60px;
+  margin-bottom: -30px;
+}
+nav#mainNav .navbar-brand{
+	padding-top: 25px;
+}
+nav#mainNav .collapse.in{
+    background-color: #00AFC9;
+}
+nav#mainNav #social-links > li{
+	float: left !important;
+}
+nav#mainNav .navbar-nav > li > a{
+  color: #333;
+  padding-bottom: 0;
+  font-size: 1.2rem;
+  font-size: 19px;
+}
+nav#mainNav .navbar-nav > li > a:hover,
+nav#mainNav .navbar-nav > .active > a,
+nav#mainNav .navbar-nav > .active > a:focus,
+nav#mainNav .navbar-nav > .active > a:hover{
+	color: #fff;
+	background: none;
+}
+/* end navbar global */
+
+/* footer */
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 190px;
+  background-color: #f5f5f5;
+  padding-top: 50px;
+}
+footer div.affiliates,
+footer div.license{
+    text-align: center;
+}
+footer div.affiliates img,
+footer div.license{
+    margin: 10px 35px;
+}
+/* end footer */
+
+/* homepage */
+body.index {
+  background-image: url(/assets/images/background-home.png);
+  background-repeat: no-repeat;
+  background-position: 0 112px;
+}
+body.index section{
+  padding-top: 122px;
+}
+div#welcome-box{
+  background-color: #022A3C;
+  color: #fff;
+}
+div#welcome-box, div#how-it-works-box{
+  max-width: 540px;
+  min-width: 320px;
+  margin: 40px 5%;
+  padding: 50px 25px;
+}
+div#welcome-box .subtext{
+  color: #F4E851;
+  margin-top: 40px;
+  font-size: 1.7rem;
+  font-size: 27px;
+  font-weight: 600;
+}
+div#how-it-works-box{
+  background-color: #fff;
+  color: #000;
+}
+div#how-it-works-box{
+  font-size: 1.7rem;
+  font-size: 28px;
+}
+div#how-it-works-box p.title{
+  font-weight: bold;
+}
+div#how-it-works-box ul{
+  padding-left: 0;
+  list-style: none;
+}
+div#how-it-works-box ul li{
+  margin: 25px 0 0;
+  padding: 5px 10px;
+}
+div#how-it-works-box ul li:nth-child(1){
+  background-color: #F4E851;
+}
+div#how-it-works-box ul li:nth-child(2){
+  background-color: #CADD70;
+}
+div#how-it-works-box ul li:nth-child(3){
+  background-color: #9DD7E3;
+}
+section#try-it-out nav#mapNavBar{
+}
+div#map-canvas{
+  background-color: #C5C5C5;
+  height: 600px;
+}
+#mapNavBar input, #mapNavBar select{
+    background-color: #00AFC9;
+    color: #fff;
+    border: none;
+}
+#mapNavBar input::-webkit-input-placeholder {
+   color: #fff;
+}
+#mapNavBar :-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+#mapNavBar ::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;
+}
+#mapNavBar :-ms-input-placeholder {
+   color: #fff;
+}
+.infowindow a{
+    display: block;
+    background-color: #F4E851;
+    color: #000;
+    width: 280px;
+    height: 40px;
+    font-size: 1.1rem;
+    font-size: 17px;
+    border: none;
+    margin: 5px 0;
+    font-weight: 600;
+}
+.infowindow a:hover{
+    background: #F4E851;
+    color: #000;
+}
+.siteModal{
+    border: none;
+}
+section#about{
+  padding-left: 5%;
+  background-color: #F4E851;
+}
+section#about{
+  padding-bottom: 40px;
+  font-size: 1.3rem;
+  font-size: 20px;
+  line-height: 1.25;
+}
+#twitterFeed{
+  margin-top: 60px;
+}
+#twitter-widget-0{
+  height: 320px !important;
+}
+section#mailing-list{
+  background-color: #fff;
+  padding-bottom: 30px;
+  font-size: 1.3rem;
+  font-size: 20px;
+}
+form#maillist input[type=email]{
+  background-color: #00AFC9;
+  color: #fff;
+  border: none;
+  width: 100%;
+  height: 40px;
+}
+form#maillist input[type=submit]{
+  background-color: #F00;
+  color: #fff;
+  border: none;
+  width: 100%;
+  height: 40px;
+}
+.connect-box, .share-box{
+    padding: 10px;
+    min-height: 220px;
+}
+.connect-box{
+    background-color: #9DD7E3;
+}
+.share-box{
+    background-color: #CADD70;
+}
+.comment{
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    margin: 20px auto 10px auto;
+}
+.comment > div{
+    background-color: #fff;
+}
+.comment .message{
+    height: 100%;
+}
+.edit-form{
+    margin: 20px 0;
+}
+/* end homepage */
+
+/* modal dialog */
+body.view-modal{
+  padding-top: 30px;  /* override missing navbar on modal dialogs */
+}
+#streetViewMap,
+#pano{
+  height: 200px;
+}
+body.view-modal footer{
+  display: none;
+}
