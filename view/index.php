@@ -105,22 +105,27 @@
 
             <div class="row">
 
-                <h4 class="title">Coordinator Bio's <i class="glyphicon glyphicon-hand-right"></i></h4>
-                <div class="col-xs-6">
-                    <p class="title" style="color: #009eb8">Aoife Corcoran</p>
-                    <img src="/assets/images/Aoife_Corcoran.jpg" alt="Aoife Corcoran Profile" width="80%">
-                    <p>
-                        Aoife works in UCD on the EU funded research project TURAS. Aoife’s background is in geography and geo-ICT. She is from Dublin and studied in NUI Maynooth and University College Cork. Aoife has lived her entire life in Cabra except for a brief escape to Adelaide in 2011.
-                    </p>
+                <div class="col-xs-12">
+                    <h4 class="title">Coordinator Bio's <i class="glyphicon glyphicon-hand-right bio-toggle"></i></h4>
                 </div>
-                <div class="col-xs-6">
-                    <p class="title" style="color: #009eb8">Philip Crowe</p>
-                    <img src="/assets/images/Philip Crowe Photo.jpg" alt="Philip Crowe Photo.jpg" alt="Philip Crowe profilef" width="80%">
-                    <p>
-                        Philip works in UCD on the EU funded research project TURAS. Philip’s background is in architecture and urban design. He is from Belfast and studied in Edinburgh and Glasgow. Dublin has been home for the past 17(!) years.
-                    </p>
+            </div>
+            <div id="bio">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p class="title" style="color: #009eb8">Aoife Corcoran</p>
+                        <img src="/assets/images/Aoife_Corcoran.jpg" alt="Aoife Corcoran Profile" width="80%">
+                        <p>
+                            Aoife works in UCD on the EU funded research project TURAS. Aoife’s background is in geography and geo-ICT. She is from Dublin and studied in NUI Maynooth and University College Cork. Aoife has lived her entire life in Cabra except for a brief escape to Adelaide in 2011.
+                        </p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p class="title" style="color: #009eb8">Philip Crowe</p>
+                        <img src="/assets/images/Philip Crowe Photo.jpg" alt="Philip Crowe Photo.jpg" alt="Philip Crowe profilef" width="80%">
+                        <p>
+                            Philip works in UCD on the EU funded research project TURAS. Philip’s background is in architecture and urban design. He is from Belfast and studied in Edinburgh and Glasgow. Dublin has been home for the past 17(!) years.
+                        </p>
+                    </div>
                 </div>
-
             </div>
         </section>
 

@@ -29,6 +29,10 @@ var ReusingDublin = function(){
             browseLabel: 'Add a file'
         })
 
+        $('i.bio-toggle').click(function(){
+            $('#bio').toggle();
+        })
+
         return this;
     }
 
