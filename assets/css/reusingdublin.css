@@ -205,6 +205,9 @@ div#how-it-works-box ul li:nth-child(3){
 }
 section#try-it-out nav#mapNavBar{
 }
+div#bio{
+    display: none;
+}
 div#map-canvas{
   background-color: #C5C5C5;
   height: 600px;
