@@ -14,6 +14,8 @@ class Config
     protected $admin;
 	/** @var array An array of database parameters */
 	protected $db;
+    /** @var array An array of api settings */
+    protected $api;
     /** @var string The url query string */
     protected $query;
     /** @var array An array of url params as routes */
