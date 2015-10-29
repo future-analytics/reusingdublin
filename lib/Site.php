@@ -260,7 +260,7 @@ class Site extends Controller{
         //error report
         $fields = array_intersect($fields, $this->dbCols);
         if(!count($fields)){
-          http_response_code('405');
+          \http_response_code('405');
           die('<img src="/assets/images/405-method-not-allowed.jpg">');
         }
 
