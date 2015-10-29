@@ -46,4 +46,22 @@ class View{
 			require_once(REUSINGDUBLIN_DIR . '/view/footer.php');
 		}
 	}
+
+	/**
+	 * Send https status code.
+	 * @uses \header('X-PHP-Response-Code')
+	 * @param integer $newcode The HTTP status code to send.
+	 * @return integer Returns the status code.
+	 */
+  public static function http_response_code($newcode = NULL)
+  {
+      static $code = 200;
+      if($newcode !== NULL)
+      {
+          header('X-PHP-Response-Code: '.$newcode, true, $newcode);
+          if(!headers_sent())
+              $code = $newcode;
+      }
+      return $code;
+  }
 }
