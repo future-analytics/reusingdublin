@@ -10,6 +10,7 @@ use ReusingDublin;
 class Site extends Controller{
 
     public $data;
+    private $dbCols = array('id','address1','address2','address3','lat','lng');
 
     /**
      * Install database tables.
@@ -256,6 +257,13 @@ class Site extends Controller{
         $fields     = array_splice($routes, 2);
         $sites      = array();
 
+        //error report
+        $fields = array_intersect($fields, $this->dbCols);
+        if(!count($fields)){
+          http_response_code('405');
+          die('<img src="/assets/images/405-method-not-allowed.jpg">');
+        }
+
         //map title field to address1
         if(in_array('title', $fields)){
             $key = array_search('title', $fields);
@@ -263,6 +271,7 @@ class Site extends Controller{
             $fields[] = 'address1';
         }
         $fields[] = 'id';           //always return id with rows.
+        var_dump($fields);
 
         //query db
         (count($fields)) ?

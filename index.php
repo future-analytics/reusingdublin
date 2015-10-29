@@ -22,6 +22,7 @@ $query = (isset($_GET['q'])) ?
 $config->set('query', $query);
 // end Routing
 
+
 /**
  * Controller
  */

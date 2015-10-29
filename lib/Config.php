@@ -107,8 +107,9 @@ class Config
         // default index page
         if(!$query)
             $query = 'index';
-
-        $routes = explode("/", $query);
+        
+        //clean
+        $routes = explode("/", trim($query, "/"));
 
         //rebuild ajax routes
         if(strtolower($routes[0])=='api')

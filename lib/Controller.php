@@ -16,7 +16,7 @@ class Controller{
 
     /**
      * Factory method.
-     * @param  array  $routes An array of routes paramaters returned from 
+     * @param  array  $routes An array of routes paramaters returned from
      * Config::getRoutes()
      * @return Controller         Returns a child class that extends this.
      */
@@ -87,9 +87,9 @@ class Controller{
      * @return string
      */
     public static function autoLinkText($text) {
-        
+
         $pattern  = '#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#';
-        
+
         return preg_replace_callback($pattern, function($matches) {
             $max_url_length = 50;
             $max_depth_if_over_length = 2;
@@ -133,10 +133,10 @@ class Controller{
             }
 
             return "<a rel=\"nofollow\" target=\"_new\" href=\"$url_full\">$url_short</a>";
-        }, 
+        },
         $text);
     }
-    
+
     /**
      * Get the data property
      * @param  string $dataType Default OBJECT. The dataType to return
