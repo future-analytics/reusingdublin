@@ -271,7 +271,6 @@ class Site extends Controller{
             $fields[] = 'address1';
         }
         $fields[] = 'id';           //always return id with rows.
-        var_dump($fields);
 
         //query db
         (count($fields)) ?
