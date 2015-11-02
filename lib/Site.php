@@ -254,21 +254,21 @@ class Site extends Controller{
         //vars
         $routes     = Config::getInstance()->routes;
         $db         = Model::factory();
-        $fields     = array_splice($routes, 2);
+        $fields     = array_slice($routes, 2);
         $sites      = array();
-
-        //error report
-        $fields = array_intersect($fields, $this->dbCols);
-        if(!count($fields)){
-          View::http_response_code('405');
-          die('<img src="/assets/images/405-method-not-allowed.jpg">');
-        }
 
         //map title field to address1
         if(in_array('title', $fields)){
             $key = array_search('title', $fields);
             unset($fields[$key]);
             $fields[] = 'address1';
+        }
+
+        //error report
+        $fields = array_intersect($fields, $this->dbCols);
+        if(!count($fields)){
+          View::http_response_code('405');
+          die('<img src="/assets/images/405-method-not-allowed.jpg">');
         }
         $fields[] = 'id';           //always return id with rows.
 
