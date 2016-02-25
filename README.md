@@ -1,7 +1,11 @@
 # Reusing Dublin
 
 An application to aid data collection of derelict or under used buildings in
-urban area's to be used as a public service.
+urban area's to be used as a public service. 
+
+See it in action @ [http://reusingdublin.ie/](http://reusingdublin.ie/)
+
+### Technologies
 
 The application is built using a loose `mvc` architecture and is not tied to
 any framework or platform.
