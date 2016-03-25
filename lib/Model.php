@@ -173,4 +173,26 @@ class Model{
 
         return $results;
     }
+
+    /**
+     * Quick 'n' dirty utility function for checking dynamicly input column lists for SQL injection
+     * @param string $tablename Name of table to check column names for
+     * @param string $dbname Name of DB the table is in
+     * @param array $columns Array of column names supplied as input, to check for SQL injection attempts
+     */
+    public function verifyDynamicColumns($tablename, $dbname, $columns) {
+        $qs = 'SELECT column_name FROM information_schema.columns WHERE table_name = :tablename AND table_schema = :dbname';
+        $query = $this->getDb()->prepare($qs);
+        $query->execute(array(':tablename' => $tablename, ':dbname' => $dbname));
+        $validColumns = array_map(function($v) { return $v[0]; }, $query->fetchAll(\PDO::FETCH_NUM));
+
+        $config = Config::getInstance()->get('api');
+        $blacklists = $config['column_blacklist'];
+        $blacklist = isset($blacklists[$tablename])? $blacklists[$tablename] : [];
+        foreach ($columns as $column) {
+            if (!in_array($column, $validColumns) || in_array($column, $blacklist)) {
+                throw new \Exception('Invalid query: "' . $column . '" is not a valid column name');
+            }
+        }
+    }
 }

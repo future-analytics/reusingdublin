@@ -14,6 +14,8 @@ class Config
     protected $admin;
 	/** @var array An array of database parameters */
 	protected $db;
+    /** @var array An array of api settings */
+    protected $api;
     /** @var string The url query string */
     protected $query;
     /** @var array An array of url params as routes */
@@ -30,7 +32,7 @@ class Config
     	foreach($params as $prop => $value)
     	{
     		if (!property_exists($this, $prop))
-    			throw new Exception('ReusingDublin Config::setInstance unkown property: '.$prop);
+    			throw new \Exception('ReusingDublin Config::setInstance unkown property: '.$prop);
     		else
     			$this->$prop = $value;
     	}
@@ -46,7 +48,7 @@ class Config
 	public function get($prop)
 	{
 		if(!property_exists($this, $prop))
-			throw new Exception('Config::get() Unkown property: '.$prop);
+			throw new \Exception('Config::get() Unkown property: '.$prop);
 		return $this->$prop;
 	}
 
@@ -81,7 +83,7 @@ class Config
         if(property_exists(__CLASS__, $prop))
             $this->$prop = $value;
         else
-            throw new Exception('Config::set unkown property: '.$prop);
+            throw new \Exception('Config::set unkown property: '.$prop);
 
         // check return value for singleton persistence.
         return self::getInstance();

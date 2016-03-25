@@ -272,6 +272,9 @@ class Site extends Controller{
         }
         $fields[] = 'id';           //always return id with rows.
 
+        // Check for SQL injection attempts
+        $db->verifyDynamicColumns('Site', 'reusingdublin', $fields);
+
         //query db
         (count($fields)) ?
             $fields = "`".implode("`,`", $fields)."`":
