@@ -1,0 +1,11 @@
+# directories
+uploads/*
+foo/
+vendor/
+docs/phpdoc-cache*
+
+# files
+config.php
+composer.lock
+.remote-sync.json
+sftp-config.json

@@ -1,0 +1,106 @@
+[
+    [
+        {
+            "where": "'ZONE_ORIG' = 'Zone Z2: Residential Neighbourhoods (Conservation Areas)'",
+            "polygonOptions": {
+                "fillColor": "#00ff00",
+                "fillOpacity": "0.7"
+            }
+        },{
+            "where": "'ZONE_ORIG' = 'Zone Z5: City Centre'",
+            "polygonOptions": {
+                "fillColor": "#00ffff",
+                "fillOpacity": "0.7"
+            }
+        },{
+            "where": "'ZONE_ORIG' = 'Zone Z1: Sustainable Residential Neighbourhoods'",
+            "polygonOptions": {
+                "fillColor": "#9900ff",
+                "fillOpacity": "0.7"
+            }
+        },{
+            "where": "'ZONE_ORIG' = 'Zone Z9: Amenity/Open Space Lands/Green Network'",
+            "polygonOptions": {
+                "fillColor": "#060",
+                "fillOpacity": "0.7"
+            }
+        },{
+            "where": "'ZONE_ORIG' = 'Zone Z15: Community and Institutional Resource Lands (Education, Recreation, Community, Green Infrastructure and Health)'",
+            "polygonOptions": {
+                "fillColor": "#ff00ff",
+                "fillOpacity": "0.7"
+            }
+        }
+    ],
+    [],
+    [
+        {
+            "where": "'CAT' = 'Offices'",
+            "polygonOptions": {
+                "fillColor": "#ffff00",
+                "fillOpacity": "1.0"
+            }
+        },{
+            "where": "'CAT' = 'Residential'",
+            "polygonOptions": {
+                "fillColor": "#9900ff",
+                "fillOpacity": "1.0"
+            }
+        },{
+            "where": "'CAT' = 'Retail'",
+            "polygonOptions": {
+                "fillColor": "#ff0000",
+                "fillOpacity": "1.0"
+            }
+        },{
+            "where": "'CAT' = 'Vacant / Miscellaneous'",
+            "polygonOptions": {
+                "fillColor": "#ff00ff",
+                "fillOpacity": "1.0"
+            }
+        },{
+            "where": "'CAT' = 'Open Space'",
+            "polygonOptions": {
+                "fillColor": "#ff9900",
+                "fillOpacity": "1.0"
+            }
+        }
+    ],
+    [
+        {
+            "where": "'YEAR' = '2014'",
+            "polygonOptions": {
+                "fillColor": "#112d2e",
+                "fillOpacity": "1.0"
+            }
+        },
+        {
+            "where": "'YEAR' = '2013'",
+            "polygonOptions": {
+                "fillColor": "#226247",
+                "fillOpacity": "1.0"
+            }
+        },
+        {
+            "where": "'YEAR' = '2012'",
+            "polygonOptions": {
+                "fillColor": "#2c8057",
+                "fillOpacity": "0.8"
+            }
+        },
+        {
+            "where": "'YEAR' = '2011'",
+            "polygonOptions": {
+                "fillColor": "#6ab64d",
+                "fillOpacity": "1.0"
+            }
+        },
+        {
+            "where": "'YEAR' = '2010'",
+            "polygonOptions": {
+                "fillColor": "#d3d627",
+                "fillOpacity": "1.0"
+            }
+        }
+    ]
+]

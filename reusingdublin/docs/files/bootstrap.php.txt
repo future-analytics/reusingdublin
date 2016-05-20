@@ -1,0 +1,58 @@
+<?php
+namespace ReusingDublin;
+use ReusingDublin;
+/**
+ * @package ReusingDublin
+ * @author daithi coombes <webeire@gmail.com>
+ */
+
+
+ /**
+  * @constant
+  */
+ define('REUSINGDUBLIN_DIR',		realpath(dirname(__FILE__)));
+ define('REUSINGDUBLIN_DEBUG',	1);
+ define('REUSINGDUBLIN_UPLOADS', REUSINGDUBLIN_DIR.'/uploads');
+ // end constants
+
+
+// debug?
+if(defined(REUSINGDUBLIN_DEBUG) && REUSINGDUBLIN_DEBUG==1){
+	error_reporting(E_ALL);
+	ini_set('display_errors', 'on');
+}// end debug
+
+
+
+/**
+ * Autoloader.
+ * @param string $class The class name including namespace
+ */
+spl_autoload_register(function($class){
+
+	$file = REUSINGDUBLIN_DIR . '/lib/' . str_replace("ReusingDublin\\", "", $class) . '.php';
+	if(is_readable($file))
+		require_once($file);
+});
+
+require_once(REUSINGDUBLIN_DIR.'/vendor/autoload.php');
+
+
+/**
+ * Configuration
+ */
+try{
+	new \ReusingDublin\Config(require_once(REUSINGDUBLIN_DIR . '/config.php'));
+} catch (Exception $e) {
+	if(!is_readable(REUSINGDUBLIN_DIR . '/config.php'))
+		die("Can't read config.php file. Please see README.md for installation instructions");
+	die($e->message);
+}
+
+
+/**
+ * Model object
+ */
+global $db;
+$db = Model::factory();
+
